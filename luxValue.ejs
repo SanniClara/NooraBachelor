@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="brightLight">
+
+    <div id="PurpleTopLine">
+        <a href="/"><img id="Logo" src="img/NOORA.png" alt="haloo"></a>
+    </div>
+   
+     <div id="MenuLeft">  
+   
+         <div class="LinkBox" >
+             <a href="/luxValue"><img class="MenuIcons" src="img/sunlight.svg"></a>
+         </div> 
+   
+         <div class="LinkBox" >
+              <img class="MenuIcons" src="img/Focus.svg" alt=""> 
+         </div> 
+   
+         <div class="LinkBox" >
+             <img class="MenuIcons" src="img/Eye.svg" width="66" height="100" > 
+         </div> 
+   
+         <div class="LinkBox" >
+           <img class="MenuIcons" src="img/calm.svg" alt=""> 
+         </div> 
+   
+         <div class="LinkBox" >
+            <a href="/timer"><img class="MenuIcons" src="img/timer.svg" alt=""></a>
+        </div> 
+   
+         <div class="LinkBox" >
+           <img class="MenuIcons" src="img/points.svg" alt=""> 
+         </div> 
+   
+         <div class="LinkBox" >
+           <img class="MenuIcons" src="img/settings.svg" alt=""> 
+         </div> 
+   
+   
+     </div>
+
+            <div id="AussenBoxInfoUeberschrift" >
+                <h1 class="LinkeUeberschriftSeitenbezeinchung">Ambient Light Sensor</h1> 
+                <div class="InfoButton"><h3 id="InfoSchrift">i</h3></div>
+            </div>
+
+
+        <p class="LinkeUeberschriftSeitenbezeinchung" >Diese Abbildung zeigt Ihnen den LUX Wert der letzten 4 Stunden in ihrer Umgebung. Besonders am Morgen 
+            zwischen 4:30 und 11:00 lohnt es sich viel Licht in die Augen zu lassen.
+            Der optimale wert leigt hierbei bei 10.000 bis 15.000 LUX. Wenn der Wert morgens für 10 Minuten eingehalten wird, 
+            können Sie Punkte für ihre Konto sammeln. </p>
+
+        <h3 id="LUXEinleitung">aktueller LUX-Wert: </h3>
+    
+        <div id="details"></div>  
+    
+    <div id="chartContainer" style="height: 300px; width: 80%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+
+  </body>
+  
+</html>
+
+<script>
+    var ValueLicht;
+
+
+                  const details = document.getElementById("details");
+                  // Feature detection
+                  if (window.AmbientLightSensor){
+                      try{
+                      const sensor = new AmbientLightSensor();
+                      // Detect changes in the light
+                      sensor.onreading = () => {
+                          details.innerHTML = sensor.illuminance;
+                          ValueLicht = sensor.illuminance;
+                          console.log(ValueLicht);
+
+                  
+                          // Read the light levels in lux 
+                          // < 50 is dark room
+                          if (sensor.illuminance < 50) {
+                              document.body.className = 'darkLight';
+                          } else {
+                              document.body.className = 'brightLight';
+                          }
+                      } 
+                  
+                      // Has an error occured?
+                      sensor.onerror = event => document.getElementById("details").innerHTML = event.error.message;
+                      sensor.start();
+                      } catch(err) {
+                      details.innerHTML = err.message;
+                      }
+                  } else {
+                  details.innerHTML = 'It looks like your browser doesnt support this feature'; 
+                  }
+
+
+                     //Chat Visualisierungs Teil. Hier wird die Library Canvas.js eingebunden und 
+                                
+                    window.onload = function () {
+                    
+                    var dps = []; // dataPoints
+                    console.log(dps)
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                        
+                        title :{
+                            text: ""
+                        },
+                        data: [{
+                            type: "line",
+                            dataPoints: dps
+                        }]
+                    });
+                    
+                    var xVal = 0;
+                    var yVal = 100; 
+                    var updateInterval = 1000;
+                    var dataLength = 3600; // number of dataPoints visible at any point
+                    
+                    var updateChart = function (count) {
+                    
+                        count = count || 1;
+                    
+                        for (var j = 0; j < count; j++) {
+                            yVal = ValueLicht;
+                            dps.push({
+                                x: xVal,
+                                y: yVal
+                            });
+                            xVal++;
+                        }
+                    
+                        if (dps.length > dataLength) {
+                            dps.shift();
+                        }
+                    
+                        chart.render();
+                    };
+                    
+                    updateChart(dataLength);
+                    setInterval(function(){updateChart()}, updateInterval);
+                    
+                    }
+          
+      </script>
+
+      
+
+
+</body>
+</html>
+

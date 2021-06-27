@@ -1,0 +1,291 @@
+
+
+
+* {
+    font-family: Muli;
+    color: #4D4D4D;
+}
+
+.LinkeUeberschriftSeitenbezeinchung {
+    width: 55%;
+}
+
+.InfoButton {
+    background-color: lightgray;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 14px;
+}
+
+#PurpleTopLine {
+    background-color: #3E3E6A;
+    width: 100%;
+    height: 70px;
+}
+
+#Logo {
+    padding-top: 0.5%;
+
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 120px;
+        height: 55px;
+}
+
+#MenuLeft {
+    float: right;
+    width: 85px;
+    height: 800px;
+    background-color: lightgray;
+
+
+}
+
+
+.MenuIcons {
+    padding-top: 20px;
+    height: 60px;
+    width: 60px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.LinkBox:hover .MenuIcons {
+    width: 66px;
+    height: 66px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.LinkBox {
+    height: 110px;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.LinkBox:hover {
+    height: 110px;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #3E3E6A;
+}
+
+
+
+
+/* LUX Value Seite */
+
+#details {
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-weight: 500;
+    width: 70%;
+}
+
+#LUXEinleitung{
+    width: 20%;
+ 
+}
+
+.canvasjs-chart-canvas {
+    width: 59%;
+    -webkit-tap-highlight-color: yellow;
+}
+
+#InfoSchrift {
+    color: white;
+    padding: 15%;
+    padding-left: 20px;
+    font-size: 30px;
+    
+}
+
+#AussenBoxInfoUeberschrift{
+    width: 100%;
+    
+}
+
+/* LUX Timer Seite */
+
+#Stundenzeiger{
+    background-color: #AE4D71;
+    height: 20px;
+}
+
+#Minutenzeiger{
+
+    background-color: #AE4D71;
+
+}
+
+#UhrKomplett {
+    margin-top: 200px;
+}
+
+
+#StrategieHinzufuegen{
+
+    color: black;
+    padding-left: 15px;
+    font-size: 30px;
+    margin-top: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#StrategieHaken{
+    color: black;
+    padding-left: 15px;
+    margin-top: 8px;
+    font-size: 25px;
+    display: block;
+    
+
+}
+
+#StrategieBuilder{
+    width: 30%;
+
+}
+
+.InfoButtontimer{
+
+    background-color: lightgray;
+    border-radius: 100%;
+    height: 50px;
+    margin: 10px;
+    margin-left: 450px;
+
+}
+
+
+
+  .clock {
+    width: 400px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 50%;
+    border: 2px solid lightgray;
+    position: absolute;
+    margin: 300px;
+    margin-left: 500px
+ 
+  }
+  
+  .clock .number {
+    --rotation: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform: rotate(var(--rotation));
+    font-size: 1.5rem;
+  }
+
+  
+  .clock .number1 { --rotation: 30deg; }
+  .clock .number2 { --rotation: 60deg; }
+  .clock .number3 { --rotation: 90deg; }
+  .clock .number4 { --rotation: 120deg; }
+  .clock .number5 { --rotation: 150deg; }
+  .clock .number6 { --rotation: 180deg; }
+  .clock .number7 { --rotation: 210deg; }
+  .clock .number8 { --rotation: 240deg; }
+  .clock .number9 { --rotation: 270deg; }
+  .clock .number10 { --rotation: 300deg; }
+  .clock .number11 { --rotation: 330deg; }
+  
+  .clock .hand {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border: 1px solid white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: bottom;
+    z-index: 10;
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+  }
+  
+  .clock::after {
+    content: '';
+    position: absolute;
+    background-color: #AE4D71;
+    z-index: 11;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+  
+  .clock .hand.second {
+    width: 3px;
+    height: 45%;
+    background-color: #4D4D4D;
+  }
+  
+  .clock .hand.minute {
+    width: 7px;
+    height: 40%;
+    background-color: #AE4D71;
+  }
+  
+  .clock .hand.hour {
+    width: 10px;
+    height: 35%;
+    background-color: #AE4D71;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* Background Styles Only */
+ 
+  .side-links {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .side-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+    color: white;
+    width: 180px;
+    padding: 10px 0;
+    border-radius: 10px;
+  }
