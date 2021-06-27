@@ -1,6 +1,8 @@
 
 
+html{
 
+}
 * {
     font-family: Muli;
     color: #4D4D4D;
@@ -395,4 +397,12 @@ p {
     border: 0px solid;
     cursor: pointer;
 
+  }
+
+  .nichtverfügbar{
+      color: lightgrey;
+  }
+
+  #selectRegister{
+      margin-bottom: 3%;
   }
