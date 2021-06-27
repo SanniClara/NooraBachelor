@@ -9,41 +9,44 @@
 <body class="brightLight">
 
     <div id="PurpleTopLine">
-        <a href="/"><img id="Logo" src="img/Noora.PNG" alt="haloo"></a>
-    </div>
+        <img id="Logo" src="img/Noora.PNG" alt="haloo">
+        <form action="/logout?_method=DELETE" method="POST">
+         <button style="margin-top: -20px;" type="submit">Log Out</button>
+       </form>
+     </div>
    
      <div id="MenuLeft">  
    
          <div class="LinkBox" >
-             <a href="/luxValue"><img class="MenuIcons" src="img/sunlight.svg"></a>
+           <a href="/luxValue"><img class="MenuIcons" src="img/sunlight.svg"></a>
          </div> 
    
          <div class="LinkBox" >
-              <img class="MenuIcons" src="img/Focus.svg" alt=""> 
+           <a href="/focus"><img class="MenuIcons" src="img/Focus.svg" alt=""></a> 
          </div> 
    
          <div class="LinkBox" >
-             <img class="MenuIcons" src="img/Eye.svg" width="66" height="100" > 
+           <a href="/BlinkingContest"><img class="MenuIcons" src="img/Eye.svg" ></a>  
          </div> 
    
          <div class="LinkBox" >
-           <img class="MenuIcons" src="img/calm.svg" alt=""> 
+           <a href="/calmDown"><img class="MenuIcons" src="img/calm.svg" alt=""></a> 
          </div> 
    
          <div class="LinkBox" >
-            <a href="/timer"><img class="MenuIcons" src="img/timer.svg" alt=""></a>
-        </div> 
+           <a href="/timer"><img class="MenuIcons" src="img/timer.svg" alt=""></a>
+           </div> 
    
          <div class="LinkBox" >
-           <img class="MenuIcons" src="img/points.svg" alt=""> 
+           <a href="/points"><img class="MenuIcons" src="img/points.svg" alt=""></a> 
          </div> 
    
          <div class="LinkBox" >
-           <img class="MenuIcons" src="img/settings.svg" alt=""> 
+           <a href="/settings"><img class="MenuIcons" src="img/settings.svg" alt=""></a>  
          </div> 
-   
-   
      </div>
+   
+  
 
             <div id="AussenBoxInfoUeberschrift" >
                 <h1 class="LinkeUeberschriftSeitenbezeinchung">Ambient Light Sensor</h1> 

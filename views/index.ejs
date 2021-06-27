@@ -24,15 +24,15 @@
       </div> 
 
       <div class="LinkBox" >
-           <img class="MenuIcons" src="img/Focus.svg" alt=""> 
+        <a href="/focus"><img class="MenuIcons" src="img/Focus.svg" alt=""></a> 
       </div> 
 
       <div class="LinkBox" >
-          <img class="MenuIcons" src="img/Eye.svg" > 
+        <a href="/BlinkingContest"><img class="MenuIcons" src="img/Eye.svg" ></a>  
       </div> 
 
       <div class="LinkBox" >
-        <img class="MenuIcons" src="img/calm.svg" alt=""> 
+        <a href="/calmDown"><img class="MenuIcons" src="img/calm.svg" alt=""></a> 
       </div> 
 
       <div class="LinkBox" >
@@ -40,11 +40,11 @@
         </div> 
 
       <div class="LinkBox" >
-        <img class="MenuIcons" src="img/points.svg" alt=""> 
+        <a href="/points"><img class="MenuIcons" src="img/points.svg" alt=""></a> 
       </div> 
 
       <div class="LinkBox" >
-        <img class="MenuIcons" src="img/settings.svg" alt=""> 
+        <a href="/settings"><img class="MenuIcons" src="img/settings.svg" alt=""></a>  
       </div> 
   </div>
 
@@ -66,12 +66,11 @@ console.log(Notification.permission);
 
 if(Notification.permission === "granted"){
 
-    showNotification();
 } else if (Notification.permission !== "denied") {
     Notification.requestPermission().then(permission => {
         if(permission === "granted"){
             console.log(permission);
-        showNotification();
+       
     
 
         }
@@ -89,7 +88,6 @@ const notification = new Notification("Hall das ist eine Nachricht", {
 } );
 }
 
-showNotification();
 
 
 

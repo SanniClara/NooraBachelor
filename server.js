@@ -58,6 +58,34 @@ app.get('/timer', function (req, res) {
 });
 
 
+app.get('/calmDown', function (req, res) {
+  res.render('calm.ejs');
+});
+
+
+app.get('/BlinkingContest', function (req, res) {
+  res.render('eye.ejs');
+});
+
+
+app.get('/focus', function (req, res) {
+  res.render('focus.ejs');
+});
+
+
+app.get('/points', function (req, res) {
+  res.render('points.ejs');
+});
+
+app.get('/settings', function (req, res) {
+  res.render('settings.ejs');
+});
+
+
+
+
+
+
 
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
   successRedirect: '/',
