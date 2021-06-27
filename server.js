@@ -37,41 +37,41 @@ app.use(passport.session())
 app.use(methodOverride('_method'))
 app.use(express.static('public'));
 
-app.get('/', checkAuthenticated, (req, res) => {
+app.get('noorahealth.herokuapp.com', checkAuthenticated, (req, res) => {
   res.render('index.ejs', { name: req.user.name })
 })
 
 
 
-app.get('/login', checkNotAuthenticated, (req, res) => {
+app.get('noorahealth.herokuapp.com/login', checkNotAuthenticated, (req, res) => {
   res.render('login.ejs')
 })
 
 
-app.get('/luxValue', function (req, res) {
+app.get('noorahealth.herokuapp.com/luxValue', function (req, res) {
   res.render('luxValue.ejs');
 });
 
 
-app.get('/timer', function (req, res) {
+app.get('noorahealth.herokuapp.com/timer', function (req, res) {
   res.render('timer.ejs');
 });
 
 
 
-app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login',
+app.post('noorahealth.herokuapp.com/login', checkNotAuthenticated, passport.authenticate('local', {
+  successRedirect: 'noorahealth.herokuapp.com/',
+  failureRedirect: 'noorahealth.herokuapp.com/login',
   failureFlash: true
 }))
 
 
-app.get('/register', checkNotAuthenticated, (req, res) => {
-  res.render('register.ejs')
+app.get('noorahealth.herokuapp.com/register', checkNotAuthenticated, (req, res) => {
+  res.render('noorahealth.herokuapp.com/register.ejs')
 })
 
 
-app.post('/register', checkNotAuthenticated, async (req, res) => {
+app.post('noorahealth.herokuapp.com/register', checkNotAuthenticated, async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     users.push({
@@ -80,16 +80,16 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
       email: req.body.email,
       password: hashedPassword
     })
-    res.redirect('/login')
+    res.redirect('noorahealth.herokuapp.com/login')
   } catch {
-    res.redirect('/register')
+    res.redirect('noorahealth.herokuapp.com/register')
   }
 })
 
 
-app.delete('/logout', (req, res) => {
+app.delete('noorahealth.herokuapp.com/logout', (req, res) => {
   req.logOut()
-  res.redirect('/login')
+  res.redirect('noorahealth.herokuapp.com/login')
 })
 
 function checkAuthenticated(req, res, next) {
@@ -97,13 +97,13 @@ function checkAuthenticated(req, res, next) {
     return next()
   }
 
-  res.redirect('/login')
+  res.redirect('noorahealth.herokuapp.com/login')
 }
 
 
 function checkNotAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
-    return res.redirect('/')
+    return res.redirect('noorahealth.herokuapp.com/')
   }
   next()
 }
