@@ -141,10 +141,11 @@ p {
 
 #StrategieHinzufuegen{
 
-    color: black;
+    color: white;
     padding-left: 15px;
+    padding-top: 5px;
     font-size: 30px;
-    margin-top: 5px;
+    margin-top: 15px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -152,27 +153,27 @@ p {
 }
 
 #StrategieHaken{
-    color: black;
+    color: white;
+    padding-top: 5px;
     padding-left: 15px;
-    margin-top: 8px;
+    margin-top: 20px;
     font-size: 25px;
     display: block;
-    
 
 }
 
 #StrategieBuilder{
     width: 30%;
+    margin-left: 80%;
 
 }
 
 .InfoButtontimer{
-
     background-color: lightgray;
     border-radius: 100%;
     height: 50px;
     margin: 10px;
-    margin-left: 450px;
+    width: 50px;;
 
 }
 
@@ -185,8 +186,8 @@ p {
     border-radius: 50%;
     border: 2px solid lightgray;
     position: absolute;
-    margin: 300px;
-    margin-left: 500px
+    margin: 150px;
+    margin-left: 35%;
  
   }
   
@@ -288,4 +289,110 @@ p {
     width: 180px;
     padding: 10px 0;
     border-radius: 10px;
+  }
+
+  #external-events {
+    position: fixed;
+    z-index: 2;
+    top: 20px;
+    left: 20px;
+    width: 150px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background: #eee;
+  }
+  
+  #external-events .fc-event {
+    margin: 1em 0;
+    cursor: move;
+  }
+  
+  #calendar-container {
+    position: relative;
+    z-index: 1;
+    margin-left: 200px;
+  }
+  
+  #calendar {
+    max-width: 900px;
+    margin: 20px auto;
+  }
+
+
+  #loginStyling {
+    width: 40%;
+    height: 30%;
+    background-color: #306A86;
+    padding: 12px 120px;
+    margin-left: 350px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: white;
+  }
+
+  label{
+      color: white;
+      padding-top: 20px;
+      margin-top: 30px;
+  }
+  input{
+      width: 50%;
+      
+      margin-bottom: 4%;
+  }
+
+  #registreirenLink{
+      color: #4D4D4D ;
+      background-color: lightgrey;
+      padding: 1%;
+      text-decoration: none;
+  }
+
+  #buttonLogin{
+    color: #4D4D4D ;
+    background-color: lightgrey;
+    font-size: 16px;
+    padding: 1%;
+    text-decoration: none;
+    box-shadow: none;
+    border: 0px solid;
+    cursor: pointer;
+  }
+
+  #RegisterLoginStyling{
+    width: 40%;
+    height: 30%;
+    background-color: #306A86;
+    padding: 12px 120px;
+    margin-left: 350px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: white;
+  }
+
+  #LoginOnRegisterSite{
+    color: #4D4D4D ;
+    background-color: lightgrey;
+    font-size: 16px;
+    padding: 1%;
+    text-decoration: none;
+    box-shadow: none;
+    border: 0px solid;
+    cursor: pointer;
+  }
+
+  #registerButtonOnregisterSite{
+    color: #4D4D4D ;
+    background-color: lightgrey;
+    font-size: 16px;
+    padding: 1%;
+    text-decoration: none;
+    box-shadow: none;
+    border: 0px solid;
+    cursor: pointer;
+
   }
