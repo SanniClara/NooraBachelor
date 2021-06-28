@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
 </head>
 <body>
@@ -54,13 +53,9 @@
 
     
     svg {
-
-
-    margin-left: 30%;
-    padding-left: -10%;
-    margin-top: 10%;
-
-
+      margin: auto;
+      margin-left: 5%;
+      margin-top: 10%;
     }
     
     #lid {
@@ -253,66 +248,6 @@
            
           }
   
-  
-          #startbutton {
-              font-family: Muli;
-              color: #306A86;
-              background-color: white;
-              font-size: 25px;
-              border-radius: 0;
-              border-color: #306A86;
-              box-shadow: 0px 0px white;
-              padding: 10px;
-              padding-left: 20px;
-              padding-right: 20px;
-              position: fixed;
-              border: 2px solid;
-              top: 25%;
-              left: 43%;
-              margin-top: 2%;
-          }
-  
-          .tooltip {
-              font-family: Muli;
-              color: #E19C21;
-              background-color: white;
-              font-size: 28px;
-              border-radius: 30px;
-              border-color: #E19C21;
-              box-shadow: 0px 0px white;
-              padding: 8px;
-              padding-left: 20px;
-              padding-right: 20px;
-              margin-left: 20px;
-              position: fixed;
-              border: 2px solid;
-              top: 25%;
-              left: 57%;
-              margin-top: 2%;              
-            }
-
-  
-            .tooltip .tooltiptext {
-              visibility: hidden;
-              width: 420px;
-              font-family: Muli;
-              font-size: 18px;
-              color: 306A86;
-              background-color: #E19C21;
-              border-radius: 0px;
-              padding: 15px;
-            
-              /* Position the tooltip */
-              position: absolute;
-              z-index: 1;
-            }
-
-            
-            
-            .tooltip:hover .tooltiptext {
-              visibility: visible;
-            }
-  
   </style>
   
   
@@ -320,7 +255,7 @@
   
 <script>
 
-  function myFunction() {
+  function startCountingBlinking() {
 
   const root = document.querySelector(":root"); //grabbing the root element
   root.style.setProperty("--pseudo-animation-name", 'counter');
@@ -340,7 +275,7 @@
 
   <div id="counter"></div>
 
-  <button onclick="myFunction()" id="startbutton">
+  <button onclick="startCountingBlinking()" id="startbutton">
           Übung starten
         </button>
 

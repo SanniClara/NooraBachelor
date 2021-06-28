@@ -94,3 +94,15 @@ setClock()
             
               calendar.render();
             });
+
+  
+
+            // Funtktion auf der Fokus Seite 
+            function superOxiginatingBreathingAnimation() {
+              var x = document.getElementById('elementKreisSOB').style.animationName = "stretch";
+          
+              const root = document.querySelector(":root"); //grabbing the root element
+            root.style.setProperty("--pseudo-animation-name", 'counter');
+  
+              }
+  

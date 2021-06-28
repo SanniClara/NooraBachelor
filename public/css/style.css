@@ -149,7 +149,6 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 #StrategieHaken{
@@ -159,7 +158,6 @@ p {
     margin-top: 20px;
     font-size: 25px;
     display: block;
-
 }
 
 #StrategieBuilder{
@@ -401,9 +399,6 @@ p {
       margin-bottom: 3%;
   }
 
-
-  
-  
   #startbutton {
     font-family: Muli;
     color: #306A86;
@@ -462,3 +457,170 @@ p {
   .tooltip:hover .tooltiptext {
     visibility: visible;
   }
+
+
+  
+#elementKreisSOB {
+  height: 150px;
+  width: 150px;
+  margin: 0 auto;
+  background-color: #306A86;
+  /*animation-name: stretch;*/
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-direction: alternate;
+  animation-iteration-count: 60;
+  animation-play-state: running;
+  position: fixed;
+  top: 60%;
+  left: 45%;
+  border-radius: 100%;
+}
+
+
+@keyframes stretch {
+  0% {
+      transform: scale(1);
+      background-color: #306A86;
+      border-radius: 100%;
+  }
+
+  50% {
+
+      background-color: rgb(61, 128, 161);
+      border-radius: 100%;
+
+  }
+
+  100% {
+      transform: scale(2.0);
+      background-color: rgb(88, 155, 189);
+      border-radius: 100%;
+
+  }
+}
+
+#counter::after {
+  position: fixed;
+  top: 40%;
+  left: 49%;
+  font-family: Muli;
+  color: rgb(75, 75, 75);
+  font-size: 35px;
+  content: counter(count);
+  animation-duration: 100s;
+  counter-reset: count 0;
+  animation-name: var(--pseudo-animation-name)
+}
+
+
+
+
+@keyframes counter {
+  0% {
+      counter-increment: count 0;
+    }
+    3.3% {
+      counter-increment: count 1;
+    }
+    6% {
+      counter-increment: count 2;
+    }
+    9% {
+      counter-increment: count 3;
+    }
+    12% {
+      counter-increment: count 4;
+    }
+    15% {
+      counter-increment: count 5;
+    }
+    18% {
+      counter-increment: count 6;
+    }
+    21% {
+      counter-increment: count 7;
+    }
+    23% {
+      counter-increment: count 8;
+    }
+    26% {
+      counter-increment: count 9;
+    }
+    29% {
+      counter-increment: count 10;
+    }
+    32% {
+      counter-increment: count 11;
+    }
+    35% {
+      counter-increment: count 12;
+    }
+    38% {
+      counter-increment: count 13;
+    }
+    41% {
+      counter-increment: count 14;
+    }
+    44% {
+      counter-increment: count 15;
+    }
+    47% {
+      counter-increment: count 16;
+    }
+    50% {
+      counter-increment: count 17;
+    }
+    53% {
+      counter-increment: count 18;
+    }
+    56% {
+      counter-increment: count 19;
+    }
+    59% {
+      counter-increment: count 20;
+    }
+    62% {
+      counter-increment: count 21;
+    }
+    65% {
+      counter-increment: count 22;
+    }
+    68% {
+      counter-increment: count 23;
+    }
+    71% {
+      counter-increment: count 24;
+    }
+    74% {
+      counter-increment: count 25;
+    }
+    77% {
+      counter-increment: count 26;
+    }
+    80% {
+      counter-increment: count 27;
+    }
+    83% {
+      counter-increment: count 28;
+    }
+    86% {
+      counter-increment: count 29;
+    }
+    89% {
+      counter-increment: count 30;
+    }
+
+}
+
+       .Hinweis {
+              width: 60%;
+              position: fixed;
+              top: 3%;
+              left: 30%;
+              font-family: Muli;
+              color: #AE4D71;
+        }
+
+        .pointer {cursor: pointer;}
+
