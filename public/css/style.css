@@ -1,8 +1,6 @@
 
 
-html{
 
-}
 * {
     font-family: Muli;
     color: #4D4D4D;
@@ -266,11 +264,7 @@ p {
   
   
   
-  
-  
-  
-  
-  
+
   
   
   /* Background Styles Only */
@@ -405,4 +399,66 @@ p {
 
   #selectRegister{
       margin-bottom: 3%;
+  }
+
+
+  
+  
+  #startbutton {
+    font-family: Muli;
+    color: #306A86;
+    background-color: white;
+    font-size: 25px;
+    border-radius: 0;
+    border-color: #306A86;
+    box-shadow: 0px 0px white;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: fixed;
+    border: 2px solid;
+    top: 25%;
+    left: 43%;
+    margin-top: 2%;
+}
+
+.tooltip {
+    font-family: Muli;
+    color: #E19C21;
+    background-color: white;
+    font-size: 28px;
+    border-radius: 30px;
+    border-color: #E19C21;
+    box-shadow: 0px 0px white;
+    padding: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+    position: fixed;
+    border: 2px solid;
+    top: 25%;
+    left: 57%;
+    margin-top: 2%;              
+  }
+
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 420px;
+    font-family: Muli;
+    font-size: 18px;
+    color: 306A86;
+    background-color: #E19C21;
+    border-radius: 0px;
+    padding: 15px;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+
+  
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
   }
