@@ -49,9 +49,201 @@
 
 
   <div id="AussenBoxInfoUeberschrift" >
-    <h1 class="LinkeUeberschriftSeitenbezeinchung">Calm Down Übung</h1> 
+    <h1 class="LinkeUeberschriftSeitenbezeinchung">Calm Down</h1> 
     <div class="InfoButton"><h3 id="InfoSchrift">i</h3></div>
 </div>
+
+
+
+<div id="kasten">
+
+  <div id="counterCalmSite"></div>
+
+  <button  class="pointer"  onclick="myFunction()" id="button">
+     start
+  </button>
+
+</div>
+
+<div id="elementCalmSite"></div>
+
+<button class="tooltip"> <b>i</b> 
+    <span class="tooltiptext">2-mal einatmen und dann lange ausatmen. Zwischen den beiden Atmenzügen wird eine kurze Pause gemacht. Das 1. Einatmen ist etwas länger und 
+      das zweite schnell und intensiv. 
+
+
+    </span>
+</button> 
+
+
+<script>
+
+    function myFunction() {
+    var x = document.getElementById('elementCalmSite').style.animationName = "stretch";
+    document.getElementById('elementCalmSite').style.animationPlayState = "running"; 
+
+    const root = document.querySelector(":root"); //grabbing the root element
+    root.style.setProperty("--pseudo-animation-name", 'counterCalmSite');
+
+    }
+
+  
+
+    
+    function stop() {
+    var x = document.getElementById('elementCalmSite').style.animationName = "stretch";
+    document.getElementById('elementCalmSite').style.animationPlayState = "paused"; 
+
+    }
+
+
+    
+    </script>
+
+    <style>
+
+
+
+#elementCalmSite {
+            height: 150px;
+            width: 150px;
+            margin: 0 auto;
+            background-color: #306A86;
+            /*animation-name: stretch;*/
+            animation-duration: 6s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: 8;
+            animation-play-state: paused;
+            top: 65%;
+            left: 55%;
+            border-radius: 100%;
+        }
+
+  
+@keyframes stretch {
+            0% {
+                transform: scale(1);
+                background-color: #306A86;
+                border-radius: 100%;
+            }
+  
+            30% {
+              transform: scale(1.6);
+
+                background-color: rgb(61, 128, 161);
+                border-radius: 100%;
+
+            }
+            
+            37.5% {
+              transform: scale(1.6);
+              background-color: rgb(61, 128, 161);
+              border-radius: 100%;
+
+          }
+  
+            45% {
+                transform: scale(2.2);
+                background-color: rgb(88, 155, 189);
+                border-radius: 100%;
+
+            }
+
+            70% {
+              transform: scale(1);
+              background-color: rgb(88, 155, 189);
+              border-radius: 100%;
+
+          }
+
+          100% {
+            transform: scale(1);
+            background-color: rgb(88, 155, 189);
+            border-radius: 100%;
+
+            }
+
+        }
+
+
+
+
+
+          
+          
+@keyframes counterCalmSite {
+  0% {
+      counter-increment: count 0;
+    }
+
+    12.5% {
+      counter-increment: count 1;
+    }
+
+    25% {
+      counter-increment: count 2;
+    }
+    
+    37.5% {
+      counter-increment: count 3;
+    }
+
+    50% {
+      counter-increment: count 4;
+    }
+
+    62.5% {
+      counter-increment: count 5;
+    }
+
+    75% {
+      counter-increment: count 6;
+    }
+
+    87.5% {
+      counter-increment: count 7;
+    }
+
+    100% {
+      counter-increment: count 8;
+    }
+
+}
+
+
+#counterCalmSite::after {
+  top: 55%;
+  left: 59%;
+  font-family: Muli;
+  color: rgb(75, 75, 75);
+  font-size: 35px;
+  content: counter(count);
+  animation-duration: 48s;
+  counter-reset: count 0;
+  animation-name: var(--pseudo-animation-name)
+}
+
+
+#button {
+    font-family: Muli;
+    color: #306A86;
+    background-color: white;
+    font-size: 25px;
+    border-radius: 0;
+    border-color: #306A86;
+    box-shadow: 0px 0px white;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    top: 35%;
+    left: 53%;
+}
+
+    </style>
+</body>
+
+
+
 
 
   </body>
