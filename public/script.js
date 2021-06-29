@@ -1,3 +1,5 @@
+const { Sleeping } = require("matter")
+
 setInterval(setClock, 1000)
 
 const hourHand = document.querySelector('[data-hour-hand]')
@@ -95,14 +97,44 @@ setClock()
               calendar.render();
             });
 
-  
 
+            //----------------------------------------- Funktionen für den Counter auf der Focus Seite -------------------------------------
+
+            var newYearCountdown;
+            var counter;
+
+            function reset_animation() {
+                var el = document.getElementById('elementKreisSOB');
+                el.style.animation = 'none';
+                el.offsetHeight; /* trigger reflow */
+                el.style.animation = null; 
+                document.getElementById("counterSOB").innerHTML = 0;
+                clearInterval(newYearCountdown);
+            }
+
+  
             // Funtktion auf der Fokus Seite 
             function superOxiginatingBreathingAnimation() {
-              var x = document.getElementById('elementKreisSOB').style.animationName = "stretch";
-          
-              const root = document.querySelector(":root"); //grabbing the root element
-            root.style.setProperty("--pseudo-animation-name", 'counter');
+            var x = document.getElementById('elementKreisSOB').style.animationName = "stretch";
+
+
+              var counter = 0;
+              newYearCountdown = setInterval(function(){
+                console.log(counter);
+                document.getElementById("counterSOB").innerHTML = counter;
+
+                if (counter === 91) {
+                  counter++
+                  clearInterval(newYearCountdown);
+                  document.getElementById("counterSOB").innerHTML = 0;
+                  counter = 0;
+
+                }
+                counter++
+
+
+              }, 1000);
+
   
               }
-  
+

@@ -79,7 +79,7 @@
 <script>
 
     function myFunction() {
-    var x = document.getElementById('elementCalmSite').style.animationName = "stretch";
+    var x = document.getElementById('elementCalmSite').style.animationName = "stretchCalmAnimation";
     document.getElementById('elementCalmSite').style.animationPlayState = "running"; 
 
     const root = document.querySelector(":root"); //grabbing the root element
@@ -91,7 +91,7 @@
 
     
     function stop() {
-    var x = document.getElementById('elementCalmSite').style.animationName = "stretch";
+    var x = document.getElementById('elementCalmSite').style.animationName = "stretchCalmAnimation";
     document.getElementById('elementCalmSite').style.animationPlayState = "paused"; 
 
     }
@@ -120,7 +120,7 @@
         }
 
   
-@keyframes stretch {
+@keyframes stretchCalmAnimation {
             0% {
                 transform: scale(1);
                 background-color: #306A86;
