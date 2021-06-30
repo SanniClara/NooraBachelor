@@ -13,7 +13,6 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 
 
-
 const initializePassport = require('./passport-config')
 initializePassport(
   passport,
@@ -36,6 +35,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
 app.use(express.static('public'));
+
 
 app.get('/', checkAuthenticated, (req, res) => {
   res.render('index.ejs', { name: req.user.name })
@@ -65,6 +65,10 @@ app.get('/calmDown', function (req, res) {
 
 app.get('/BlinkingContest', function (req, res) {
   res.render('eye.ejs');
+});
+
+app.get('/AnimationLUXsunlight', function (req, res) {
+  res.render('AnimationLUXsunlight.ejs');
 });
 
 
