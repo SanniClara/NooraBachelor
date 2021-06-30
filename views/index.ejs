@@ -13,7 +13,7 @@
   <div id="PurpleTopLine">
     <a href="/"><img id="Logo" src="img/Noora.PNG" alt="haloo"></a>
      <form action="/logout?_method=DELETE" method="POST">
-      <button style="margin-top: -20px;" type="submit">Log Out</button>
+      <button style="margin-top: -160px;" type="submit">Log Out</button>
     </form>
   </div>
 
@@ -50,10 +50,21 @@
 
 
 
-<h1 class="LinkeUeberschriftSeitenbezeinchung">Hi <%= name %></h1>
+<h1 class="weißeSchriftIndexSeite" class="LinkeUeberschriftSeitenbezeinchung">Hallo <%= name %>, willkommen bei NOORA!</h1>
+<p class="weißeSchriftIndexSeite" >NOORA ist eine Plattform für angewandte Neurowissenschaften. <br>
+  Hier erfahren Sie, welche Methoden es gibt, die Sie im Alltag anwenden können, <br>
+   um Ihr Wohlbefinden bei der Arbeit oder in der Freizeit zu steigern. <br>
+   Das Tolle ist, dass Sie mit den Punkten, die Sie hier sammeln und verdienen, <br>
+   automatisch auch 
+   gemeinnützige Organisationen unterstützen. </p>
+
+<video  id="startVideoIndexSeite"  autoplay muted loop id="myVideo">
+  <source src="video/videoStartNeuroScience.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
 
 
-
+<button id="BottonIndexSeite" style=" border: 2px solid; border-color: white;" > Jetzt beginnen </button>
 
     <script>
 console.log(Notification.permission);

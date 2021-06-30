@@ -33,9 +33,7 @@ setClock()
             } else if (Notification.permission !== "denied") {
                 Notification.requestPermission().then(permission => {
                     if(permission === "granted"){
-                        console.log(permission);
-                
-
+                        console.log(permission);                
                     }
             
 
@@ -128,6 +126,7 @@ setClock()
                   clearInterval(newYearCountdown);
                   document.getElementById("counterSOB").innerHTML = 0;
                   counter = 0;
+                  alert("Übung erfolreich abgeschlossen!")
 
                 }
                 counter++
