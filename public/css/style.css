@@ -3,12 +3,17 @@
 
 * {
     font-family: Muli;
-    color: #4D4D4D;
 }
 
 .LinkeUeberschriftSeitenbezeinchung {
     width: 55%;
 }
+
+h1{
+  color: #4D4D4D;
+
+}
+
 
 .InfoButton {
     background-color: lightgray;
@@ -23,6 +28,8 @@ h2 {
 
 p {
     font-size: 14px;
+    color: #4D4D4D;
+
 }
 
 #PurpleTopLine {
@@ -695,9 +702,9 @@ p {
 
 
     #startVideoLUXAnimationSeite{
-      margin-top: 10px;
+      margin-top: 9px;
       width:94%;
-      height: 95%;
+      height: 94%;
       z-index: -30;
 
     }
@@ -706,8 +713,8 @@ p {
       z-index: 10;
       margin-top: -170px;
       font-family: Muli;
-      background: rgba(#306986, 0.5 );
-      color: #404040;
+      background: white;
+      color: #306986;
       font-size: 18px;
       border-radius: 0;
       border-color: #306986;
@@ -721,6 +728,21 @@ p {
       cursor: pointer;
     }
   
+    #BottonInteraktiveGrafikSeite{
+      background: white;
+      color: #306986;
+      font-size: 18px;
+      border-radius: 0;
+      border-color: #306986;
+      box-shadow: 0px 0px white;
+      padding: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border: 2px solid;
+      top: 25%;
+      left: 43%;
+      cursor: pointer;
+    }
 
 
 

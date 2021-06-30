@@ -71,10 +71,19 @@ app.get('/AnimationLUXsunlight', function (req, res) {
   res.render('AnimationLUXsunlight.ejs');
 });
 
+app.get('/LUXinteraktiveGrafik', function (req, res) {
+  res.render('LUXinteraktiveGrafik.ejs');
+});
+
 
 app.get('/focus', function (req, res) {
   res.render('focus.ejs');
 });
+
+app.get('/LUXQuiz', function (req, res) {
+  res.render('LUXQuiz.ejs');
+});
+
 
 
 app.get('/points', function (req, res) {

@@ -154,6 +154,34 @@
                     setInterval(function(){updateChart()}, updateInterval);
                     
                     }
+
+
+                  // Notification Funtion // 
+
+                  console.log(Notification.permission);
+
+                if(Notification.permission === "granted"){
+                  showNotification();
+
+                } else if (Notification.permission !== "denied") {
+                    Notification.requestPermission().then(permission => {
+                        if(permission === "granted"){
+                            console.log(permission);                
+                        }
+
+
+                    
+                });
+                }
+
+                function showNotification() {
+                const notification = new Notification("Sonne, Licht & Sterne!", {
+
+                        body: "Bro! Es wird mal wieder Zeit nach draußen zu gehen! ", 
+                        icon: "img/Noora_square.png"
+
+                } );
+                }
           
       </script>
 
