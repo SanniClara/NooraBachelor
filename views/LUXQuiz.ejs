@@ -380,12 +380,12 @@ function handleEndGame() {
     const playerGrade = (playerScore / 10) * 100
 
     //data to display to score board
-    document.getElementById('remarks').innerHTML = remark
-    document.getElementById('remarks').style.color = remarkColor
-    document.getElementById('grade-percentage').innerHTML = playerGrade
-    document.getElementById('wrong-answers').innerHTML = wrongAttempt
-    document.getElementById('right-answers').innerHTML = playerScore
-    document.getElementById('score-modal').style.display = "flex"
+    document.getElementById('remarks').innerHTML = remark;
+    document.getElementById('remarks').style.color = remarkColor;
+    document.getElementById('grade-percentage').innerHTML = playerGrade;
+    document.getElementById('wrong-answers').innerHTML = wrongAttempt;
+    document.getElementById('right-answers').innerHTML = playerScore;
+    document.getElementById('score-modal').style.display = "flex";
 
 }
 
@@ -593,6 +593,10 @@ function closeOptionModal() {
         justify-content: center; 
         -webkit-animation: fadeIn 1.2s ease-in-out;
         animation: fadeIn 1.2s ease-in-out;
+    }
+
+    #option-one-label{
+        color: white !important;
     }
     
     .modal-content-container{
