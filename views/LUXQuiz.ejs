@@ -211,9 +211,10 @@ h1, h2, h3 {
 }
 
 .game-options-container span{
-    width: 45%;
-    height: 3rem;
-    border: 2px solid white;
+    width: 46%;
+    height: 40%;
+    border: 2px solid #3F88AA;
+    margin-left: 10px;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -425,230 +426,94 @@ input[type=radio]:checked ~ .option {
  //you can change the questions to your own taste or even add more questions..
  const questions = [
     {
-        question: "How many days makes a week ?",
-        optionA: "10 days",
-        optionB: "14 days",
-        optionC: "5 days",
-        optionD: "7 days",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "How many players are allowed on a soccer pitch ?",
-        optionA: "10 players",
-        optionB: "11 players",
-        optionC: "9 players",
-        optionD: "12 players",
+        question: "Wie viel LUX sind nötig, um den Schwellenwert in den retinalen Ganglienzellen zu überschreiten ?",
+        optionA: "3.000-7.000",
+        optionB: "10.000-15.000",
+        optionC: "20.000-25.000",
+        optionD: "40.000-50.000",
         correctOption: "optionB"
     },
 
     {
-        question: "Who was the first President of USA ?",
-        optionA: "Donald Trump",
-        optionB: "Barack Obama",
-        optionC: "Abraham Lincoln",
-        optionD: "George Washington",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "30 days has ______ ?",
-        optionA: "January",
-        optionB: "December",
-        optionC: "June",
-        optionD: "August",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "How manay hours can be found in a day ?",
-        optionA: "30 hours",
-        optionB: "38 hours",
-        optionC: "48 hours",
-        optionD: "24 hours",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "Which is the longest river in the world ?",
-        optionA: "River Nile",
-        optionB: "Long River",
-        optionC: "River Niger",
-        optionD: "Lake Chad",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "_____ is the hottest Continent on Earth ?",
-        optionA: "Oceania",
-        optionB: "Antarctica",
-        optionC: "Africa",
-        optionD: "North America",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "Which country is the largest in the world ?",
-        optionA: "Russia",
-        optionB: "Canada",
-        optionC: "Africa",
-        optionD: "Egypt",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "Which of these numbers is an odd number ?",
-        optionA: "Ten",
-        optionB: "Twelve",
-        optionC: "Eight",
-        optionD: "Eleven",
-        correctOption: "optionD"
-    },
-
-    {
-        question: `"You Can't see me" is a popular saying by`,
-        optionA: "Eminem",
-        optionB: "Bill Gates",
-        optionC: "Chris Brown",
-        optionD: "John Cena",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "Where is the world tallest building located ?",
-        optionA: "Africa",
-        optionB: "California",
-        optionC: "Dubai",
-        optionD: "Italy",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "The longest river in the United Kingdom is ?",
-        optionA: "River Severn",
-        optionB: "River Mersey",
-        optionC: "River Trent",
-        optionD: "River Tweed",
-        correctOption: "optionA"
-    },
-
-
-    {
-        question: "How many permanent teeth does a dog have ?",
-        optionA: "38",
-        optionB: "42",
-        optionC: "40",
-        optionD: "36",
+        question: "Welche Hormone stößt der Körper aus, um uns wach zu machen ?",
+        optionA: "Melatonin & Adenosin",
+        optionB: "Adrenalin & Cortisol",
+        optionC: "Insulin & Thyroxin",
+        optionD: "Dopamin & Oxytocin",
         correctOption: "optionB"
     },
 
     {
-        question: "Which national team won the football World cup in 2018 ?",
-        optionA: "England",
-        optionB: "Brazil",
-        optionC: "Germany",
-        optionD: "France",
+        question: " Wie nennt sich die 'innere Uhr' in der Fachsprache ?",
+        optionA: "Schrödingers Katze",
+        optionB: "kognitiver Zyklus",
+        optionC: "Primärer somatonsenorischer Kortex",
+        optionD: "Circadianer Rhythmus",
         correctOption: "optionD"
     },
 
     {
-        question: "Which US state was Donald Trump Born ?",
-        optionA: "New York",
-        optionB: "California",
-        optionC: "New Jersey",
-        optionD: "Los Angeles",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "How man states does Nigeria have ?",
-        optionA: "24",
-        optionB: "30",
-        optionC: "36",
-        optionD: "37",
+        question: "Was ist der LUX-Wert ?",
+        optionA: "Gewichtsangabe für Atommasse",
+        optionB: "Die Maßeinheit für Lichtdurchlässigekit von Materialien",
+        optionC: "Die gemessene Lichtintesität auf einer vorbestimmten Fläche",
+        optionD: "Einheit für Lichtgeschwindigkeit",
         correctOption: "optionC"
     },
 
     {
-        question: "____ is the capital of Nigeria ?",
-        optionA: "Abuja",
-        optionB: "Lagos",
-        optionC: "Calabar",
-        optionD: "Kano",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "Los Angeles is also known as ?",
-        optionA: "Angels City",
-        optionB: "Shining city",
-        optionC: "City of Angels",
-        optionD: "Lost Angels",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "What is the capital of Germany ?",
-        optionA: "Georgia",
-        optionB: "Missouri",
-        optionC: "Oklahoma",
-        optionD: "Berlin",
+        question: "Warum sollte man morgens die Retina (Netzhaut im Auge) mit Licht aussetzten ?",
+        optionA: "Um die Augen an höhere Lichtwerte zu gewöhnen",
+        optionB: "Um den Stoffwechsel im Gehirn zu starten",
+        optionC: "Um die Produktion von Vitamin D anzuregen",
+        optionD: "Um dem Gehirn mitzuteilen, dass es Tag ist",
         correctOption: "optionD"
     },
 
     {
-        question: "How many sides does an hexagon have ?",
-        optionA: "Six",
-        optionB: "Sevene",
-        optionC: "Four",
-        optionD: "Five",
+        question: " Wie werden die Zellen im Auge, die für die Lichtwahrnehmung da sind, genannt ?",
+        optionA: "retinale Ganglienzellen",
+        optionB: "Ziliarkörperzellen",
+        optionC: "Zonulafasern",
+        optionD: "Camera posterior bulbi",
         correctOption: "optionA"
     },
 
     {
-        question: "How many planets are currently in the solar system ?",
-        optionA: "Eleven",
-        optionB: "Seven",
-        optionC: "Nine",
-        optionD: "Eight",
+        question: "Welche Alternativen gibt es für das Sonnenlicht am morgen?",
+        optionA: "Alle Lampene im Raum anmachen",
+        optionB: "Vor den Bildschrim setzten ",
+        optionC: "spezille lichtintesive Tageslichtlampen",
+        optionD: "Taschenlampe ins Gesicht halten",
+        correctOption: "optionC"
+    },
+
+    {
+        question: "Was macht der Nucleus Suprachiasmaticus ?",
+        optionA: "Regelt das Timing des Schlaf-Wach-Rhythmuses",
+        optionB: "Ist für die Insulinproduktion verantwortlich",
+        optionC: "Verarbeitet die Sinneneindrücke des Ohres",
+        optionD: "Regelt das Hunger- und Sättigungsgefühl",
+        correctOption: "optionA"
+    },
+
+    {
+        question: "Welches Hormon macht uns über den Tag hinweg müde und wird von Kaffee blockiert ?",
+        optionA: "Oxytocin",
+        optionB: "Epinephrin",
+        optionC: "Dopamin",
+        optionD: "Adenosin",
         correctOption: "optionD"
     },
 
     {
-        question: "Which Planet is the hottest ?",
-        optionA: "Jupitar",
-        optionB: "Mercury",
-        optionC: "Earth",
-        optionD: "Venus",
-        correctOption: "optionB"
+        question: "Was passiert wenn die Netzhaut nachts einem hohen Lichtwert ausgesetz wird ? ",
+        optionA: "Man kann sich Dinge besser merken",
+        optionB: "Man ist am nächsten Tag wacher und motivierter",
+        optionC: "Das Einschlafen wird erleichtert",
+        optionD: "Ausschütung des Motivationshormones 'Dopamin' verhindert",
+        correctOption: "optionD"
     },
-
-    {
-        question: "where is the smallest bone in human body located?",
-        optionA: "Toes",
-        optionB: "Ears",
-        optionC: "Fingers",
-        optionD: "Nose",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "How many hearts does an Octopus have ?",
-        optionA: "One",
-        optionB: "Two",
-        optionC: "Three",
-        optionD: "Four",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "How many teeth does an adult human have ?",
-        optionA: "28",
-        optionB: "30",
-        optionC: "32",
-        optionD: "36",
-        correctOption: "optionC"
-    }
 
 ]
 

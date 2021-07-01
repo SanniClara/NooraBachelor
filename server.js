@@ -11,6 +11,10 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
+const mongoose = require('mongoose');
+
+const mongodbAccess = "mongodb+srv://sclaraNOORABachelor:KinaZudo_24@cluster0.wqvfg.mongodb.net/SunlightValues?retryWrites=true&w=majority"
+mongoose.connect(mongodbAccess, { useNewUrlParser: true,   useUnifiedTopology: true }).then()
 
 
 const initializePassport = require('./passport-config')
@@ -143,5 +147,7 @@ function checkNotAuthenticated(req, res, next) {
   }
   next()
 }
+
+
 
 app.listen(port);

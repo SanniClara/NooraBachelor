@@ -59,13 +59,22 @@
    automatisch auch 
    gemeinnützige Organisationen unterstützen. </p>
 
+   <br>
+
+   <p class="weißeSchriftIndexSeite"> Um Badges und Punkte zu sammeln gibt es jede Methode vier Schritte, <br>
+    die absoviert werden. </p> 
+     <li  class="weißeSchriftIndexSeite">1. Erkläranimationsvideo</li>
+     <li  class="weißeSchriftIndexSeite">2. interaktive Grafik</li>
+     <li  class="weißeSchriftIndexSeite">3. kurzes Quiz </li>
+     <li  class="weißeSchriftIndexSeite">4. regelmäßiges Anwenden</li>  </p>
+
 <video  id="startVideoIndexSeite"  autoplay muted loop id="myVideo">
   <source src="video/videoStartNeuroScience.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video>
 
 
-<a href="/AnimationLUXsunlight"><button id="BottonIndexSeite" style=" border: 2px solid; border-color: white;" > Jetzt beginnen </button></a>
+<a href="/AnimationLUXsunlight"><button id="BottonIndexSeite" style=" border: 2px solid; border-color: white;" >Probedurchlauf starten</button></a>
 
     <script>
 console.log(Notification.permission);
@@ -84,13 +93,14 @@ if(Notification.permission === "granted"){
 });
 }
 
+
 function showNotification() {
 const notification = new Notification("Cool, dass du da bist!", {
 
         body: "Mach mal das Licht an!",
         icon: "img/Noora_square.png"
 } );
-}
+} 
 
 </script>         
 
