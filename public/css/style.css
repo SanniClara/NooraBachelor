@@ -7,6 +7,7 @@
 
 .LinkeUeberschriftSeitenbezeinchung {
     width: 55%;
+    color: #4D4D4D;
 }
 
 h1{
@@ -344,21 +345,21 @@ p {
 
   }
 
-  label{
+  .labelLoginRegister{
       color: white;
       padding-top: 20px;
       margin-top: 30px;
   }
-  input{
+  
+  .inputLoginRegister{
       width: 50%;
-      
       margin-bottom: 4%;
   }
 
   #registreirenLink{
       color: #4D4D4D ;
       background-color: lightgrey;
-      padding: 1%;
+      padding: 2%;
       text-decoration: none;
   }
 
@@ -366,7 +367,7 @@ p {
     color: #4D4D4D ;
     background-color: lightgrey;
     font-size: 16px;
-    padding: 1%;
+    padding: 2%;
     text-decoration: none;
     box-shadow: none;
     border: 0px solid;
@@ -391,7 +392,7 @@ p {
     color: #4D4D4D ;
     background-color: lightgrey;
     font-size: 16px;
-    padding: 1%;
+    padding: 2%;
     text-decoration: none;
     box-shadow: none;
     border: 0px solid;
@@ -402,7 +403,7 @@ p {
     color: #4D4D4D ;
     background-color: lightgrey;
     font-size: 16px;
-    padding: 1%;
+    padding: 2%;
     text-decoration: none;
     box-shadow: none;
     border: 0px solid;
