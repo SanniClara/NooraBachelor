@@ -9,7 +9,8 @@
 <body class="brightLight">
 
     <div id="PurpleTopLine">
-        <a href="/"><img id="Logo" src="img/Noora.PNG" alt="haloo"></a>
+        <a href="/"><img id="Logo" src="img/Noora.PNG" alt="
+          oo"></a>
         <form action="/logout?_method=DELETE" method="POST">
          <button style="margin-top: -20px;" type="submit">Log Out</button>
        </form>
@@ -58,10 +59,15 @@
             Der optimale wert leigt hierbei bei 10.000 bis 15.000 LUX. Wenn der Wert morgens für 10 Minuten eingehalten wird, 
             können Sie Punkte für ihre Konto sammeln. </p>
 
+
         <h3 id="LUXEinleitung">aktueller LUX-Wert: </h3>
+
+      
     
-        <div id="details"></div>  
-    
+          <div name="username" id="details"></div> 
+
+       
+
     <div id="chartContainer" style="height: 300px; width: 80%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
@@ -82,9 +88,41 @@
                       const sensor = new AmbientLightSensor();
                       // Detect changes in the light
                       sensor.onreading = () => {
+
                           details.innerHTML = sensor.illuminance;
                           ValueLicht = sensor.illuminance;
-                          console.log(ValueLicht);
+
+
+                          //console.log(ValueLicht);
+
+                          var url = "http://localhost:8000/LichtValueEndpoint";
+
+                            var xhr = new XMLHttpRequest();
+                            xhr.open("POST", url);
+
+                            xhr.setRequestHeader("Accept", "application/json");
+                            xhr.setRequestHeader("Content-Type", "application/json");
+
+                            xhr.onreadystatechange = function () {
+                              if (xhr.readyState === 4) {
+                                  console.log(xhr.status);
+                                  console.log(xhr.responseText);
+                              }};
+
+                            var data = {
+                                "id" : ValueLicht
+                            };
+
+                            console.log(data.id);
+
+                            console.log(typeof data.id)
+
+                            xhr.send(data.id);
+
+                                    
+
+
+
 
                   
                           // Read the light levels in lux 
@@ -112,7 +150,7 @@
                     window.onload = function () {
                     
                     var dps = []; // dataPoints
-                    console.log(dps)
+                    //console.log(dps)
                     var chart = new CanvasJS.Chart("chartContainer", {
                         
                         title :{
@@ -165,7 +203,7 @@
                 } else if (Notification.permission !== "denied") {
                     Notification.requestPermission().then(permission => {
                         if(permission === "granted"){
-                            console.log(permission);                
+                            //console.log(permission);                
                         }
 
 
@@ -181,6 +219,14 @@
 
                 } );
                 }
+
+
+
+                
+              
+
+                  
+
           
       </script>
 

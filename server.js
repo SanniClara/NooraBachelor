@@ -12,9 +12,12 @@ const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
+const fs = require('fs')
 
-const mongodbAccess = "mongodb+srv://sclaraNOORABachelor:KinaZudo_24@cluster0.wqvfg.mongodb.net/SunlightValues?retryWrites=true&w=majority"
-mongoose.connect(mongodbAccess, { useNewUrlParser: true,   useUnifiedTopology: true }).then()
+
+//const mongodbAccess = "mongodb+srv://sclaraNOORABachelor:KinaZudo_24@cluster0.wqvfg.mongodb.net/SunlightValues?retryWrites=true&w=majority"
+//mongoose.connect(mongodbAccess, { useNewUrlParser: true,   useUnifiedTopology: true }).then()
 
 
 const initializePassport = require('./passport-config')
@@ -84,11 +87,10 @@ app.get('/focus', function (req, res) {
   res.render('focus.ejs');
 });
 
+
 app.get('/LUXQuiz', function (req, res) {
   res.render('LUXQuiz.ejs');
 });
-
-
 
 app.get('/points', function (req, res) {
   res.render('points.ejs');
@@ -148,6 +150,18 @@ function checkNotAuthenticated(req, res, next) {
   next()
 }
 
+
+ //app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.text({ type: "application/json" }));
+  // POST Listener
+  app.post('/LichtValueEndpoint', (req,res) => {
+    console.log(req.body)
+    const content = req.body + "\n";
+
+    fs.appendFileSync("file.json" , content,  "UTF-8", {'flags': 'w+'});
+    res.end()
+  })
 
 
 app.listen(port);
