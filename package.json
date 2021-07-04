@@ -2,7 +2,9 @@
   "name": "current-project",
   "version": "1.0.0",
   "engines": {
-    "node": "7.19.1"
+
+    "node": "6.11.1"
+
   },
   "description": "",
   "main": "index.js",
