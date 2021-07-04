@@ -20,7 +20,9 @@ const fs = require('fs')
 //mongoose.connect(mongodbAccess, { useNewUrlParser: true,   useUnifiedTopology: true }).then()
 
 
-const initializePassport = require('./passport-config')
+const initializePassport = require('./passport-config');
+const { wait } = require('@testing-library/react');
+const { ContactSupportOutlined } = require('@material-ui/icons');
 initializePassport(
   passport,
   email => users.find(user => user.email === email),
@@ -87,6 +89,9 @@ app.get('/focus', function (req, res) {
   res.render('focus.ejs');
 });
 
+app.get('/Punktepraemien', function (req, res) {
+  res.render('Punktepraemien.ejs');
+});
 
 app.get('/LUXQuiz', function (req, res) {
   res.render('LUXQuiz.ejs');
@@ -149,19 +154,55 @@ function checkNotAuthenticated(req, res, next) {
   }
   next()
 }
-
+ 
+var dps = [0,0,0,0];
+// dataPoints
 
  //app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
+  // POST Listener
+//app.use(bodyParser.json());
   app.use(bodyParser.text({ type: "application/json" }));
+
+  const neuerArray = [0,0,0];
+
   // POST Listener
   app.post('/LichtValueEndpoint', (req,res) => {
-    console.log(req.body)
-    const content = req.body + "\n";
 
-    fs.appendFileSync("file.json" , content,  "UTF-8", {'flags': 'w+'});
+    dps.push(req.body);
+    //console.log(req.body)
+
+    function wiederholung (){
+      //console.log(req.body)
+      fs.appendFileSync("file.txt" , req.body + "," + "\n",  "UTF-8", {'flags': 'w+'});
+
+       var lineReader = require('readline').createInterface({
+        input: require('fs').createReadStream('file.txt')
+      });
+
+
+      lineReader.on('line', function (line) {
+
+       // console.log(parseInt(line));
+        neuerArray.push(parseInt(line));
+        //console.log(neuerArray)
+        //console.log(neuerArray.length)
+      });
+            
+
+    }
+
+    wiederholung();
+    //console.log(dps);
+
     res.end()
+
   })
 
+    //const jsonString = JSON.stringify(content, null, 2)
+    
+    
+   // fs.writeFile("file.txt" , dps);
+  
 
 app.listen(port);

@@ -48,53 +48,95 @@
   </div>
 
 
-<div id="AussenBoxInfoUeberschrift" >
-    <h1 class="LinkeUeberschriftSeitenbezeinchung">Calm Down</h1> 
-    <div class="InfoButton"><h3 id="InfoSchrift">i</h3></div>
+<div style="width: 30%;" id="AussenBoxInfoUeberschrift" >
+    <h1 style="float: left; width: 42%;" class="LinkeUeberschriftSeitenbezeinchung">Calm Down</h1> 
+    <button style="margin-bottom: 10px;" class="tooltip"> <b>i</b> 
+      <span class="tooltiptext">2-mal einatmen und dann lange ausatmen. Zwischen den beiden Atmenzügen wird eine kurze Pause gemacht. Das 1. Einatmen ist etwas länger und 
+        das zweite schnell und intensiv. 
+  
+  
+      </span>
+  </button> 
+  <p>Drücken Sie auf "Übung starten" und schauen sie die ganze Zeit entweder auf die Zahl oder die dargestellten Augen. <br>
+    Versuchen Sie solange es geht nicht zu blinzeln. 
+  </p>
+  
 </div>
 
 
 
 <div id="kasten">
 
-  <div id="counterCalmSite"></div>
 
-  <button  class="pointer"  onclick="myFunction()" id="button">
-     start
+  <button  class="pointer" onclick="superOxiginatingBreathingAnimation()" id="startbutton">
+    Übung starten
+  </button>
+
+  <button  class="pointer" onclick="reset_animation()" id="stopbutton">
+    🗘
   </button>
 
 </div>
 
+<div id="counterCalmSite">0</div>
+
+
 <div id="elementCalmSite"></div>
 
-<button class="tooltip"> <b>i</b> 
-    <span class="tooltiptext">2-mal einatmen und dann lange ausatmen. Zwischen den beiden Atmenzügen wird eine kurze Pause gemacht. Das 1. Einatmen ist etwas länger und 
-      das zweite schnell und intensiv. 
 
-
-    </span>
-</button> 
 
 
 <script>
 
-    function myFunction() {
-    var x = document.getElementById('elementCalmSite').style.animationName = "stretchCalmAnimation";
-    document.getElementById('elementCalmSite').style.animationPlayState = "running"; 
-
-    const root = document.querySelector(":root"); //grabbing the root element
-    root.style.setProperty("--pseudo-animation-name", 'counterCalmSite');
-
-    }
-
-  
-
     
-    function stop() {
+    function reset_animation() {
     var x = document.getElementById('elementCalmSite').style.animationName = "stretchCalmAnimation";
     document.getElementById('elementCalmSite').style.animationPlayState = "paused"; 
 
     }
+
+
+    var newYearCountdown;
+            var counter;
+
+            function reset_animation() {
+                var el = document.getElementById('elementCalmSite');
+                el.style.animation = 'none';
+                el.offsetHeight; /* trigger reflow */
+                el.style.animation = null; 
+                document.getElementById("counterCalmSite").innerHTML = 0;
+                clearInterval(newYearCountdown);
+            }
+
+  
+            // Funtktion auf der Fokus Seite 
+            function superOxiginatingBreathingAnimation() {
+            var x = document.getElementById('elementCalmSite').style.animationName = "stretchCalmAnimation";
+
+
+              var counter = 0;
+              newYearCountdown = setInterval(function(){
+                console.log(counter);
+                document.getElementById("counterCalmSite").innerHTML = counter;
+
+                if (counter === 8) {
+
+                  counter++
+                  clearInterval(newYearCountdown);
+                  document.getElementById("counterCalmSite").innerHTML = 0;
+                  counter = 0;
+                  alert("Übung erfolreich abgeschlossen!")
+
+                }
+                counter++
+
+
+
+              }, 3500);
+
+
+  
+              }
 
 
     
@@ -113,7 +155,6 @@
             animation-duration: 6s;
             animation-timing-function: ease-out;
             animation-iteration-count: 8;
-            animation-play-state: paused;
             top: 65%;
             left: 55%;
             border-radius: 100%;
@@ -211,17 +252,6 @@
 }
 
 
-#counterCalmSite::after {
-  top: 55%;
-  left: 59%;
-  font-family: Muli;
-  color: rgb(75, 75, 75);
-  font-size: 35px;
-  content: counter(count);
-  animation-duration: 48s;
-  counter-reset: count 0;
-  animation-name: var(--pseudo-animation-name)
-}
 
 
 #button {
@@ -237,6 +267,20 @@
     padding-right: 20px;
     top: 35%;
     left: 53%;
+}
+
+#counterCalmSite{
+  font-size: 28px;
+  font-family: Muli;
+  color: #4d4d4d;
+  font-weight: 400;
+  display: block;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  margin-right: auto;
+  width: 1%;
 }
 
     </style>

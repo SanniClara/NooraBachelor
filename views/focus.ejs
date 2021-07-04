@@ -50,39 +50,85 @@
 
   </div>
 
+
+  <div style="width: 40%;" id="AussenBoxInfoUeberschrift" >
+
+
   
-  <h1 class="LinkeUeberschriftSeitenbezeinchung"> Focus Übung </h1> 
+  <h1 style="float: left; width: 38%;" class="LinkeUeberschriftSeitenbezeinchung"> Focus Übung </h1> 
 
-
-  <p class="LinkeUeberschriftSeitenbezeinchung">Eine Übung die mit ihrer Frequenz</p>
-
-    <button class="tooltip"> <b>i</b> 
+  <button class="tooltip"> <b>i</b>
     <span class="tooltiptext"> <b>Vorteile der Übung:</b> Das schnelle und tiefe Atmen ist eine Art die mentale Wachsamkeit und Konzentration zu erhöhen,
-       indem die Produktion von Epinephrin (Adrenalin) angeregt wird. Durch eine bestimmte Atmungstechnik, die „super oxygenating
-        breathing“ genannt wird. Der genaue Ablauf hierbei ist, dass einmal durch die Bewegung der Lunge beim schnellen Aus- und 
-        Einatmen die Herzschlagfrequnez zunimmt. Der zweite Effekt ist die Erhöhung der Sauerstoffgehaltes im Blut und sommit die 
-        Druchblutung im Gehirn zunimmt. Diese beiden Prozesse - in Kombination - bewirken die Freigabe von Epinephrin an den Körper,
-         worauf eine erhöhte Wachsamkeit und Aufmerksamkeit folgt. Diese schnellere Folge von Aus- und Einatmen soll ca. 25-30 Mal 
-         angewendet werden. In der allgemeinen Medizin ist dieser durch erregte Zustand als aktives „sympathisches Nervensystem“ 
-         bekannt. Studien zeigen, dass langsame Atemübungen dieses „deaktivieren“ und schnelle Atmen dieses „aktivieren“.
-    </span>
-</button> 
-
-    
-
-      <h2 id="counterSOB">0</h2>
+      indem die Produktion von Epinephrin (Adrenalin) angeregt wird. Durch eine bestimmte Atmungstechnik, die „super oxygenating
+       breathing“ genannt wird. Der genaue Ablauf hierbei ist, dass einmal durch die Bewegung der Lunge beim schnellen Aus- und 
+       Einatmen die Herzschlagfrequnez zunimmt. Der zweite Effekt ist die Erhöhung der Sauerstoffgehaltes im Blut und sommit die 
+       Druchblutung im Gehirn zunimmt. Diese beiden Prozesse - in Kombination - bewirken die Freigabe von Epinephrin an den Körper,
+        worauf eine erhöhte Wachsamkeit und Aufmerksamkeit folgt. Diese schnellere Folge von Aus- und Einatmen soll ca. 25-30 Mal 
+        angewendet werden. In der allgemeinen Medizin ist dieser durch erregte Zustand als aktives „sympathisches Nervensystem“ 
+        bekannt. Studien zeigen, dass langsame Atemübungen dieses „deaktivieren“ und schnelle Atmen dieses „aktivieren“.
+   </span> </button> 
+</div>
 
 
-      <button  class="pointer" onclick="superOxiginatingBreathingAnimation()" id="startbutton">
+  <p style="margin-top: 30px;" class="LinkeUeberschriftSeitenbezeinchung">Eine Übung die mit ihrer Frequenz</p>
+
+   
+        <button  class="pointer" onclick="superOxiginatingBreathingAnimation()" id="startbutton">
           Übung starten
         </button>
 
         <button  class="pointer" onclick="reset_animation()" id="stopbutton">
           🗘
         </button>
+
+        <h2 id="counterSOB">0</h2>
       
         <div id="elementKreisSOB"></div>
   
 
         
   </div>
+
+  <script>
+
+var newYearCountdown;
+            var counter;
+
+            function reset_animation() {
+                var el = document.getElementById('elementKreisSOB');
+                el.style.animation = 'none';
+                el.offsetHeight; /* trigger reflow */
+                el.style.animation = null; 
+                document.getElementById("counterSOB").innerHTML = 0;
+                clearInterval(newYearCountdown);
+            }
+
+  
+            // Funtktion auf der Fokus Seite 
+            function superOxiginatingBreathingAnimation() {
+            var x = document.getElementById('elementKreisSOB').style.animationName = "stretch";
+
+
+              var counter = 0;
+              newYearCountdown = setInterval(function(){
+                console.log(counter);
+                document.getElementById("counterSOB").innerHTML = counter;
+
+                if (counter === 91) {
+                  counter++
+                  clearInterval(newYearCountdown);
+                  document.getElementById("counterSOB").innerHTML = 0;
+                  counter = 0;
+                  alert("Übung erfolreich abgeschlossen!")
+
+                }
+                counter++
+
+
+              }, 3000);
+
+  
+              }
+
+
+  </script>

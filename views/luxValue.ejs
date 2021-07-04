@@ -54,7 +54,7 @@
             </div>
 
 
-        <p class="LinkeUeberschriftSeitenbezeinchung" >Diese Abbildung zeigt Ihnen den LUX Wert der letzten 4 Stunden in ihrer Umgebung. Besonders am Morgen 
+        <p class="LinkeUeberschriftSeitenbezeinchung" >Diese Abbildung zeigt Ihnen den LUX Wert der letzten Stunde in ihrer Umgebung. Besonders am Morgen 
             zwischen 4:30 und 11:00 lohnt es sich viel Licht in die Augen zu lassen.
             Der optimale wert leigt hierbei bei 10.000 bis 15.000 LUX. Wenn der Wert morgens für 10 Minuten eingehalten wird, 
             können Sie Punkte für ihre Konto sammeln. </p>
@@ -78,9 +78,9 @@
 </html>
 
 <script>
+
+               
     var ValueLicht;
-
-
                   const details = document.getElementById("details");
                   // Feature detection
                   if (window.AmbientLightSensor){
@@ -88,42 +88,10 @@
                       const sensor = new AmbientLightSensor();
                       // Detect changes in the light
                       sensor.onreading = () => {
-
                           details.innerHTML = sensor.illuminance;
                           ValueLicht = sensor.illuminance;
-
-
                           //console.log(ValueLicht);
-
-                          var url = "http://localhost:8000/LichtValueEndpoint";
-
-                            var xhr = new XMLHttpRequest();
-                            xhr.open("POST", url);
-
-                            xhr.setRequestHeader("Accept", "application/json");
-                            xhr.setRequestHeader("Content-Type", "application/json");
-
-                            xhr.onreadystatechange = function () {
-                              if (xhr.readyState === 4) {
-                                  console.log(xhr.status);
-                                  console.log(xhr.responseText);
-                              }};
-
-                            var data = {
-                                "id" : ValueLicht
-                            };
-
-                            console.log(data.id);
-
-                            console.log(typeof data.id)
-
-                            xhr.send(data.id);
-
-                                    
-
-
-
-
+                      
                   
                           // Read the light levels in lux 
                           // < 50 is dark room
@@ -143,8 +111,6 @@
                   } else {
                   details.innerHTML = 'It looks like your browser doesnt support this feature'; 
                   }
-
-
                      //Chat Visualisierungs Teil. Hier wird die Library Canvas.js eingebunden und 
                                 
                     window.onload = function () {
@@ -178,6 +144,7 @@
                                 y: yVal
                             });
                             xVal++;
+
                         }
                     
                         if (dps.length > dataLength) {
@@ -185,47 +152,51 @@
                         }
                     
                         chart.render();
+
+                        var url = "http://localhost:8000/LichtValueEndpoint";
+                            var xhr = new XMLHttpRequest();
+                            xhr.open("POST", url);
+                            xhr.setRequestHeader("Accept", "application/json");
+                            xhr.setRequestHeader("Content-Type", "application/json");
+                            xhr.onreadystatechange = function () {
+                              if (xhr.readyState === 4) {
+                                  //console.log(xhr.status);
+                                  //console.log(xhr.responseText);
+                              }};
+                            var data = {
+                                "id" : ValueLicht
+                            };
+                            //console.log(data.id);
+                            console.log(dps);
+
+                            //console.log(typeof data.id)
+                            xhr.send(data.id);
+                                    
                     };
                     
                     updateChart(dataLength);
                     setInterval(function(){updateChart()}, updateInterval);
                     
                     }
-
-
                   // Notification Funtion // 
-
                   console.log(Notification.permission);
-
                 if(Notification.permission === "granted"){
                   showNotification();
-
                 } else if (Notification.permission !== "denied") {
                     Notification.requestPermission().then(permission => {
                         if(permission === "granted"){
                             //console.log(permission);                
                         }
-
-
                     
                 });
                 }
-
                 function showNotification() {
                 const notification = new Notification("Sonne, Licht & Sterne!", {
-
                         body: "Bro! Es wird mal wieder Zeit nach draußen zu gehen! Also jetzt ernst ne...", 
                         icon: "img/Noora_square.png"
-
                 } );
                 }
-
-
-
-                
-              
-
-                  
+   
 
           
       </script>
