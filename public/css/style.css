@@ -706,10 +706,8 @@ p {
 
     #startVideoLUXAnimationSeite{
       margin-top: 9px;
-      width:90%;
-      height: 90%;
+      width: 88%;
       z-index: -30;
-
     }
 
     #BottonLUXAnimationSeite{
