@@ -182,6 +182,7 @@
                   console.log(Notification.permission);
                 if(Notification.permission === "granted"){
                   showNotification();
+                  alert("Immer schön rausgehen 😉")
                 } else if (Notification.permission !== "denied") {
                     Notification.requestPermission().then(permission => {
                         if(permission === "granted"){
@@ -191,7 +192,7 @@
                 });
                 }
                 function showNotification() {
-                const notification = new Notification("Sonne, Licht & Sterne!", {
+                const notification = new Notification("Sonne, Sonne, Sonne!", {
                         body: "Bro! Es wird mal wieder Zeit nach draußen zu gehen! Also jetzt ernst ne...", 
                         icon: "img/Noora_square.png"
                 } );
