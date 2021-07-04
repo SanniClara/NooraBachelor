@@ -6,7 +6,6 @@
     "node": "12.x", 
     "npm": "7.19.1"
   },
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node server.js"
