@@ -21,8 +21,7 @@ const fs = require('fs')
 
 
 const initializePassport = require('./passport-config');
-const { wait } = require('@testing-library/react');
-const { ContactSupportOutlined } = require('@material-ui/icons');
+
 initializePassport(
   passport,
   email => users.find(user => user.email === email),
