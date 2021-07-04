@@ -46,7 +46,7 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'));
 
 
-app.get('noorahealth.herokuapp.com/', checkAuthenticated, (req, res) => {
+app.get('/', checkAuthenticated, (req, res) => {
   res.render('index.ejs', { name: req.user.name })
 })
 
