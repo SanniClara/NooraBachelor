@@ -50,7 +50,7 @@
   
 
             <div id="AussenBoxInfoUeberschrift" >
-                <h1 class="LinkeUeberschriftSeitenbezeinchung">Ambient Light Sensor</h1> 
+                <h1  style="float: left; width: 25%;"class="LinkeUeberschriftSeitenbezeinchung">Ambient Light Sensor</h1> 
                 <button class="tooltip"> <b>i</b> 
                   <span class="tooltiptext"><video width="400"  height="300px" controls src="/video/SunLightIsImportant.mp4" alt=""><p><b>Vorteile der Übung:</b> Das schnelle und tiefe Atmen ist eine Art die mentale Wachsamkeit und Konzentration zu erhöhen,
                     indem die Produktion von Epinephrin (Adrenalin) angeregt wird. Durch eine bestimmte Atmungstechnik, die „super oxygenating
@@ -198,7 +198,7 @@
                   console.log(Notification.permission);
                 if(Notification.permission === "granted"){
                   showNotification();
-                  alert("Immer schön rausgehen 😉")
+                  alert("Immer schön morgens in die Sonne gehen 😉")
                 } else if (Notification.permission !== "denied") {
                     Notification.requestPermission().then(permission => {
                         if(permission === "granted"){
