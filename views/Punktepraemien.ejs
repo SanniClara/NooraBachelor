@@ -55,229 +55,119 @@
 
   
   <h1 class="LinkeUeberschriftSeitenbezeinchung">Punkte & Prämien</h1> 
-  <p class="LinkeUeberschriftSeitenbezeinchung">Text</p>
+  <p class="LinkeUeberschriftSeitenbezeinchung">Deine Punkte werden nach einem 60/40 Verhältnis aufgeteilt. <br>
+     Auf dieser Seite kannst du deine Punkte sammeln für in den beiden <br> Kategorien "Prämie" & "Gemeinnutz" einlösen. </p>
 
+<div id="ÜberschriftenPunkteverteilung">
 
+      <h3 class="PunkteUeberschriften" >verfügbare Punkte in der Kategorie "Prämie": 207</h3>
 
-    <a href="/points"><button id="BottonInteraktiveGrafikSeite"  > Weiter </button></a>
-
-      
-  
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script>
-
-  $(document).ready(function() {
-    slider = new Slider();
-  });
-  
-  var Slider = (function() {
-  
-    var Slider = function() {
-      
-      this.initialise();
-    }
-  
-    Slider.prototype = {
-  
-      initialise: function() {
-        this.vars();
-        this.setup();
-        this.slideEvent();
-      },
-  
-      vars: function() {
-        // vars
-        _this = this;
-        this.container = $('.sliders');
-        this.slider = $('.slider');
-        this.slide = $('.slide');
-        this.controls = $('.control');
-        this.totalPercentage = 100;
-      },
-  
-      setup: function() {
-        // set equal width depending on how many sliders there are when initalised 
-        var counter = 0;
-        this.slide.each(function() {
-          counter++;
-        });
-  
-        var initWidth = this.totalPercentage / counter;
-  
-       this.slide.width(initWidth + '%');
-       this.slide.attr('data-percent', initWidth + '%');
-      },
-  
-      getPercentWidth: function(target) {
-        // get percentage of current width
-        target.attr('data-percent', (100 * parseFloat(target.css('width')) / parseFloat(target.parent().css('width'))));
-      },
-  
-      slideEvent: function() {
-        // listen for mouse down on the controls
-        this.controls.on('mousedown', function(event) {
-          this.slideDrag(event);
-        }.bind(this));
-      },
-  
-      slideDrag: function(event) {
-        event.preventDefault();
-  
-        this.target = $(event.target);
-        this.prevMousePos = 0;
-  
-        this.target.parent().addClass('active');
-        // listen mousemove and mouseup events on the document: only if the mousedown happend on one of the controls 
-        $(document).on('mousemove', this.slideMove);
-        $(document).on('mouseup', this.slideEnd);
-      },
-  
-      slideMove: function() {
-        _this.mousePos = event.pageX; 
-        _this.amount = [];
-        
-        // get info on widths, offsets and positions
-        var offset = _this.slider.offset().left;
-        var sliderWidth = _this.slider.width();
-        var posX = Math.min(Math.max(0, _this.mousePos - offset), sliderWidth);   
-     
-        // checks direction
-        if (_this.mousePos < _this.prevMousePos)  {
-          _this.direction = 'left';
-        } else {
-          _this.direction = 'right';
-        }
-        
-        //console.log(_this.direction);
-         
-        // update mouse position
-        _this.prevMousePos = _this.mousePos;
-        
-        // set new width of the active slider
-        _this.target.parent().width(posX / sliderWidth * 100 + '%');
-        _this.calcPercent();
-      },
-  
-      calcPercent: function() {
-        var totalWidth = 0;
-        var sliderLength = 0;
-        var leftoverAmount = 0;
-        
-        // loop through each slide
-        _this.slide.each(function() {
-          
-          sliderLength++;
-          _this.getPercentWidth($(this));
-          
-          if ($(this).hasClass('active')) {
-            // set active percentage
-            _this.active = parseFloat($(this).attr('data-percent'));
-  
-          } else {
-           
-            // add non active widths into an array
-           
-            _this.amount.push(parseFloat($(this).attr('data-percent')));
-          }
-  
-          //totalWidth += parseFloat($(this).attr('data-percent'));
-  
-        });
-    
-        // find out the leftover amount
-        leftoverAmount = _this.totalPercentage - _this.active;
-        _this.nonActiveAmount = 0;
-        $.each(_this.amount, function() {
-            
-         _this.nonActiveAmount += parseFloat(this) ;
-        });
-        
-        var x = leftoverAmount / 100;
-        var y = _this.nonActiveAmount / 100;
-        var z = _this.active;
-       
-        _this.slide.each(function() {
-   
-          if (!$(this).hasClass('active') || !$(this).hasClass('locked')) {
-             console.log($(this));
-            var v = x * (parseFloat($(this).attr('data-percent')) / y);
-            $(this).width(v + '%');
-            
-          }
-        });
-  
-      },
-  
-      slideEnd: function() {
-        // kill the events on mouse up.
-        _this.target.parent().removeClass('active');
-        $(this).off('mousemove', slider.slideMove);
-        $(this).off('mouseup', slider.slideEnd);
-      },
-    }
-  
-    return Slider;
-  
-  }());
-  </script>
-
-<div class="sliders">
-  <h2>Spenden: </h2>
-  <div class="slider one">
-    <div class="slide">
-      <div class="control"></div>
-    </div>
-  </div>
-  <h2>Prämien: </h2>
-  <div class="slider two">
-    <div class="slide">
-       <div class="control"></div>
-    </div>
-  </div>
-
-  
+      <h3 class="PunkteUeberschriften" >verfügbare Punkte in der Kategorie "Gemeinnutz": 138</h3>
 
 </div>
 
-<style>
-div.sliders {
-position: absolute;
-width: 50%;
-padding: 20px;
-}
 
-div.slider {
-display: block;
-width: 50%;
-margin: 20px auto;
-background-color: #07553E;
-height: 50px;
-}
+<div id="Rand">
 
-div.slide {
-width: 33%;
-height: 100%;
-background: #1663AC;
-position: relative;
-}
+    <div id="UmschlagUmAuswahlKategorie1">
+        <div class="AuswahlDiv1">dfvgb</div>
+        <div class="AuswahlDiv1">fg</div>
+        <div class="AuswahlDiv1">fdghs</div>
+        <div class="AuswahlDiv1">dfvgb</div>
+        <div class="AuswahlDiv1">fg</div>
+        <div class="AuswahlDiv1">fdghs</div>
+        <div class="AuswahlDiv1">fg</div>
+        <div class="AuswahlDiv1">fdghs</div>
+    </div>
 
-div.control {
-width: 15px;
-height: 15px;
-border-radius: 50%;
-padding: 40px;
-background: #7C71A1;
-position: absolute;
-right: -7px;
-margin-top: -7px;
-cursor: pointer;
-}
-</style>
+    <div id="UmschlagUmAuswahlKategorie2" >
+        <div class="AuswahlDiv2">gbfgf</div>
+        <div class="AuswahlDiv2">vc bv</div>
+        <div class="AuswahlDiv2">fgbfg</div>
+        <div class="AuswahlDiv2">gbfgf</div>
+        <div class="AuswahlDiv2">vc bv</div>
+        <div class="AuswahlDiv2">fgbfg</div>
+        <div class="AuswahlDiv2">vc bv</div>
+        <div class="AuswahlDiv2">fgbfg</div>
+    </div>
 
+</div>
+
+
+
+
+<a style="width: 100%;" href="/points"><button id="BottonPraemienSeite"> Einlösen </button></a>
+
+  
 
 </body>
 
+<style>
+  #ÜberschriftenPunkteverteilung{
+    width: 100%;
+
+  }
+
+  .PunkteUeberschriften{
+    width: 47%;
+    float: left;
+    margin-top:20px;
+  }
+
+  .AuswahlDiv1{
+    background-color: gray;
+    width: 80px;
+    height: 80px;
+    margin: 40px;
+    float: left;
+  }
+
+  .AuswahlDiv2{
+    background-color: greenyellow;
+    width: 80px;
+    height: 80px;
+    margin: 40px;
+    float: left;
+  }
+
+  #UmschlagUmAuswahlKategorie1{
+    width: 45%;
+    float: left;
+    margin-top:20px;
+
+  }
+
+  #UmschlagUmAuswahlKategorie2{
+    width: 48%;
+    float: left;
+    margin-top:20px;
+
+  }
+
+  #Rand{
+    width: 100%;
+  }
+
+  #BottonPraemienSeite{
+      background: white;
+      color: #306986;
+      font-size: 18px;
+      border-radius: 0;
+      border-color: #306986;
+      box-shadow: 0px 0px white;
+      padding: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border: 2px solid;
+      cursor: pointer;
+      margin-top: 80px;
+    }
+
+  
+
+
+  
+</style>
 
 
 
