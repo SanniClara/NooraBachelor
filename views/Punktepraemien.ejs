@@ -60,6 +60,8 @@
      <br>
     Klicken Sie auf die Prämien, die Sie erhalten möchten und dann auf den "Einlösen"-Button </p>
 
+    <h3 id="GesamtpunktzahlAnzeige">Gesamtpunktzahl: 345</h3>
+
 <div id="ÜberschriftenPunkteverteilung">
 
       <h3 id="PunktePrämienVariable" class="PunkteUeberschriften" ></h3>
@@ -191,6 +193,11 @@ var Gesamtzahl = 345;
 var PrämienZahl = Gesamtzahl*0.6; 
 var GemeinnutzZahl = Gesamtzahl*0.4;
 
+document.getElementById("GesamtpunktzahlAnzeige").innerHTML = "Gesamtpunktzahl: " + " " + Gesamtzahl;
+document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+
+
 
 document.getElementById("G1").onclick = function() {PunkteabziehenGemeinnutzZahl()};
 document.getElementById("G2").onclick = function() {PunkteabziehenGemeinnutzZahl2()};
@@ -320,9 +327,6 @@ function PunkteabziehenGemeinnutzZahl8(){
 
     }
 }
-
-document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
-document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
 
 
 
