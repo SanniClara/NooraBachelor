@@ -263,7 +263,7 @@
   root.style.setProperty("--pseudo-animation-name", 'counter');
   var counter = 0;
    blinkingEyeCountdown = setInterval(function(){
-        if (counter === 36) {
+        if (counter === 31) {
           clearInterval(blinkingEyeCountdown);
           counter = 0;
           alert("Übung erfolreich abgeschlossen!")
@@ -276,12 +276,10 @@
           var data = {
             "points": 20
           };
-    
           xhr.send(data.points);
         }
         counter++
       }, 1000);
-
   }
 
 

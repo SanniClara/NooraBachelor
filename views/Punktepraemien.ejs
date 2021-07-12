@@ -6,6 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <script defer src="/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 
 </head>
     
@@ -60,7 +62,7 @@
      <br>
     Klicken Sie auf die Prämien, die Sie erhalten möchten und dann auf den "Einlösen"-Button </p>
 
-    <h3 id="GesamtpunktzahlAnzeige">Gesamtpunktzahl: 345</h3>
+    <h3 id="GesamtpunktzahlAnzeige"></h3>
 
 <div id="ÜberschriftenPunkteverteilung">
 
@@ -100,7 +102,7 @@
 
 
 
-<a style="width: 100%;" href="/points"><button id="BottonPraemienSeite"> Einlösen </button></a>
+<a style="width: 100%;" href="/points"><button id="BottonPraemienSeitePunktEinloesen"> Einlösen </button></a>
 
   
 
@@ -169,7 +171,7 @@
     width: 100%;
   }
 
-  #BottonPraemienSeite{
+  #BottonPraemienSeitePunktEinloesen{
       background: white;
       color: #306986;
       font-size: 18px;
@@ -188,6 +190,8 @@
 </style>
 
    <script>
+
+     var Punktestand = 0;
       $(document).ready(() => {
         var url = "/collectPoints";
         var xhr = new XMLHttpRequest();
@@ -196,18 +200,14 @@
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
-            var Punktestand = 100 + parseInt(xhr.response);
-            document.getElementById("GesamtpunktzahlAnzeige").innerHTML = Punktestand;
-          }
-        };
-        xhr.send();
-      });
- 
-//var Gesamtzahl = 345;
-var PrämienZahl = Gesamtzahl*0.6; 
-var GemeinnutzZahl = Gesamtzahl*0.4;
+          Punktestand = 0 + parseInt(xhr.response);
+          console.log(Punktestand)
+          document.getElementById("GesamtpunktzahlAnzeige").innerHTML = " Aktueller Gesamtpunktzahl: " + " " +  Punktestand;
+          
+          var Gesamtzahl = Punktestand;
+          var PrämienZahl = Gesamtzahl*0.6; 
+          var GemeinnutzZahl = Gesamtzahl*0.4;
 
-//document.getElementById("GesamtpunktzahlAnzeige").innerHTML = "Gesamtpunktzahl: " + " " + Gesamtzahl;
 document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
 document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
 
@@ -232,8 +232,8 @@ function PunkteabziehenGemeinnutzZahl(){
   document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
   
     if(GemeinnutzZahl <= 0){
-       alert("Punkte aufgebraucht");
-        GemeinnutzZahl = 0;
+       alert("Nicht genug Punkte");
+        GemeinnutzZahl = GemeinnutzZahl + 10;
         document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
     }
 
@@ -248,7 +248,7 @@ function PunkteabziehenGemeinnutzZahl2(){
   
     if(GemeinnutzZahl <= 0){
        alert("Punkte aufgebraucht");
-        GemeinnutzZahl = 0;
+        GemeinnutzZahl = GemeinnutzZahl + 10;
         document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
 
     }
@@ -262,7 +262,7 @@ function PunkteabziehenGemeinnutzZahl3(){
   
     if(GemeinnutzZahl <= 0){
        alert("Punkte aufgebraucht");
-        GemeinnutzZahl = 0;
+        GemeinnutzZahl = GemeinnutzZahl + 10;
         document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
 
     }
@@ -277,7 +277,7 @@ function PunkteabziehenGemeinnutzZahl4(){
   
     if(GemeinnutzZahl <= 0){
        alert("Punkte aufgebraucht");
-        GemeinnutzZahl = 0;
+        GemeinnutzZahl = GemeinnutzZahl + 10;
         document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
 
     }
@@ -292,7 +292,7 @@ function PunkteabziehenGemeinnutzZahl5(){
   
     if(GemeinnutzZahl <= 0){
        alert("Punkte aufgebraucht");
-        GemeinnutzZahl = 0;
+        GemeinnutzZahl = GemeinnutzZahl + 10;
         document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
 
     }
@@ -307,7 +307,7 @@ function PunkteabziehenGemeinnutzZahl6(){
   
     if(GemeinnutzZahl <= 0){
        alert("Punkte aufgebraucht");
-        GemeinnutzZahl = 0;
+        GemeinnutzZahl = GemeinnutzZahl + 10;
         document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
 
     }
@@ -322,7 +322,7 @@ function PunkteabziehenGemeinnutzZahl7(){
   
     if(GemeinnutzZahl <= 0){
        alert("Punkte aufgebraucht");
-        GemeinnutzZahl = 0;
+        GemeinnutzZahl = GemeinnutzZahl + 10;
         document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
 
     }
@@ -336,7 +336,7 @@ function PunkteabziehenGemeinnutzZahl8(){
   
     if(GemeinnutzZahl <= 0){
        alert("Punkte aufgebraucht");
-        GemeinnutzZahl = 0;
+        GemeinnutzZahl = GemeinnutzZahl + 10;
         document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
 
     }
@@ -363,9 +363,9 @@ function Punkteabziehen(){
   console.log(PrämienZahl);
   document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
   
-    if(GemeinnutzZahl <= 0){
+    if(PrämienZahl <= 0){
        alert("Punkte aufgebraucht");
-       PrämienZahl = 0;
+       PrämienZahl = PrämienZahl + 10;
         document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
     }
 
@@ -378,27 +378,27 @@ function Punkteabziehen2(){
   console.log(PrämienZahl);
   document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
   
-    if(GemeinnutzZahl <= 0){
+    if(PrämienZahl <= 0){
        alert("Punkte aufgebraucht");
-       PrämienZahl = 0;
+       PrämienZahl = PrämienZahl + 10;
         document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
 
     }
 
 }
+
 function Punkteabziehen3(){
   document.getElementById("P3").style.opacity = 1;
   PrämienZahl = PrämienZahl - 10;
   console.log(PrämienZahl);
   document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
   
-    if(GemeinnutzZahl <= 0){
+    if(PrämienZahl <= 0){
        alert("Punkte aufgebraucht");
-       PrämienZahl = 0;
+       PrämienZahl =  PrämienZahl + 10;
         document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
 
     }
-
 }
 
 function Punkteabziehen4(){
@@ -407,9 +407,9 @@ function Punkteabziehen4(){
   console.log(PrämienZahl);
   document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
   
-    if(GemeinnutzZahl <= 0){
+    if(PrämienZahl <= 0){
        alert("Punkte aufgebraucht");
-       PrämienZahl = 0;
+       PrämienZahl =  PrämienZahl + 10;
         document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
 
     }
@@ -422,9 +422,9 @@ function Punkteabziehen5(){
   console.log(PrämienZahl);
   document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
   
-    if(GemeinnutzZahl <= 0){
+    if(PrämienZahl <= 0){
        alert("Punkte aufgebraucht");
-       PrämienZahl = 0;
+       PrämienZahl =  PrämienZahl + 10;
         document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
 
     }
@@ -439,7 +439,7 @@ function Punkteabziehen6(){
   
     if(PrämienZahl <= 0){
        alert("Punkte aufgebraucht");
-       PrämienZahl = 0;
+       PrämienZahl =  PrämienZahl + 10;
         document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
 
     }
@@ -454,12 +454,13 @@ function Punkteabziehen7(){
   
     if(PrämienZahl <= 0){
        alert("Punkte aufgebraucht");
-       PrämienZahl = 0;
+       PrämienZahl =  PrämienZahl + 10;
         document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
 
     }
 
 }
+
 function Punkteabziehen8(){
   document.getElementById("P8").style.opacity = 1;
   PrämienZahl = PrämienZahl - 10;
@@ -468,12 +469,42 @@ function Punkteabziehen8(){
   
     if(PrämienZahl <= 0){
        alert("Punkte aufgebraucht");
-       PrämienZahl = 0;
+       PrämienZahl =  PrämienZahl + 10;
         document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
 
     }
 }
 
+var PunkteabziehenvomGesamtpunktestand = GemeinnutzZahl + PrämienZahl;
+
+          //Funktion zum Löschen der Punkte die eingelöst wurden 
+          document.getElementById("BottonPraemienSeitePunktEinloesen").onclick = function() {substractPointswhenCashed()};
+          function substractPointswhenCashed(){
+          var url2 = "/storePoints";
+              var xhr2 = new XMLHttpRequest();
+              xhr2.open("POST", url2);
+              xhr2.setRequestHeader("Accept", "application/json");
+              xhr2.setRequestHeader("Content-Type", "application/json"); 
+              // xhr.onreadystatechange = function () {
+              //   if (xhr.readyState === 4) {   
+              //     document.getElementById("storePointRequest").innerHTML = "res";
+              //   }
+              // };   
+              var data = {
+                "points": -PunkteabziehenvomGesamtpunktestand
+              };
+              
+              xhr2.send(data.points);
+
+            }
+
+          }
+          
+        };
+        xhr.send();
+      });
+
+    
 
 
 
