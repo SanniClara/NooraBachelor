@@ -117,6 +117,7 @@ $(document).ready(function () {
 
     });
   }
+  
   function showNotification() {
     const notification = new Notification("Sonne, Sonne, Sonne!", {
       body: "Es wird mal wieder Zeit nach draußen zu gehen! Also jetzt ernst :D.",
