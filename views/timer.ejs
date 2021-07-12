@@ -54,30 +54,15 @@
 
 
   <h1 class="LinkeUeberschriftSeitenbezeinchung"> Daily Timer ⏰ </h1> 
-  <p class="LinkeUeberschriftSeitenbezeinchung" >Wir erinnern Sie gerne an Übungen, wenn und wann Sie wollen. Dazu können Sie zwischen Zufalls- und Zeitplanmodus umschalten oder die Erinnerungen ganz ausschalten.  </p>
+  <p class="LinkeUeberschriftSeitenbezeinchung" >Wir erinnern Sie gerne an Übungen, wenn und wann Sie wollen. Dazu können Sie zwischen Zufalls- und Zeitplanmodus umschalten oder die Erinnerungen ganz ausschalten.</p>
 
-  <div class="clock">
-    <div class="hand hour" data-hour-hand></div>
-    <div class="hand minute" data-minute-hand></div>
-    <div class="hand second" data-second-hand></div>
-    <div class="number number1">1</div>
-    <div class="number number2">2</div>
-    <div class="number number3">3</div>
-    <div class="number number4">4</div>
-    <div class="number number5">5</div>
-    <div class="number number6">6</div>
-    <div class="number number7">7</div>
-    <div class="number number8">8</div>
-    <div class="number number9">9</div>
-    <div class="number number10">10</div>
-    <div class="number number11">11</div>
-    <div class="number number12">12</div>
-</div>
+  <div style="margin-top: 40px;">
+    <img style="width: 70px; margin-right: 200px;" src="img/sunlight.svg" alt="">
+    <img style="width: 70px; margin-right: 200px;"  src="img/Focus.svg" alt="">
+    <img style="width: 80px; margin-right: 200px;"  src="img/Eye.svg" alt="">
+    <img style="width: 70px; margin-right: 200px;"  src="img/calm.svg" alt="">
+  </div>
 
-<div id="StrategieBuilder">
-    <div class="InfoButtontimer"><h3 id="StrategieHinzufuegen">+</h3></div>
-    <div class="InfoButtontimer"><h3 id="StrategieHaken">✓</h3></div>
-</div>
 
 
             
@@ -85,35 +70,36 @@
           <!-- Script by hscripts.com -->
           <style type="text/css">
             .time { border-width: 0px; }
+            .time2 { border-width: 0px; }
             </style>
             <script type="text/javascript">
 
 
-console.log(Notification.permission);
+                console.log(Notification.permission);
 
-if(Notification.permission === "granted"){
+                if(Notification.permission === "granted"){
 
-} else if (Notification.permission !== "denied") {
-  Notification.requestPermission().then(permission => {
-      if(permission === "granted"){
-          console.log(permission);
-     
-  
+                } else if (Notification.permission !== "denied") {
+                  Notification.requestPermission().then(permission => {
+                      if(permission === "granted"){
+                          console.log(permission);
+                    
+                  
 
-      }
+                      }
 
 
-  
-});
-}
+                  
+                });
+                }
 
-function showNotification() {
-const notification = new Notification("Hall das ist eine Nachricht", {
+            function showNotification() {
+            const notification = new Notification("Hallo, das ist eine Nachricht von Noora", {
 
-      body: "Hey, mate how are you? ",
-      icon: "img/Noora_square.png"
-} );
-}
+                  body: "Hey, mate how are you? ",
+                  icon: "img/Noora_square.png"
+            } );
+            }
 
             var set=0;
             ver=parseInt(navigator.appVersion);
@@ -147,8 +133,7 @@ const notification = new Notification("Hall das ist eine Nachricht", {
             var sec=dat.getSeconds();
             if(hr<10)hr='0'+hr;
             if(min<10)min='0'+min;
-            if(sec<10)
-            sec='0'+sec;
+            if(sec<10)sec='0'+sec;
             document.getElementById('hour').value=hr;
             document.getElementById('min').value=min;
             document.getElementById('sec').value=sec;
@@ -163,15 +148,104 @@ const notification = new Notification("Hall das ist eine Nachricht", {
             }
             function prtsel(x)
             {
-            for(var i=0;i<x;i++)document.write("<option value="+i+">"+i+"</option>");
-            }
-            </script>
-            <!-- Script by hscripts.com -->
+            for(var i=0;i<x;i++)document.appendChild("<option value="+i+">"+i+"</option>");
+            } 
 
-            <table  width=100%>
+            
+
+
+  
+                console.log(Notification.permission);
+
+                if(Notification.permission === "granted"){
+
+                } else if (Notification.permission !== "denied") {
+                  Notification.requestPermission().then(permission => {
+                      if(permission === "granted"){
+                          console.log(permission);
+                    
+                  
+
+                      }
+
+
+                  
+                });
+                }
+
+            function showNotification2() {
+            const notification = new Notification("Hallo, das ist eine Nachricht von Noora", {
+
+                  body: "Hey, mate how are you? ",
+                  icon: "img/Noora_square.png"
+            } );
+            }
+
+            var set2=0;
+            ver=parseInt(navigator.appVersion);
+            ie42=(ver>3 && navigator.appName!="Netscape")?1:0;
+            function play2()
+            {
+            if (ie42)
+            document.all['BGSOUND_ID'].src='sound1.wav';
+            }
+            function setv2()
+            {
+            var hr22
+            = document.getElementById('hour22').value;
+            var min22
+            = document.getElementById('min22').value;
+            var sec22
+            = document.getElementById('sec22').value;
+            if(hr22<10)
+            hr22='0'+ hr22;
+            if(min22<10)min22='0'+min22;
+            if(sec22<10)sec22='0'+sec22;
+            document.getElementById('d22').value =hr22+'*'+min22+'*'+sec22;
+            set2=1;
+            document.getElementById('msg2').innerHTML='Alarm is ON';
+            }
+            function dis2(){
+                var dat2= new Date();
+                var hr2=dat2.getHours();
+                console.log(hr2)
+                var min2=dat2.getMinutes();
+                var sec2=dat2.getSeconds();
+                if(hr2<10)hr2='0'+hr2;
+                if(min2<10)min2='0'+min2;
+                if(sec2<10)sec2='0'+sec2;
+                document.getElementById('hour2').value=hr2;
+                document.getElementById('min2').value=min2;
+                document.getElementById('sec2').value=sec2;
+                var dat2v2=document.getElementById('d22').value;
+                var dats2 =hr2+'*'+min2+'*'+sec2;
+                if(dat2v2==dats2 && set2)
+                {play2(); showNotification2();
+                set2=0;
+                document.getElementById('msg2').innerHTML='Alarm is OFF';
+            }
+            setTimeout("dis2()",500);
+            }
+            function prtsel2(x)
+            {
+            for(var i=0;i<x;i++)document.appendChild("<option value="+i+">"+i+"</option>");
+            }            
+
+            </script>
+
+
+
+<body>
+  
+
+
+  
+
+
+
+            <table style="float: left; margin-right: 100px;"  width="150px">
               <tr><td>
               <body onload=dis()>
-              <BGSOUND id="BGSOUND_ID" LOOP=1 SRC="phone-off-hook-1.wav">
               <input type=hidden id=d2 name=d2>
               <input type=text id=hour name=hour size=1 class=time> :
               <input type=text id=min name=min size=1 class=time> :
@@ -188,7 +262,33 @@ const notification = new Notification("Hall das ist eine Nachricht", {
               </select>
               <div id=msg>Alarm is OFF</div>
               </body>
-              </td></tr></table>
+              </td></tr></table> 
+            
+
+    <table style="float: left; margin-right: 160px;"  width=100%>
+    <tr><td>
+    <body onload=dis2()>
+    <input type=hidden id=d22 name=d22>
+    <input type=text id=hour2 name=hour2 size=1 class=time2> :
+    <input type=text id=min2 name=min2 size=1 class=time2> :
+    <input type=text id=sec2 name=sec2 size=1 class=time2>
+    <br/>
+    <select id=hour22 name=hour22 onChange="setv2()">
+    <script type='text/javascript'>prtsel2(25);</script>
+    </select>
+    <select id=min22 name=min22 onChange="setv2()">
+    <script type='text/javascript'>prtsel2(61);</script>
+    </select>
+    <select id=sec22 name=sec22 onChange="setv2()">
+    <script type='text/javascript'>prtsel2(61);</script>
+    </select>
+    <div id=msg2>Alarm is OFF</div>
+    </body>
+    </td></tr></table>
+
+  
+
+          
             
      
    

@@ -198,7 +198,6 @@ var dps = [0,0,0,0];
 
     for(i=0; i <= neuerArray.length; i++){
 
-
       if(neuerArray[i] > 10000){
         console.log("das ist viel Lciht!")
         Nachricht = true; 
