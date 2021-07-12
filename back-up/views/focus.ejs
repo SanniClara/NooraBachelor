@@ -6,8 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <script defer src="/script.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="javascript/pushNotification.js"></script>
 
 </head>
 <body>
@@ -95,62 +93,50 @@
       
         <div id="elementKreisSOB"></div>
   
-        <!-- <div id="storePointRequest" style="visibility: hidden"></div> -->
-      <div name="username" id="details" style="visibility: hidden"></div>
-
-      <div
-        id="chartContainer"
-        style="height: 300px; width: 80%; visibility: hidden"
-      ></div>
-      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
         
   </div>
 
   <script>
 
-    var newYearCountdown;
-    var counter;
-    function reset_animation() {
-      var el = document.getElementById('elementKreisSOB');
-      el.style.animation = 'none';
-      el.offsetHeight; /* trigger reflow */
-      el.style.animation = null; 
-      document.getElementById("counterSOB").innerHTML = 0;
-        clearInterval(newYearCountdown);
-      }
-      // Funtktion auf der Fokus Seite 
-      function superOxiginatingBreathingAnimation() {
-      var x = document.getElementById('elementKreisSOB').style.animationName = "stretch";
-      var counter = 0;
-      newYearCountdown = setInterval(function(){
-        console.log(counter);
-        document.getElementById("counterSOB").innerHTML = counter;
-        if (counter === 5) {
-          counter++
-          clearInterval(newYearCountdown);
-          document.getElementById("counterSOB").innerHTML = 0;
-          counter = 0;
-          alert("Übung erfolreich abgeschlossen!")
-          /// Store 10 Points on Completing Exercise
-          // document.getElementById("storePointRequest").innerHTML = "req";
-          var url = "/storePoints";
-          var xhr = new XMLHttpRequest();
-          xhr.open("POST", url);
-          xhr.setRequestHeader("Accept", "application/json");
-          xhr.setRequestHeader("Content-Type", "application/json"); 
-          // xhr.onreadystatechange = function () {
-          //   if (xhr.readyState === 4) {   
-          //     document.getElementById("storePointRequest").innerHTML = "res";
-          //   }
-          // };   
-          var data = {
-            "points": 20
-          };
-    
-          xhr.send(data.points);
-        }
-        counter++
-      }, 3000);
-    }
+var newYearCountdown;
+            var counter;
+
+            function reset_animation() {
+                var el = document.getElementById('elementKreisSOB');
+                el.style.animation = 'none';
+                el.offsetHeight; /* trigger reflow */
+                el.style.animation = null; 
+                document.getElementById("counterSOB").innerHTML = 0;
+                clearInterval(newYearCountdown);
+            }
+
+  
+            // Funtktion auf der Fokus Seite 
+            function superOxiginatingBreathingAnimation() {
+            var x = document.getElementById('elementKreisSOB').style.animationName = "stretch";
+
+
+              var counter = 0;
+              newYearCountdown = setInterval(function(){
+                console.log(counter);
+                document.getElementById("counterSOB").innerHTML = counter;
+
+                if (counter === 91) {
+                  counter++
+                  clearInterval(newYearCountdown);
+                  document.getElementById("counterSOB").innerHTML = 0;
+                  counter = 0;
+                  alert("Übung erfolreich abgeschlossen!")
+
+                }
+                counter++
+
+
+              }, 3000);
+
+  
+              }
+
+
   </script>

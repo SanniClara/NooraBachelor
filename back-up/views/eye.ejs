@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="javascript/pushNotification.js"></script>
 
 </head>
 <body>
@@ -245,7 +243,7 @@
                   counter-increment: count 29;
                 }
                 99% {
-                  counter-increment: count 30;                
+                  counter-increment: count 30;
                 }
            
           }
@@ -261,26 +259,6 @@
 
   const root = document.querySelector(":root"); //grabbing the root element
   root.style.setProperty("--pseudo-animation-name", 'counter');
-  var counter = 0;
-   blinkingEyeCountdown = setInterval(function(){
-        if (counter === 36) {
-          clearInterval(blinkingEyeCountdown);
-          counter = 0;
-          alert("Übung erfolreich abgeschlossen!")
-          /// Store 10 Points on Completing Exercise
-          var url = "/storePoints";
-          var xhr = new XMLHttpRequest();
-          xhr.open("POST", url);
-          xhr.setRequestHeader("Accept", "application/json");
-          xhr.setRequestHeader("Content-Type", "application/json");            
-          var data = {
-            "points": 20
-          };
-    
-          xhr.send(data.points);
-        }
-        counter++
-      }, 1000);
 
   }
 
@@ -348,16 +326,9 @@
         <path d="M0,15.089434 C0,16.3335929 5.13666091,24.1788679 14.9348958,24.1788679 C24.7325019,24.1788679 29.8697917,16.3335929 29.8697917,15.089434 C29.8697917,13.8456167 24.7325019,6 14.9348958,6 C5.13666091,6 0,13.8456167 0,15.089434 Z M14.9348958,22.081464 C11.2690863,22.081464 8.29688487,18.9510766 8.29688487,15.089434 C8.29688487,11.2277914 11.2690863,8.09740397 14.9348958,8.09740397 C18.6007053,8.09740397 21.5725924,11.2277914 21.5725924,15.089434 C21.5725924,18.9510766 18.6007053,22.081464 14.9348958,22.081464 L14.9348958,22.081464 Z M18.2535869,15.089434 C18.2535869,17.0200844 16.7673289,18.5857907 14.9348958,18.5857907 C13.1018339,18.5857907 11.6162048,17.0200844 11.6162048,15.089434 C11.6162048,13.1587835 13.1018339,11.593419 14.9348958,11.593419 C15.9253152,11.593419 14.3271242,14.3639878 14.9348958,15.089434 C15.451486,15.7055336 18.2535869,14.2027016 18.2535869,15.089434 L18.2535869,15.089434 Z" fill="#306A86"></path>
         <use xlink:href="#outline" mask="url(#mask)" fill="#306A86"/>
       </g>
+      
+
     </div>
-    <div id="storePointRequest" style="visibility: hidden"></div>
-     <div name="username" id="details" style="visibility: hidden"></div>
-
-      <div
-        id="chartContainer"
-        style="height: 300px; width: 80%; visibility: hidden"
-      ></div>
-      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
   </body>
 
 

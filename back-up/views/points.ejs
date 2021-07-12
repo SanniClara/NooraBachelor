@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ 
+
+  <div id="PurpleTopLine">
+    <a href="/"><img id="Logo" src="img/Noora.PNG" alt="haloo"></a>
+     <form action="/logout?_method=DELETE" method="POST">
+      <button style="margin-top: -20px;" type="submit">Log Out</button>
+    </form>
+  </div>
+
+  <div id="MenuLeft">  
+
+      <div class="LinkBox" >
+        <a href="/luxValue"><img class="MenuIcons" src="img/sunlight.svg"></a>
+      </div> 
+
+      <div class="LinkBox" >
+        <a href="/focus"><img class="MenuIcons" src="img/Focus.svg" alt=""></a> 
+      </div> 
+
+      <div class="LinkBox" >
+        <a href="/BlinkingContest"><img class="MenuIcons" src="img/Eye.svg" ></a>  
+      </div> 
+
+      <div class="LinkBox" >
+        <a href="/calmDown"><img class="MenuIcons" src="img/calm.svg" alt=""></a> 
+      </div> 
+
+      <div class="LinkBox" >
+        <a href="/timer"><img class="MenuIcons" src="img/timer.svg" alt=""></a>
+        </div> 
+
+      <div class="LinkBox" >
+        <a href="/points"><img class="MenuIcons" src="img/points.svg" alt=""></a> 
+      </div> 
+
+      <div class="LinkBox" >
+        <a href="/settings"><img class="MenuIcons" src="img/settings.svg" alt=""></a>  
+      </div> 
+
+
+  </div>
+
+  <h1  class="LinkeUeberschriftSeitenbezeinchung">Dein Puntekonto</h1> 
+  <a  href="/Punktepraemien"><button id="BottonInteraktiveGrafikSeite"> Punkte einlösen </button></a>
+
+
+  <div></div>
+  <div id="Punktestand"></div>
+
+  <h1 class="LinkeUeberschriftSeitenbezeinchung">Deine Badges</h1> 
+
+  <div id="aussenCotainerBadges" >
+    <div>
+      <img id="Goodstart" class="BadegesStylingPointsSEite" src="img/Badges/Goodstart.png" alt="Das ist ein Badge, für die Kategorie Adrenalin">
+    </div>
+
+    <div>
+      <img class="BadegesStylingPointsSEite" src="img/Badges/CarpeDiem.png" alt="Das ist ein Badge, für die Kategorie Adrenalin">
+    </div>
+
+    <div>
+      <img class="BadegesStylingPointsSEite" src="img/Badges/Adrenalin.png" alt="Das ist ein Badge, für die Kategorie Adrenalin">
+    </div>
+
+    <div>
+      <img class="BadegesStylingPointsSEite" src="img/Badges/NerdMode.png" alt="Das ist ein Badge, für die Kategorie Adrenalin">
+    </div>
+
+    <div>
+      <img class="BadegesStylingPointsSEite" src="img/Badges/BeTheBestYouCan.png" alt="Das ist ein Badge, für die Kategorie Adrenalin">
+    </div>
+
+    <div>
+      <img class="BadegesStylingPointsSEite" src="img/Badges/EArlyBird.png" alt="Das ist ein Badge, für die Kategorie Adrenalin">
+    </div>
+
+    <div>
+      <img class="BadegesStylingPointsSEite" src="img/Badges/RountineisEverything.png" alt="Das ist ein Badge, für die Kategorie Adrenalin">
+    </div>
+  </div>
+
+  <script>
+
+    var Punktestand = 345;
+    document.getElementById("Punktestand").innerHTML = Punktestand;
+    
+    
+  </script>
+
+
+</body>
+
+
