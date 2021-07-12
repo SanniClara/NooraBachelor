@@ -187,13 +187,27 @@
   
 </style>
 
-
-<script>
-var Gesamtzahl = 345;
+   <script>
+      $(document).ready(() => {
+        var url = "/collectPoints";
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var Punktestand = 100 + parseInt(xhr.response);
+            document.getElementById("GesamtpunktzahlAnzeige").innerHTML = Punktestand;
+          }
+        };
+        xhr.send();
+      });
+ 
+//var Gesamtzahl = 345;
 var PrämienZahl = Gesamtzahl*0.6; 
 var GemeinnutzZahl = Gesamtzahl*0.4;
 
-document.getElementById("GesamtpunktzahlAnzeige").innerHTML = "Gesamtpunktzahl: " + " " + Gesamtzahl;
+//document.getElementById("GesamtpunktzahlAnzeige").innerHTML = "Gesamtpunktzahl: " + " " + Gesamtzahl;
 document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
 document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
 
