@@ -156,6 +156,7 @@ function checkNotAuthenticated(req, res, next) {
 }
 
 var dps = 0;
+var pushNotificationCounter = 0;
 // dataPoints
 
 //app.use(bodyParser.json());
@@ -171,7 +172,7 @@ var Nachricht = false;
 app.post('/LichtValueEndpoint', (req, res) => {
 
   neuerArray.push(req.body);
-
+  var responseValue = "";
   //console.log(req.body)
 
 
@@ -205,8 +206,18 @@ app.post('/LichtValueEndpoint', (req, res) => {
     }
   }
 
+  if (req.body > 10000) {
+    pushNotificationCounter++;
+  } else {
+    pushNotificationCounter = 0;
+  }
+  if (pushNotificationCounter === 60) {
+    pushNotificationCounter = 0;
+    dps += 10;
+    responseValue = "Ok";
+  }
 
-  res.end()
+  res.send(responseValue);
 
 });
 

@@ -10,17 +10,6 @@ $(document).ready(function () {
       sensor.onreading = () => {
         details.innerHTML = sensor.illuminance;
         ValueLicht = sensor.illuminance;
-        debugger
-        if (ValueLicht > 10000) {
-          pushNotificationCounter++;
-        } else {
-          pushNotificationCounter = 0;
-        }
-        //console.log(ValueLicht);
-        if (pushNotificationCounter === 10) {
-          pushNotificationCounter = 0;
-          alert("Du hast den WErt auf über 10000 gebracht. Sas gibt + 10 Punkte! Schau mal bei deinem Punktekonto vorbei");
-        }
 
         // Read the light levels in lux 
         // < 50 is dark room
@@ -88,9 +77,8 @@ $(document).ready(function () {
       xhr.setRequestHeader("Accept", "application/json");
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-          //console.log(xhr.status);
-          //console.log(xhr.responseText);
+        if (xhr.readyState === 4 && xhr.responseText === "Ok") {
+          alert("Du hast den WErt auf über 10000 gebracht. Sas gibt + 10 Punkte! Schau mal bei deinem Punktekonto vorbei");
         }
       };
       var data = {
@@ -98,6 +86,7 @@ $(document).ready(function () {
       };
       //console.log(data.id);
       //console.log(dps);
+
       //console.log(typeof data.id)
       xhr.send(data.id);
     };
