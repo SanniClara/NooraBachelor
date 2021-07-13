@@ -178,7 +178,7 @@ app.post('/LichtValueEndpoint', (req, res) => {
 
   function wiederholung() {
     //console.log(req.body)
-    fs.appendFileSync("file.txt", req.body + "," + "\n", "UTF-8", { 'flags': 'w+' });
+    //fs.appendFileSync("file.txt", req.body + "," + "\n", "UTF-8", { 'flags': 'w+' });
 
 
     /* var lineReader = require('readline').createInterface({
