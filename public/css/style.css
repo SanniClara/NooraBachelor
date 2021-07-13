@@ -82,7 +82,7 @@ p {
 }
 
 .LinkBox {
-    height: 110px;
+    height: 100px;
     width: 100%;
     display: block;
     margin-left: auto;
@@ -90,7 +90,7 @@ p {
 }
 
 .LinkBox:hover {
-    height: 110px;
+    height: 100px;
     width: 100%;
     display: block;
     margin-left: auto;
@@ -98,7 +98,32 @@ p {
     background-color: #3E3E6A;
 }
 
+.LinkBoxÜbungen:hover {
+  height: 100px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #3E3E6A;
+}
 
+.LinkBoxÜbungen {
+  height: 100px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #AE4D71;
+}
+
+.LinkBoxÜbungen:hover .MenuIcons {
+  width: 66px;
+  height: 66px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 /* LUX Value Seite */
