@@ -6,6 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <script defer src="/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 
 </head>
     
@@ -21,6 +23,7 @@
   </div>
 
   <div id="MenuLeft">  
+    <p style="text-align: center; color: white; background-color: #AE4D71;" >Übungen</p>
 
       <div class="LinkBox" >
         <a href="/luxValue"><img class="MenuIcons" src="img/sunlight.svg"></a>
@@ -37,6 +40,8 @@
       <div class="LinkBox" >
         <a href="/calmDown"><img class="MenuIcons" src="img/calm.svg" alt=""></a> 
       </div> 
+      <p style="text-align: center;color: white; background-color: #AE4D71; " > Menü </p>
+
 
       <div class="LinkBox" >
         <a href="/timer"><img class="MenuIcons" src="img/timer.svg" alt=""></a>
@@ -49,236 +54,464 @@
       <div class="LinkBox" >
         <a href="/settings"><img class="MenuIcons" src="img/settings.svg" alt=""></a>  
       </div> 
-
   </div>
 
 
   
   <h1 class="LinkeUeberschriftSeitenbezeinchung">Punkte & Prämien</h1> 
-  <p class="LinkeUeberschriftSeitenbezeinchung">Text</p>
+  <p class="LinkeUeberschriftSeitenbezeinchung">Hier können Sie ihre Punkte für die Pämien und Spenden, die ihenn gefallen einlösen. <br>
+     Wenn Sie für die beidne Kategorien einen Vorschlag haben, könnnen sie <a href="/antrag">hier</a> ihre Vorschläge abgeben. Ihre Punkte werden nach einem 60/40 Verhältnis aufgeteilt. <br>
+    Die beiden Kategorien sind: Kategorien "Prämie" & "Gemeinnutz" einlösen. <br>
+     <br>
+    Klicken Sie auf die Prämien, die Sie erhalten möchten und dann auf den "Einlösen"-Button </p>
 
+    <h3 id="GesamtpunktzahlAnzeige"></h3>
 
+<div id="ÜberschriftenPunkteverteilung">
 
-    <a href="/points"><button id="BottonInteraktiveGrafikSeite"  > Weiter </button></a>
+      <h3 id="PunktePrämienVariable" class="PunkteUeberschriften" ></h3>
 
-      
-  
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script>
-
-  $(document).ready(function() {
-    slider = new Slider();
-  });
-  
-  var Slider = (function() {
-  
-    var Slider = function() {
-      
-      this.initialise();
-    }
-  
-    Slider.prototype = {
-  
-      initialise: function() {
-        this.vars();
-        this.setup();
-        this.slideEvent();
-      },
-  
-      vars: function() {
-        // vars
-        _this = this;
-        this.container = $('.sliders');
-        this.slider = $('.slider');
-        this.slide = $('.slide');
-        this.controls = $('.control');
-        this.totalPercentage = 100;
-      },
-  
-      setup: function() {
-        // set equal width depending on how many sliders there are when initalised 
-        var counter = 0;
-        this.slide.each(function() {
-          counter++;
-        });
-  
-        var initWidth = this.totalPercentage / counter;
-  
-       this.slide.width(initWidth + '%');
-       this.slide.attr('data-percent', initWidth + '%');
-      },
-  
-      getPercentWidth: function(target) {
-        // get percentage of current width
-        target.attr('data-percent', (100 * parseFloat(target.css('width')) / parseFloat(target.parent().css('width'))));
-      },
-  
-      slideEvent: function() {
-        // listen for mouse down on the controls
-        this.controls.on('mousedown', function(event) {
-          this.slideDrag(event);
-        }.bind(this));
-      },
-  
-      slideDrag: function(event) {
-        event.preventDefault();
-  
-        this.target = $(event.target);
-        this.prevMousePos = 0;
-  
-        this.target.parent().addClass('active');
-        // listen mousemove and mouseup events on the document: only if the mousedown happend on one of the controls 
-        $(document).on('mousemove', this.slideMove);
-        $(document).on('mouseup', this.slideEnd);
-      },
-  
-      slideMove: function() {
-        _this.mousePos = event.pageX; 
-        _this.amount = [];
-        
-        // get info on widths, offsets and positions
-        var offset = _this.slider.offset().left;
-        var sliderWidth = _this.slider.width();
-        var posX = Math.min(Math.max(0, _this.mousePos - offset), sliderWidth);   
-     
-        // checks direction
-        if (_this.mousePos < _this.prevMousePos)  {
-          _this.direction = 'left';
-        } else {
-          _this.direction = 'right';
-        }
-        
-        //console.log(_this.direction);
-         
-        // update mouse position
-        _this.prevMousePos = _this.mousePos;
-        
-        // set new width of the active slider
-        _this.target.parent().width(posX / sliderWidth * 100 + '%');
-        _this.calcPercent();
-      },
-  
-      calcPercent: function() {
-        var totalWidth = 0;
-        var sliderLength = 0;
-        var leftoverAmount = 0;
-        
-        // loop through each slide
-        _this.slide.each(function() {
-          
-          sliderLength++;
-          _this.getPercentWidth($(this));
-          
-          if ($(this).hasClass('active')) {
-            // set active percentage
-            _this.active = parseFloat($(this).attr('data-percent'));
-  
-          } else {
-           
-            // add non active widths into an array
-           
-            _this.amount.push(parseFloat($(this).attr('data-percent')));
-          }
-  
-          //totalWidth += parseFloat($(this).attr('data-percent'));
-  
-        });
-    
-        // find out the leftover amount
-        leftoverAmount = _this.totalPercentage - _this.active;
-        _this.nonActiveAmount = 0;
-        $.each(_this.amount, function() {
-            
-         _this.nonActiveAmount += parseFloat(this) ;
-        });
-        
-        var x = leftoverAmount / 100;
-        var y = _this.nonActiveAmount / 100;
-        var z = _this.active;
-       
-        _this.slide.each(function() {
-   
-          if (!$(this).hasClass('active') || !$(this).hasClass('locked')) {
-             console.log($(this));
-            var v = x * (parseFloat($(this).attr('data-percent')) / y);
-            $(this).width(v + '%');
-            
-          }
-        });
-  
-      },
-  
-      slideEnd: function() {
-        // kill the events on mouse up.
-        _this.target.parent().removeClass('active');
-        $(this).off('mousemove', slider.slideMove);
-        $(this).off('mouseup', slider.slideEnd);
-      },
-    }
-  
-    return Slider;
-  
-  }());
-  </script>
-
-<div class="sliders">
-  <h2>Spenden: </h2>
-  <div class="slider one">
-    <div class="slide">
-      <div class="control"></div>
-    </div>
-  </div>
-  <h2>Prämien: </h2>
-  <div class="slider two">
-    <div class="slide">
-       <div class="control"></div>
-    </div>
-  </div>
-
-  
+      <h3 id="PunkteGemeinutzVariable" class="PunkteUeberschriften" ></h3>
 
 </div>
 
-<style>
-div.sliders {
-position: absolute;
-width: 50%;
-padding: 20px;
-}
 
-div.slider {
-display: block;
-width: 50%;
-margin: 20px auto;
-background-color: #07553E;
-height: 50px;
-}
+<div id="Rand">
 
-div.slide {
-width: 33%;
-height: 100%;
-background: #1663AC;
-position: relative;
-}
+    <div id="UmschlagUmAuswahlKategorie1">
+        <div id="P1" class="AuswahlDiv1"> Jochen Schweizer<img width="100" src="/img/Prämienbilder/jochenSchweizer.jfif" alt=""></div>
+        <div id="P2" class="AuswahlDiv1">Amazon <img width="100" src="/img/Prämienbilder/amazon-gutscheincode_logo.png" alt=""></div>
+        <div id="P3" class="AuswahlDiv1">Avocado Store <img width="100" src="/img/Prämienbilder/avocadostore-logonew.jpg" alt=""></div>
+        <div id="P4" class="AuswahlDiv1"> LunaLama <img width="100" src="/img/Prämienbilder/Download.jfif" alt=""></div>
+        <div id="P5" class="AuswahlDiv1"> Goose and Creek <img width="100" src="/img/Prämienbilder/goose_and_greek.jpg" alt=""></div>
+        <div id="P6" class="AuswahlDiv1"> Alnatura <img width="100" src="/img/Prämienbilder/Download.png" alt=""></div>
+        <div id="P7" class="AuswahlDiv1">Edeka <img width="100" src="/img/Prämienbilder/Edeka.jpg" alt=""></div>
+        <div id="P8" class="AuswahlDiv1">Patagonia <img width="100" src="/img/Prämienbilder/Patagonia.jpg" alt=""></div>
+    </div>
 
-div.control {
-width: 15px;
-height: 15px;
-border-radius: 50%;
-padding: 40px;
-background: #7C71A1;
-position: absolute;
-right: -7px;
-margin-top: -7px;
-cursor: pointer;
-}
-</style>
+    <div id="UmschlagUmAuswahlKategorie2" >
+        <div id="G1" class="AuswahlDiv2"> Ärzte ohne Grenzen <img width="100" src="/img/Prämienbilder/AOG.png" alt=""></div>
+        <div id="G2" class="AuswahlDiv2">Welt Hunger Hilfe <img width="100" src="/img/Prämienbilder/Hunger.png" alt=""></div>
+        <div id="G3" class="AuswahlDiv2">Seashepards <img width="100" src="/img/Prämienbilder/seashepards.jpg" alt=""> </div>
+        <div id="G4" class="AuswahlDiv2">SOS Kinfderdorf  <img width="100" src="/img/Prämienbilder/SOSKinder.png" alt=""></div>
+        <div id="G5" class="AuswahlDiv2">UNESCO <img width="100" src="/img/Prämienbilder/UNESCO.png" alt=""> </div>
+        <div id="G6" class="AuswahlDiv2"> World Animal Protection <img width="100" src="/img/Prämienbilder/WAP.png" alt=""> </div>
+        <div id="G7" class="AuswahlDiv2"> Wildlife Conservation Society <img width="100" src="/img/Prämienbilder/WCS.png" alt=""> </div>
+        <div id="G8" class="AuswahlDiv2">WWF <img width="100" src="/img/Prämienbilder/wwf.jpg" alt="">  </div>
+    </div>
 
+</div>
+
+
+
+
+<a style="width: 100%;" href="/points"><button id="BottonPraemienSeitePunktEinloesen"> Einlösen </button></a>
+
+  
 
 </body>
 
+<style>
+  #ÜberschriftenPunkteverteilung{
+    width: 100%;
 
+  }
+
+  .PunkteUeberschriften{
+    width: 47%;
+    float: left;
+    margin-top:20px;
+  }
+
+  .AuswahlDiv1{
+    background-color: #306986;
+    width: 80px;
+    height: 80px;
+    margin: 40px;
+    float: left;
+    opacity: 0.6;
+    color: white;
+
+  }
+
+  .AuswahlDiv1:hover{
+    opacity: 1;
+    cursor: pointer;
+  }
+
+
+  .AuswahlDiv2{
+    background-color: #AE4D71;
+    width: 80px;
+    height: 80px;
+    margin: 40px;
+    float: left;
+    opacity: 0.2;
+    color: white;
+  }
+
+  .AuswahlDiv2:hover{
+    opacity: 1;
+    cursor: pointer;
+
+  }
+
+  #UmschlagUmAuswahlKategorie1{
+    width: 45%;
+    float: left;
+    margin-top:20px;
+
+  }
+
+  #UmschlagUmAuswahlKategorie2{
+    width: 48%;
+    float: left;
+    margin-top:20px;
+
+  }
+
+  #Rand{
+    width: 100%;
+  }
+
+  #BottonPraemienSeitePunktEinloesen{
+      background: white;
+      color: #306986;
+      font-size: 18px;
+      border-radius: 0;
+      border-color: #306986;
+      box-shadow: 0px 0px white;
+      padding: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border: 2px solid;
+      cursor: pointer;
+      margin-top: 80px;
+    }
+
+  
+</style>
+
+   <script>
+
+     var Punktestand = 0;
+      $(document).ready(() => {
+        var url = "/collectPoints";
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+          Punktestand = 0 + parseInt(xhr.response);
+          console.log(Punktestand)
+          document.getElementById("GesamtpunktzahlAnzeige").innerHTML = " Aktueller Gesamtpunktzahl: " + " " +  Punktestand;
+          
+          var Gesamtzahl = Punktestand;
+          var PrämienZahl = Gesamtzahl*0.6; 
+          var GemeinnutzZahl = Gesamtzahl*0.4;
+
+document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+
+
+
+document.getElementById("G1").onclick = function() {PunkteabziehenGemeinnutzZahl()};
+document.getElementById("G2").onclick = function() {PunkteabziehenGemeinnutzZahl2()};
+document.getElementById("G3").onclick = function() {PunkteabziehenGemeinnutzZahl3()};
+document.getElementById("G4").onclick = function() {PunkteabziehenGemeinnutzZahl4()};
+document.getElementById("G5").onclick = function() {PunkteabziehenGemeinnutzZahl5()};
+document.getElementById("G6").onclick = function() {PunkteabziehenGemeinnutzZahl6()};
+document.getElementById("G7").onclick = function() {PunkteabziehenGemeinnutzZahl7()};
+document.getElementById("G8").onclick = function() {PunkteabziehenGemeinnutzZahl8()};
+
+
+
+
+function PunkteabziehenGemeinnutzZahl(){
+  document.getElementById("G1").style.opacity = 1;
+  GemeinnutzZahl = GemeinnutzZahl - 10;
+  console.log(GemeinnutzZahl);
+  document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+  
+    if(GemeinnutzZahl <= 0){
+       alert("Nicht genug Punkte");
+        GemeinnutzZahl = GemeinnutzZahl + 10;
+        document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+    }
+
+ 
+}
+
+function PunkteabziehenGemeinnutzZahl2(){
+  document.getElementById("G2").style.opacity = 1;
+  GemeinnutzZahl = GemeinnutzZahl - 10;
+  console.log(GemeinnutzZahl);
+  document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+  
+    if(GemeinnutzZahl <= 0){
+       alert("Punkte aufgebraucht");
+        GemeinnutzZahl = GemeinnutzZahl + 10;
+        document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+
+    }
+
+}
+function PunkteabziehenGemeinnutzZahl3(){
+  document.getElementById("G3").style.opacity = 1;
+  GemeinnutzZahl = GemeinnutzZahl - 10;
+  console.log(GemeinnutzZahl);
+  document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+  
+    if(GemeinnutzZahl <= 0){
+       alert("Punkte aufgebraucht");
+        GemeinnutzZahl = GemeinnutzZahl + 10;
+        document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+
+    }
+
+}
+
+function PunkteabziehenGemeinnutzZahl4(){
+  document.getElementById("G4").style.opacity = 1;
+  GemeinnutzZahl = GemeinnutzZahl - 10;
+  console.log(GemeinnutzZahl);
+  document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+  
+    if(GemeinnutzZahl <= 0){
+       alert("Punkte aufgebraucht");
+        GemeinnutzZahl = GemeinnutzZahl + 10;
+        document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+
+    }
+
+}
+
+function PunkteabziehenGemeinnutzZahl5(){
+  document.getElementById("G5").style.opacity = 1;
+  GemeinnutzZahl = GemeinnutzZahl - 10;
+  console.log(GemeinnutzZahl);
+  document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+  
+    if(GemeinnutzZahl <= 0){
+       alert("Punkte aufgebraucht");
+        GemeinnutzZahl = GemeinnutzZahl + 10;
+        document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+
+    }
+
+}
+
+function PunkteabziehenGemeinnutzZahl6(){
+  document.getElementById("G6").style.opacity = 1;
+  GemeinnutzZahl = GemeinnutzZahl - 10;
+  console.log(GemeinnutzZahl);
+  document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+  
+    if(GemeinnutzZahl <= 0){
+       alert("Punkte aufgebraucht");
+        GemeinnutzZahl = GemeinnutzZahl + 10;
+        document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+
+    }
+
+}
+
+function PunkteabziehenGemeinnutzZahl7(){
+  document.getElementById("G7").style.opacity = 1;
+  GemeinnutzZahl = GemeinnutzZahl - 10;
+  console.log(GemeinnutzZahl);
+  document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+  
+    if(GemeinnutzZahl <= 0){
+       alert("Punkte aufgebraucht");
+        GemeinnutzZahl = GemeinnutzZahl + 10;
+        document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+
+    }
+
+}
+function PunkteabziehenGemeinnutzZahl8(){
+  document.getElementById("G8").style.opacity = 1;
+  GemeinnutzZahl = GemeinnutzZahl - 10;
+  console.log(GemeinnutzZahl);
+  document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+  
+    if(GemeinnutzZahl <= 0){
+       alert("Punkte aufgebraucht");
+        GemeinnutzZahl = GemeinnutzZahl + 10;
+        document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+
+    }
+}
+
+
+
+
+document.getElementById("P1").onclick = function() {Punkteabziehen()};
+document.getElementById("P2").onclick = function() {Punkteabziehen2()};
+document.getElementById("P3").onclick = function() {Punkteabziehen3()};
+document.getElementById("P4").onclick = function() {Punkteabziehen4()};
+document.getElementById("P5").onclick = function() {Punkteabziehen5()};
+document.getElementById("P6").onclick = function() {Punkteabziehen6()};
+document.getElementById("P7").onclick = function() {Punkteabziehen7()};
+document.getElementById("P8").onclick = function() {Punkteabziehen8()};
+
+
+
+
+function Punkteabziehen(){
+  document.getElementById("P1").style.opacity = 1;
+  PrämienZahl = PrämienZahl - 10;
+  console.log(PrämienZahl);
+  document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+  
+    if(PrämienZahl <= 0){
+       alert("Punkte aufgebraucht");
+       PrämienZahl = PrämienZahl + 10;
+        document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+    }
+
+ 
+}
+
+function Punkteabziehen2(){
+  document.getElementById("P2").style.opacity = 1;
+  PrämienZahl = PrämienZahl - 10;
+  console.log(PrämienZahl);
+  document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+  
+    if(PrämienZahl <= 0){
+       alert("Punkte aufgebraucht");
+       PrämienZahl = PrämienZahl + 10;
+        document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+
+    }
+
+}
+
+function Punkteabziehen3(){
+  document.getElementById("P3").style.opacity = 1;
+  PrämienZahl = PrämienZahl - 10;
+  console.log(PrämienZahl);
+  document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+  
+    if(PrämienZahl <= 0){
+       alert("Punkte aufgebraucht");
+       PrämienZahl =  PrämienZahl + 10;
+        document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+
+    }
+}
+
+function Punkteabziehen4(){
+  document.getElementById("P4").style.opacity = 1;
+  PrämienZahl = PrämienZahl - 10;
+  console.log(PrämienZahl);
+  document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+  
+    if(PrämienZahl <= 0){
+       alert("Punkte aufgebraucht");
+       PrämienZahl =  PrämienZahl + 10;
+        document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+
+    }
+
+}
+
+function Punkteabziehen5(){
+  document.getElementById("P5").style.opacity = 1;
+  PrämienZahl = PrämienZahl - 10;
+  console.log(PrämienZahl);
+  document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+  
+    if(PrämienZahl <= 0){
+       alert("Punkte aufgebraucht");
+       PrämienZahl =  PrämienZahl + 10;
+        document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+
+    }
+
+}
+
+function Punkteabziehen6(){
+  document.getElementById("P6").style.opacity = 1;
+  PrämienZahl = PrämienZahl - 10;
+  console.log(PrämienZahl);
+  document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+  
+    if(PrämienZahl <= 0){
+       alert("Punkte aufgebraucht");
+       PrämienZahl =  PrämienZahl + 10;
+        document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+
+    }
+
+}
+
+function Punkteabziehen7(){
+  document.getElementById("P7").style.opacity = 1;
+  PrämienZahl = PrämienZahl - 10;
+  console.log(PrämienZahl);
+  document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+  
+    if(PrämienZahl <= 0){
+       alert("Punkte aufgebraucht");
+       PrämienZahl =  PrämienZahl + 10;
+        document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+
+    }
+
+}
+
+function Punkteabziehen8(){
+  document.getElementById("P8").style.opacity = 1;
+  PrämienZahl = PrämienZahl - 10;
+  console.log(PrämienZahl);
+  document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+  
+    if(PrämienZahl <= 0){
+       alert("Punkte aufgebraucht");
+       PrämienZahl =  PrämienZahl + 10;
+        document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+
+    }
+}
+
+var PunkteabziehenvomGesamtpunktestand = GemeinnutzZahl + PrämienZahl;
+
+          //Funktion zum Löschen der Punkte die eingelöst wurden 
+          document.getElementById("BottonPraemienSeitePunktEinloesen").onclick = function() {substractPointswhenCashed()};
+          function substractPointswhenCashed(){
+          var url2 = "/storePoints";
+              var xhr2 = new XMLHttpRequest();
+              xhr2.open("POST", url2);
+              xhr2.setRequestHeader("Accept", "application/json");
+              xhr2.setRequestHeader("Content-Type", "application/json"); 
+              // xhr.onreadystatechange = function () {
+              //   if (xhr.readyState === 4) {   
+              //     document.getElementById("storePointRequest").innerHTML = "res";
+              //   }
+              // };   
+              var data = {
+                "points": -PunkteabziehenvomGesamtpunktestand
+              };
+              
+              xhr2.send(data.points);
+
+            }
+
+          }
+          
+        };
+        xhr.send();
+      });
+
+    
+
+
+
+</script>
 
 
         

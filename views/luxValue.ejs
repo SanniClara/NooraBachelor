@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="javascript/pushNotification.js"></script>
 </head>
 <body class="brightLight">
 
@@ -17,42 +19,49 @@
      </div>
    
      <div id="MenuLeft">  
-   
-         <div class="LinkBox" >
-           <a href="/luxValue"><img class="MenuIcons" src="img/sunlight.svg"></a>
-         </div> 
-   
-         <div class="LinkBox" >
-           <a href="/focus"><img class="MenuIcons" src="img/Focus.svg" alt=""></a> 
-         </div> 
-   
-         <div class="LinkBox" >
-           <a href="/BlinkingContest"><img class="MenuIcons" src="img/Eye.svg" ></a>  
-         </div> 
-   
-         <div class="LinkBox" >
-           <a href="/calmDown"><img class="MenuIcons" src="img/calm.svg" alt=""></a> 
-         </div> 
-   
-         <div class="LinkBox" >
-           <a href="/timer"><img class="MenuIcons" src="img/timer.svg" alt=""></a>
-           </div> 
-   
-         <div class="LinkBox" >
-           <a href="/points"><img class="MenuIcons" src="img/points.svg" alt=""></a> 
-         </div> 
-   
-         <div class="LinkBox" >
-           <a href="/settings"><img class="MenuIcons" src="img/settings.svg" alt=""></a>  
-         </div> 
-     </div>
+      <p style="text-align: center; color: white; background-color: #AE4D71;" >Übungen</p>
+  
+        <div class="LinkBox" >
+          <a href="/luxValue"><img class="MenuIcons" src="img/sunlight.svg"></a>
+        </div> 
+  
+        <div class="LinkBox" >
+          <a href="/focus"><img class="MenuIcons" src="img/Focus.svg" alt=""></a> 
+        </div> 
+  
+        <div class="LinkBox" >
+          <a href="/BlinkingContest"><img class="MenuIcons" src="img/Eye.svg" ></a>  
+        </div> 
+  
+        <div class="LinkBox" >
+          <a href="/calmDown"><img class="MenuIcons" src="img/calm.svg" alt=""></a> 
+        </div> 
+        <p style="text-align: center;color: white; background-color: #AE4D71; " > Menü </p>
+  
+  
+        <div class="LinkBox" >
+          <a href="/timer"><img class="MenuIcons" src="img/timer.svg" alt=""></a>
+          </div> 
+  
+        <div class="LinkBox" >
+          <a href="/points"><img class="MenuIcons" src="img/points.svg" alt=""></a> 
+        </div> 
+  
+        <div class="LinkBox" >
+          <a href="/settings"><img class="MenuIcons" src="img/settings.svg" alt=""></a>  
+        </div> 
+    </div>
+  
    
   
 
             <div id="AussenBoxInfoUeberschrift" >
-                <h1 class="LinkeUeberschriftSeitenbezeinchung">Ambient Light Sensor</h1> 
+                <h1  style="float: left; width: 25%;"class="LinkeUeberschriftSeitenbezeinchung">Ambient Light Sensor</h1> 
                 <button class="tooltip"> <b>i</b> 
-                  <span class="tooltiptext"><video width="400"  height="300px" controls src="/video/SunLightIsImportant.mp4" alt=""><p><b>Vorteile der Übung:</b> Das schnelle und tiefe Atmen ist eine Art die mentale Wachsamkeit und Konzentration zu erhöhen,
+                  <span class="tooltiptext">
+                    <h3 style="color: white;" >Prof. Dr. Hubermann (Stanford Neuroscience Department) </h3>
+                    <video width="400"  height="300px" controls src="/video/SunLightPrio.mp4" alt=""></video>
+                    <video width="400"  height="300px" controls src="/video/SunLightIsImportant.mp4" alt=""><p><b>Vorteile der Übung:</b> Das schnelle und tiefe Atmen ist eine Art die mentale Wachsamkeit und Konzentration zu erhöhen,
                     indem die Produktion von Epinephrin (Adrenalin) angeregt wird. Durch eine bestimmte Atmungstechnik, die „super oxygenating
                      breathing“ genannt wird. Der genaue Ablauf hierbei ist, dass einmal durch die Bewegung der Lunge beim schnellen Aus- und 
                      Einatmen die Herzschlagfrequnez zunimmt. Der zweite Effekt ist die Erhöhung der Sauerstoffgehaltes im Blut und sommit die 
@@ -67,7 +76,8 @@
         <p style="margin-top: 30px; font-family: Muli; color: gray; font-size: 12;" class="LinkeUeberschriftSeitenbezeinchung"> Diese Abbildung zeigt Ihnen den LUX Wert der letzten Stunde in ihrer Umgebung. Besonders am Morgen 
             zwischen 4:30 und 11:00 lohnt es sich viel Licht in die Augen zu lassen, um am Tag wacher zu sein.
             Der optimale wert leigt hierbei bei 10.000 bis 15.000 LUX. Wenn der Wert morgens für 10 Minuten eingehalten wird, 
-            können Sie Punkte für ihre Konto sammeln. </p>
+            können Sie Punkte für ihre Konto sammeln. <br>
+          <b>Um mit diesem Prototypen Punkte zu erhalten, müssen Sie den LUX-Wert lediglich für eine Minute über 10.000 bringen</b> </p>
 
 
         <h3 id="LUXEinleitung">aktueller LUX-Wert: </h3>
@@ -76,7 +86,7 @@
     
           <div name="username" id="details"></div> 
 
-       
+    
 
     <div id="chartContainer" style="height: 300px; width: 80%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
@@ -88,138 +98,6 @@
   </body>
   
 </html>
-
-<script>
-
-               
-    var ValueLicht;
-                  const details = document.getElementById("details");
-                  // Feature detection
-                  if (window.AmbientLightSensor){
-                      try{
-                      const sensor = new AmbientLightSensor();
-                      // Detect changes in the light
-                      sensor.onreading = () => {
-                          details.innerHTML = sensor.illuminance;
-                          ValueLicht = sensor.illuminance;
-
-                          if(ValueLicht > 10000){
-                            alert("Du hast den WErt auf über 10000 gebracht. Sas gibt + 10 Punkte! Schau mal bei deinem Punktekonto vorbei")
-                          }
-                          //console.log(ValueLicht);
-                      
-                  
-                          // Read the light levels in lux 
-                          // < 50 is dark room
-                          if (sensor.illuminance < 50) {
-                              document.body.className = 'darkLight';
-                          } else {
-                              document.body.className = 'brightLight';
-                          }
-                      } 
-                  
-                      // Has an error occured?
-                      sensor.onerror = event => document.getElementById("details").innerHTML = event.error.message;
-                      sensor.start();
-                      } catch(err) {
-                      details.innerHTML = err.message;
-                      }
-                  } else {
-                  details.innerHTML = 'It looks like your browser doesnt support this feature'; 
-                  }
-                     //Chat Visualisierungs Teil. Hier wird die Library Canvas.js eingebunden und 
-                                
-                    window.onload = function () {
-                    
-                    var dps = []; // dataPoints
-                    //console.log(dps)
-                    var chart = new CanvasJS.Chart("chartContainer", {
-                        
-                        title :{
-                            text: ""
-                        },
-                        data: [{
-                            type: "line",
-                            dataPoints: dps
-                        }]
-                    });
-                    
-                    var xVal = 0;
-                    var yVal = 100; 
-                    var updateInterval = 1000;
-                    var dataLength = 3600; // number of dataPoints visible at any point
-                    
-                    var updateChart = function (count) {
-                    
-                        count = count || 1;
-                    
-                        for (var j = 0; j < count; j++) {
-                            yVal = ValueLicht;
-                            dps.push({
-                                x: xVal,
-                                y: yVal
-                            });
-                            xVal++;
-
-                        }
-                    
-                        if (dps.length > dataLength) {
-                            dps.shift();
-                        }
-                    
-                        chart.render();
-
-                        var url = "/LichtValueEndpoint";
-                            var xhr = new XMLHttpRequest();
-                            xhr.open("POST", url);
-                            xhr.setRequestHeader("Accept", "application/json");
-                            xhr.setRequestHeader("Content-Type", "application/json");
-                            xhr.onreadystatechange = function () {
-                              if (xhr.readyState === 4) {
-                                  //console.log(xhr.status);
-                                  //console.log(xhr.responseText);
-                              }};
-                            var data = {
-                                "id" : ValueLicht
-                            };
-                            //console.log(data.id);
-                            //console.log(dps);
-
-                            //console.log(typeof data.id)
-                            xhr.send(data.id);
-                                    
-                    };
-                    
-                    updateChart(dataLength);
-                    setInterval(function(){updateChart()}, updateInterval);
-                    
-                    }
-                  // Notification Funtion // 
-                  console.log(Notification.permission);
-                if(Notification.permission === "granted"){
-                  showNotification();
-                  alert("Immer schön rausgehen 😉")
-                } else if (Notification.permission !== "denied") {
-                    Notification.requestPermission().then(permission => {
-                        if(permission === "granted"){
-                            //console.log(permission);                
-                        }
-                    
-                });
-                }
-                function showNotification() {
-                const notification = new Notification("Sonne, Sonne, Sonne!", {
-                        body: "Es wird mal wieder Zeit nach draußen zu gehen! Also jetzt ernst :D.", 
-                        icon: "img/Noora_square.png"
-                } );
-                }
-   
-
-          
-      </script>
-
-      
-
 
 </body>
 </html>

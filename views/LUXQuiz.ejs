@@ -6,6 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <script defer src="/script.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="javascript/pushNotification.js"></script> -->
 
 </head>
     
@@ -21,6 +23,7 @@
   </div>
 
   <div id="MenuLeft">  
+    <p style="text-align: center; color: white; background-color: #AE4D71;" >Übungen</p>
 
       <div class="LinkBox" >
         <a href="/luxValue"><img class="MenuIcons" src="img/sunlight.svg"></a>
@@ -37,6 +40,8 @@
       <div class="LinkBox" >
         <a href="/calmDown"><img class="MenuIcons" src="img/calm.svg" alt=""></a> 
       </div> 
+      <p style="text-align: center;color: white; background-color: #AE4D71; " > Menü </p>
+
 
       <div class="LinkBox" >
         <a href="/timer"><img class="MenuIcons" src="img/timer.svg" alt=""></a>
@@ -49,13 +54,13 @@
       <div class="LinkBox" >
         <a href="/settings"><img class="MenuIcons" src="img/settings.svg" alt=""></a>  
       </div> 
-
   </div>
+
 
 
   
   <h1 class="LinkeUeberschriftSeitenbezeinchung">Quiz Circadianer Rhythmus</h1> 
-  <p class="LinkeUeberschriftSeitenbezeinchung">Text</p>
+  <p class="LinkeUeberschriftSeitenbezeinchung">Mit der Beantwortung der Fragen können Sie Punkte für ihre Punktekonto sammeln. Viel Erfolg!</p>
 
   <body onload="NextQuestion(0)">
     <main>
@@ -601,6 +606,9 @@ function checkForAnswer() {
 
 //called when the next button is called
 function handleNextQuestion() {
+    if(shuffledQuestions.length === 0){
+        NextQuestion(0)
+    }
     checkForAnswer() //check if player picked right or wrong option
     unCheckRadioButtons()
     //delays next question displaying for a second just for some effects so questions don't rush in on player
@@ -660,6 +668,25 @@ function handleEndGame() {
     document.getElementById('right-answers').innerHTML = playerScore
     document.getElementById('score-modal').style.display = "flex"
 
+
+    /// Sending points to Server to store
+
+    var url = "/storePoints";
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    // xhr.onreadystatechange = function () {
+    //   if (xhr.readyState === 4) {   
+    //     document.getElementById("storePointRequest").innerHTML = "res";
+    //   }
+    // };    
+    var data = {
+      "points": playerScore
+    };
+    
+    xhr.send(data.points);
+
 }
 
 //closes score modal, resets game and reshuffles questions
@@ -683,6 +710,14 @@ function closeOptionModal() {
 </body>
     <a href="/points"><button id="BottonInteraktiveGrafikSeite"> Weiter </button></a>
     <a href="/LUXinteraktiveGrafik"><button id="BottonInteraktiveGrafikSeite"> Hilfe / Inforgrafik </button></a>
+ <div name="username" id="details" style="visibility: hidden"></div>
+
+      <div
+        id="chartContainer"
+        style="height: 300px; width: 80%; visibility: hidden"
+      ></div>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      <!-- <div id="storePointRequest" style="visibility: hidden"></div> -->
 
 
 

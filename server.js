@@ -57,7 +57,7 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
 
 
 app.get('/luxValue', function (req, res) {
- res.render('luxValue.ejs');
+  res.render('luxValue.ejs');
 
 });
 
@@ -100,6 +100,11 @@ app.get('/LUXQuiz', function (req, res) {
 app.get('/points', function (req, res) {
   res.render('points.ejs');
 });
+
+app.get('/antrag', function (req, res) {
+  res.render('antrag.ejs');
+});
+
 
 app.get('/settings', function (req, res) {
   res.render('settings.ejs');
@@ -154,66 +159,86 @@ function checkNotAuthenticated(req, res, next) {
   }
   next()
 }
- 
-var dps = [0,0,0,0];
+
+var dps = 0;
+var pushNotificationCounter = 0;
 // dataPoints
 
- //app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: false }));
-  // POST Listener
 //app.use(bodyParser.json());
-  app.use(bodyParser.text({ type: "application/json" }));
+app.use(bodyParser.urlencoded({ extended: false }));
+// POST Listener
+//app.use(bodyParser.json());
+app.use(bodyParser.text({ type: "application/json" }));
 
-  const neuerArray = [0,0,0];
-  var Nachricht = false; 
+const neuerArray = [0, 0, 0];
+var Nachricht = false;
 
-  // POST Listener
-  app.post('/LichtValueEndpoint', (req,res) => {
+// POST Listener
+app.post('/LichtValueEndpoint', (req, res) => {
 
-    neuerArray.push(req.body);
+  neuerArray.push(req.body);
+  var responseValue = "";
+  //console.log(req.body)
 
+
+  function wiederholung() {
     //console.log(req.body)
+    //fs.appendFileSync("file.txt", req.body + "," + "\n", "UTF-8", { 'flags': 'w+' });
 
 
-    function wiederholung (){
-      //console.log(req.body)
-      fs.appendFileSync("file.txt" , req.body + "," + "\n",  "UTF-8", {'flags': 'w+'});
- 
+    /* var lineReader = require('readline').createInterface({
+      input: require('fs').createReadStream('file.txt')
+    });
+    lineReader.on('line', function (line) {
 
-                /* var lineReader = require('readline').createInterface({
-                  input: require('fs').createReadStream('file.txt')
-                });
-                lineReader.on('line', function (line) {
+    // console.log(parseInt(line));
+      neuerArray.push(parseInt(line));
+      console.log(neuerArray)
+      //console.log(neuerArray.length)
+    });
+          */
+  }
+  console.log(neuerArray);
+  wiederholung();
+  //console.log(dps);
 
-                // console.log(parseInt(line));
-                  neuerArray.push(parseInt(line));
-                  console.log(neuerArray)
-                  //console.log(neuerArray.length)
-                });
-                      */
+  for (i = 0; i <= neuerArray.length; i++) {
+
+
+    if (neuerArray[i] > 10000) {
+      console.log("das ist viel Lciht!")
+      Nachricht = true;
     }
-    console.log(neuerArray);
-    wiederholung();
-    //console.log(dps);
+  }
 
-    for(i=0; i <= neuerArray.length; i++){
+  if (req.body > 10000) {
+    pushNotificationCounter++;
+  } else {
+    pushNotificationCounter = 0;
+  }
+  if (pushNotificationCounter === 60) {
+    pushNotificationCounter = 0;
+    dps += 10;
+    responseValue = "Ok";
+  }
+
+  res.send(responseValue);
+
+});
+
+app.post('/storePoints', (req, res) => {
+  dps += parseInt(req.body);
+  res.send("Ok");
+});
+
+app.get('/collectPoints', (req, res) => {
+  res.send("" + dps);
+});
+
+//const jsonString = JSON.stringify(content, null, 2)
 
 
-      if(neuerArray[i] > 10000){
-        console.log("das ist viel Lciht!")
-        Nachricht = true; 
-      }
-    }
+// fs.writeFile("file.txt" , dps);
 
-
-    res.end()
-
-  })
-
-    //const jsonString = JSON.stringify(content, null, 2)
-    
-    
-   // fs.writeFile("file.txt" , dps);
-  
 
 app.listen(port);
