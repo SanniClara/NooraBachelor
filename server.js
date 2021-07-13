@@ -101,6 +101,11 @@ app.get('/points', function (req, res) {
   res.render('points.ejs');
 });
 
+app.get('/antrag', function (req, res) {
+  res.render('antrag.ejs');
+});
+
+
 app.get('/settings', function (req, res) {
   res.render('settings.ejs');
 });
