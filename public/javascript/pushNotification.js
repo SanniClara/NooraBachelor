@@ -107,7 +107,6 @@ $(document).ready(function () {
   if (Notification.permission === "granted") {
     showNotification();
     if (window.location.href === "http://localhost:8000/luxValue") {
-      alert("Immer schön morgens in die Sonne gehen 😉")
     }
   } else if (Notification.permission !== "denied") {
     Notification.requestPermission().then(permission => {
@@ -120,7 +119,7 @@ $(document).ready(function () {
   
   function showNotification() {
     const notification = new Notification("Sonne, Sonne, Sonne!", {
-      body: "Es wird mal wieder Zeit nach draußen zu gehen! Also jetzt ernst :D.",
+      body: "Es wird mal wieder Zeit nach draußen zu gehen!",
       icon: "img/Noora_square.png"
     });
   }
