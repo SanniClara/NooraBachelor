@@ -78,7 +78,7 @@ $(document).ready(function () {
       xhr.setRequestHeader("Content-Type", "application/json");
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.responseText === "Ok") {
-          alert("Du hast den WErt auf über 10000 gebracht. Sas gibt + 10 Punkte! Schau mal bei deinem Punktekonto vorbei");
+          alert("Du hast den Wert auf über 10000 gebracht. Das gibt + 10 Punkte! Schau mal bei deinem Punktekonto vorbei");
         }
       };
       var data = {
