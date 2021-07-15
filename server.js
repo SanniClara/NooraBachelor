@@ -162,6 +162,7 @@ function checkNotAuthenticated(req, res, next) {
 
 var dps = 0;
 var pushNotificationCounter = 0;
+var DunkelCOunter = 0;
 // dataPoints
 
 //app.use(bodyParser.json());
@@ -222,8 +223,17 @@ app.post('/LichtValueEndpoint', (req, res) => {
     responseValue = "Ok";
   }
 
-  res.send(responseValue);
 
+  if (req.body <=100) {
+    DunkelCOunter++;
+  } else {
+    DunkelCOunter = 0;
+  }
+  if (DunkelCOunter === 500) {
+    DunkelCOunter = 0;
+    responseValue = "zu lange im Dunkeln";
+  }
+  res.send(responseValue);
 });
 
 app.post('/storePoints', (req, res) => {
@@ -237,8 +247,6 @@ app.get('/collectPoints', (req, res) => {
 
 //const jsonString = JSON.stringify(content, null, 2)
 
-
 // fs.writeFile("file.txt" , dps);
-
 
 app.listen(port);

@@ -80,6 +80,11 @@ $(document).ready(function () {
         if (xhr.readyState === 4 && xhr.responseText === "Ok") {
           alert("Du hast den Wert auf über 10000 gebracht. Das gibt + 10 Punkte! Schau mal bei deinem Punktekonto vorbei");
         }
+
+        if (xhr.readyState === 4 && xhr.responseText === "zu lange im Dunkeln") {
+          alert("Du sitz schon lange im Dunkeln es wird mal Zeit rauszugehen");
+          showNotification();
+        }
       };
       var data = {
         "id": ValueLicht
@@ -105,7 +110,6 @@ $(document).ready(function () {
   // Notification Funtion // 
   console.log(Notification.permission);
   if (Notification.permission === "granted") {
-    showNotification();
     if (window.location.href === "http://localhost:8000/luxValue") {
     }
   } else if (Notification.permission !== "denied") {
@@ -123,4 +127,5 @@ $(document).ready(function () {
       icon: "img/Noora_square.png"
     });
   }
+
 })

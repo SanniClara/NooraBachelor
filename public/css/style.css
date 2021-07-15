@@ -5,6 +5,12 @@
     font-family: Muli;
 }
 
+body{
+  margin-right: -5px;
+  margin-top: -0px;
+  margin-left: -0px;
+}
+
 .LinkeUeberschriftSeitenbezeinchung {
     width: 55%;
     color: #4D4D4D;
