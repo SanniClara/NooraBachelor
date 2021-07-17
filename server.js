@@ -229,7 +229,7 @@ app.post('/LichtValueEndpoint', (req, res) => {
   } else {
     DunkelCOunter = 0;
   }
-  if (DunkelCOunter === 500) {
+  if (DunkelCOunter === 300) {
     DunkelCOunter = 0;
     responseValue = "zu lange im Dunkeln";
   }
