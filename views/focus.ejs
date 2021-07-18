@@ -125,16 +125,15 @@
       // Funtktion auf der Fokus Seite 
       function superOxiginatingBreathingAnimation() {
       var x = document.getElementById('elementKreisSOB').style.animationName = "stretch";
-      var counter = 0;
+      counter = 0;
       newYearCountdown = setInterval(function(){
         console.log(counter);
         document.getElementById("counterSOB").innerHTML = counter;
-        if (counter === 31) {
+        if (counter === 32) {
           counter++
           clearInterval(newYearCountdown);
           document.getElementById("counterSOB").innerHTML = 0;
           counter = 0;
-          alert("Übung erfolreich abgeschlossen!")
           /// Store 10 Points on Completing Exercise
           // document.getElementById("storePointRequest").innerHTML = "req";
           var url = "/storePoints";
@@ -147,6 +146,7 @@
           //     document.getElementById("storePointRequest").innerHTML = "res";
           //   }
           // };   
+          alert("Übung erfolreich abgeschlossen!")
           var data = {
             "points": 20
           };
