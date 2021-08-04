@@ -8,13 +8,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="javascript/pushNotification.js"></script>
   </head>
-  <body>
+  <body style="background: url(/img/pointsHintergrund.jpg);   background-size: 1450px 900px;">
+
+
     <div id="PurpleTopLine">
       <a href="/"><img id="Logo" src="img/Noora.PNG" alt="haloo" /></a>
       <form action="/logout?_method=DELETE" method="POST">
         <button style="margin-top: -20px" type="submit">Log Out</button>
       </form>
     </div>
+
 
     <div id="MenuLeft">  
       <p style="text-align: center; color: white; background-color: #AE4D71;" >Übungen</p>
@@ -51,17 +54,20 @@
     </div>
   
 
+
     <h1 class="LinkeUeberschriftSeitenbezeinchung">Dein Puntekonto</h1>
     <a href="/Punktepraemien"
       ><button id="BottonInteraktiveGrafikSeite">Punkte einlösen</button></a
     >
 
+    
+
 
     <div></div>
     <div id="Punktestand"></div>
 
-    
-    <p>Auf diesen Seiten können momentan Punkte gesammelt werden: <br>
+
+    <p id="LinksZuUebungenSeitenPunkteseite" >Auf diesen Seiten können momentan Punkte gesammelt werden: <br>
    <a href="/luxValue">https://noorahealth.herokuapp.com/luxValue</a>  <br>
    <a href="/focus">https://noorahealth.herokuapp.com/focus </a>  <br>
    <a href="/BlinkingContest">https://noorahealth.herokuapp.com/BlinkingContest</a> <br>
@@ -70,9 +76,10 @@
     <br>
        </p>
 
-    <h1 class="LinkeUeberschriftSeitenbezeinchung">Deine Badges</h1>
 
     <div id="aussenCotainerBadges">
+      <h1 class="LinkeUeberschriftSeitenbezeinchungBadges">Deine Badges</h1>
+
       <div>
         <img
           id="Goodstart"

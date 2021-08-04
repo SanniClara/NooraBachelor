@@ -259,40 +259,11 @@
   
 
   
-<script>
-
-  function startCountingBlinking() {
-
-  const root = document.querySelector(":root"); //grabbing the root element
-  root.style.setProperty("--pseudo-animation-name", 'counter');
-  var counter = 0;
-   blinkingEyeCountdown = setInterval(function(){
-        if (counter === 31) {
-          clearInterval(blinkingEyeCountdown);
-          counter = 0;
-          alert("Übung erfolreich abgeschlossen!")
-          /// Store 10 Points on Completing Exercise
-          var url = "/storePoints";
-          var xhr = new XMLHttpRequest();
-          xhr.open("POST", url);
-          xhr.setRequestHeader("Accept", "application/json");
-          xhr.setRequestHeader("Content-Type", "application/json");            
-          var data = {
-            "points": 20
-          };
-          xhr.send(data.points);
-        }
-        counter++
-      }, 1000);
-  }
-
-
-  
-  </script>
 
 
 
-<h1 style="float: left; width: 20%;" >Starring Contest</h1>     
+
+<h1  style="float: left; width: 20%; margin-left: 25px;" >Starring Contest</h1>     
   <button style="margin-top: 10px;" class="tooltip"> <b>i</b> 
   <span class="tooltiptext"><h3 style="color: white;" >Prof. Dr. Hubermann (Stanford Neuroscience Department) </h3>
     <span>Dr. Hubemann erklärt die Vorteile beim Lesen und in Gesprächen weniger zu blinzeln. Diese Übung soll dabei helfen.</span>
@@ -306,15 +277,78 @@
       Huberman, A. (2021). Andrew Huberman. <a href="https://www.youtube.com/channel/UC2D2CMWXMOVWx7giW1n3LIg"> YouTube </a>
   </span>
 </button> 
-<p style="margin-top: 30px; font-family: Muli; color: gray; font-size: 12;" >Drücken Sie auf "Übung starten" und schauen sie die ganze Zeit entweder auf die Zahl oder die dargestellten Augen. <br>
+<p id="pTextMargin" style="margin-top: 30px; font-family: Muli; color: gray; font-size: 12;" >Drücken Sie auf "Übung starten" und schauen sie die ganze Zeit entweder auf die Zahl oder die dargestellten Augen.
+   <br> Die Übung wird <b> 30 Sekunden </b> laufen. <br>
+  Die Kamera in ihrem PC erkennt, ob sie blinzeln oder nicht. Viel Erfolg!  <br>
   Versuchen Sie solange es geht nicht zu blinzeln. 
 </p>
 
-  <div id="counter"></div>
 
   <button onclick="startCountingBlinking()" id="startbutton">
           Übung starten
         </button>
+
+        <button  class="pointer" onclick="reset_animation()" id="stopbutton">
+          🗘
+        </button>
+
+
+        <script>
+
+          var counter; 
+          var blinkingEyeCountdown;
+
+          function reset_animation() {
+                counter = 0;
+                document.getElementById("counterSOB").innerHTML = 0;
+                clearInterval(blinkingEyeCountdown);
+
+              }
+        
+          function startCountingBlinking() {
+        
+          const root = document.querySelector(":root"); //grabbing the root element
+          counter = 1;
+          blinkingEyeCountdown = setInterval(function(){
+        setTimeout(3000);
+        console.log(counter);
+        document.getElementById("counterSOB").innerHTML = counter;
+
+        if (counter === 9) {
+          clearInterval(blinkingEyeCountdown);
+          document.getElementById("counterSOB").innerHTML = 0;
+          counter = 0;
+
+          /// Store 10 Points on Completing Exercise
+          // document.getElementById("storePointRequest").innerHTML = "req";
+          var url = "/storePoints";
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", url);
+          xhr.setRequestHeader("Accept", "application/json");
+          xhr.setRequestHeader("Content-Type", "application/json"); 
+          // xhr.onreadystatechange = function () {
+          //   if (xhr.readyState === 4) {   
+          //     document.getElementById("storePointRequest").innerHTML = "res";
+          //   }
+          // };   
+          alert("Übung erfolreich abgeschlossen!")
+          var data = {
+            "points": 20
+          };
+    
+          xhr.send(data.points);
+        }
+
+        counter++
+
+
+      }, 1000);
+
+    }
+
+      </script>
+
+<div id="counterSOB">0</div>
 
 
 
@@ -360,6 +394,8 @@
         style="height: 300px; width: 80%; visibility: hidden"
       ></div>
       <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
 
   </body>
 
