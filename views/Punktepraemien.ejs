@@ -75,12 +75,25 @@
 
 </div>
 
+<div>
+  <input type="text" id="fname1" name="firstname" placeholder="Suchen...">
+  <input type="text" id="fname2" name="firstname" placeholder="Suchen...">
+
+</div>
+
 
 <div id="Rand">
 
     <div id="UmschlagUmAuswahlKategorie1">
-        <div id="P1" class="AuswahlDiv1"> Jochen Schweizer<img width="100" src="/img/Prämienbilder/jochenSchweizer.jfif" alt=""></div>
-        <div id="P2" class="AuswahlDiv1">Amazon <img width="100" src="/img/Prämienbilder/amazon-gutscheincode_logo.png" alt=""></div>
+        <div id="P1" class="AuswahlDiv1"> Jochen Schweizer<img width="100" src="/img/Prämienbilder/jochenSchweizer.jfif" alt="">
+          <span id="P1Tooltip" >Die Jochen Schweizer GmbH hat die Mission, Menschen mit außergewöhnlichen Erlebnissen zu begeistern. Sie bietet Privat- sowie Firmenkunden eine nachhaltige Alternative zu gegenständlichen Geschenken. Denn außergewöhnliche Erlebnisse spornen an und machen das Leben reicher. Darüber hinaus treibt sie als Marktführer für Erlebnisse und Erlebnisgeschenke die Digitalisierung der Freizeit-Branche voran. Das Unternehmen beschäftigt aktuell mehr als 500 Mitarbeiter, die jedes Jahr hunderttausenden Menschen Erlebnisse ermöglichen.
+
+          </span>
+        </div>
+        <div id="P2" class="AuswahlDiv1">Amazon <img width="100" src="/img/Prämienbilder/amazon-gutscheincode_logo.png" alt="">
+          <span id="P2Tooltip" >Amazon ist ein Onlineversandhändler mit einer breit gefächerten Produktpalette. Amazon hat als Marktführer des Handels im Internet die weltweit größte Auswahl an Büchern, CDs und Videos. Über die integrierte Verkaufsplattform Marketplace können auch Privatpersonen oder andere Unternehmen im Rahmen des Onlinehandels neue und gebrauchte Produkte anbieten. Unter eigener Marke werden der Amazon Kindle als Lesegerät für elektronische Bücher, der Tabletcomputer Amazon Fire HD, die Set-Top-Box Fire TV sowie der HDMI-Stick Fire TV Stick und das Spracherkennungssystem Echo vertrieben.
+          </span>
+        </div>
         <div id="P3" class="AuswahlDiv1">Avocado Store <img width="100" src="/img/Prämienbilder/avocadostore-logonew.jpg" alt=""></div>
         <div id="P4" class="AuswahlDiv1"> LunaLama <img width="100" src="/img/Prämienbilder/Download.jfif" alt=""></div>
         <div id="P5" class="AuswahlDiv1"> Goose and Creek <img width="100" src="/img/Prämienbilder/goose_and_greek.jpg" alt=""></div>
@@ -90,7 +103,7 @@
     </div>
 
     <div id="UmschlagUmAuswahlKategorie2" >
-        <div id="G1" class="AuswahlDiv2"> Ärzte ohne Grenzen <img width="100" src="/img/Prämienbilder/AOG.png" alt=""></div>
+        <div id="G1" class="AuswahlDiv2">Ärzte ohne Grenzen <img width="100" src="/img/Prämienbilder/AOG.png" alt=""></div>
         <div id="G2" class="AuswahlDiv2">Welt Hunger Hilfe <img width="100" src="/img/Prämienbilder/Hunger.png" alt=""></div>
         <div id="G3" class="AuswahlDiv2">Seashepards <img width="100" src="/img/Prämienbilder/seashepards.jpg" alt=""> </div>
         <div id="G4" class="AuswahlDiv2">SOS Kinfderdorf  <img width="100" src="/img/Prämienbilder/SOSKinder.png" alt=""></div>
@@ -99,6 +112,10 @@
         <div id="G7" class="AuswahlDiv2"> Wildlife Conservation Society <img width="100" src="/img/Prämienbilder/WCS.png" alt=""> </div>
         <div id="G8" class="AuswahlDiv2">WWF <img width="100" src="/img/Prämienbilder/wwf.jpg" alt="">  </div>
     </div>
+
+
+
+
 
 </div>
 
@@ -126,13 +143,12 @@
 
   .AuswahlDiv1{
     background-color: #306986;
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 140px;
     margin: 40px;
     float: left;
     opacity: 0.6;
     color: white;
-
   }
 
   .AuswahlDiv1:hover{
@@ -143,8 +159,8 @@
 
   .AuswahlDiv2{
     background-color: #AE4D71;
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 140px;
     margin: 40px;
     float: left;
     opacity: 0.2;
@@ -161,14 +177,16 @@
     width: 45%;
     float: left;
     margin-top:20px;
-
+    overflow: auto;
+    height: 300px;
   }
 
   #UmschlagUmAuswahlKategorie2{
     width: 48%;
     float: left;
     margin-top:20px;
-
+    overflow: auto;
+    height: 300px;
   }
 
   #Rand{
@@ -191,6 +209,51 @@
       margin-left: 25px;
     }
 
+    #fname1{
+      margin-left: 25px;
+      margin-right: 490px;
+    }
+
+    /*----- Hover Texte für Prämien und Spenden ----------*/
+
+              #P1 #P1Tooltip{
+              visibility: hidden;
+              width: 25%;
+              background-color:#AE4D71;
+              color: #fff;
+              text-align: lseft;
+              padding: 10px;
+              overflow: auto;
+              height: 200px;
+
+              /* Position the tooltip */
+              position: absolute;
+              z-index: 1;
+            }
+
+
+            #P1:hover #P1Tooltip {
+              visibility: visible;
+            }
+
+            
+            #P2 #P2Tooltip{
+              visibility: hidden;
+              width: 25%;
+              background-color:#AE4D71;
+              color: #fff;
+              text-align: lseft;
+              padding: 10px;
+              overflow: auto;
+              height: 200px;
+              /* Position the tooltip */
+              position: absolute;
+              z-index: 1;
+            }
+
+            #P2:hover #P2Tooltip {
+              visibility: visible;
+            }
   
 </style>
 
