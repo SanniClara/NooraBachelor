@@ -56,69 +56,79 @@
       </div> 
   </div>
 
-
+  <div id="DivBeträgeLinks">
   
-  <h1 class="LinkeUeberschriftSeitenbezeinchung">Spenden & Prämien</h1> 
-  <p class="LinkeUeberschriftSeitenbezeinchung">Hier können Sie ihre Punkte für die Pämien und Spenden, die ihenn gefallen einlösen. <br>
-     Wenn Sie für die beidne Kategorien einen Vorschlag haben, könnnen sie <a href="/antrag">hier</a> ihre Vorschläge abgeben. Ihre Punkte werden nach einem 60/40 Verhältnis aufgeteilt. <br>
-    Die beiden Kategorien sind: Kategorien "Prämie" & "Gemeinnutz" einlösen. <br>
-     <br>
-    Klicken Sie auf die Prämien, die Sie erhalten möchten und dann auf den "Einlösen"-Button </p>
+        <h1 class="LinkeUeberschriftSeitenbezeinchung">Spenden & Prämien einlösen</h1> 
+        <p class="LinkeUeberschriftSeitenbezeinchung">Hier können Sie ihre Punkte für die Pämien und Spenden, die ihenn gefallen einlösen. <br>
+          Wenn Sie für die beidne Kategorien einen Vorschlag haben, <br> könnnen sie <a href="/antrag">hier</a> ihre Vorschläge abgeben. <br> 
+          Ihre Punkte werden nach einem 60/40 Verhältnis aufgeteilt. <br>
+          Die beiden Kategorien sind: Kategorien "Prämie" & "Gemeinnutz" einlösen. <br>
+          <br>
+
+          Klicken Sie auf die Prämien, die Sie erhalten möchten und dann auf den "Einlösen"-Button </p>
+
+  </div>
+
+  <div id="Betraganzeige" >
+  <h3 class="MarigLeft" id="GesamtBetrag"></h3>
+  <h3 class="MarigLeft" id="PrämienBetrag"></h3>
+  <h3 class="MarigLeft" id="GemeinnutzBetrag"></h3>
+  </div>
+
+  <div class="verticalLine"  id="Rand">
+
 
     <h3 id="GesamtpunktzahlAnzeige"></h3>
 
-<div id="ÜberschriftenPunkteverteilung">
+  <div id="PärmienHintergrund">
 
-      <h3 id="PunktePrämienVariable" class="PunkteUeberschriften" ></h3>
+          <div>
+            <h1>Prämien</h1>
+            <h3 id="PunktePrämienVariable" class="PunkteUeberschriften" ></h3>
+            <input type="text" id="fname1" name="firstname" placeholder="Suchen...">
+            </div>
 
-      <h3 id="PunkteGemeinutzVariable" class="PunkteUeberschriften" ></h3>
+              <div id="UmschlagUmAuswahlKategorie1">
+                  <div id="P1" class="AuswahlDiv1"> Jochen Schweizer<img width="80" src="/img/Prämienbilder/jochenSchweizer.jfif" alt="">
+                    <span id="P1Tooltip" >Die Jochen Schweizer GmbH hat die Mission, Menschen mit außergewöhnlichen Erlebnissen zu begeistern. Sie bietet Privat- sowie Firmenkunden eine nachhaltige Alternative zu gegenständlichen Geschenken. Denn außergewöhnliche Erlebnisse spornen an und machen das Leben reicher. Darüber hinaus treibt sie als Marktführer für Erlebnisse und Erlebnisgeschenke die Digitalisierung der Freizeit-Branche voran. Das Unternehmen beschäftigt aktuell mehr als 500 Mitarbeiter, die jedes Jahr hunderttausenden Menschen Erlebnisse ermöglichen.
+                    </span>
+                  </div>
+                  <div id="P2" class="AuswahlDiv1">Amazon <img width="100" src="/img/Prämienbilder/amazon-gutscheincode_logo.png" alt="">
+                    <span id="P2Tooltip" >Amazon ist ein Onlineversandhändler mit einer breit gefächerten Produktpalette. Amazon hat als Marktführer des Handels im Internet die weltweit größte Auswahl an Büchern, CDs und Videos. Über die integrierte Verkaufsplattform Marketplace können auch Privatpersonen oder andere Unternehmen im Rahmen des Onlinehandels neue und gebrauchte Produkte anbieten. Unter eigener Marke werden der Amazon Kindle als Lesegerät für elektronische Bücher, der Tabletcomputer Amazon Fire HD, die Set-Top-Box Fire TV sowie der HDMI-Stick Fire TV Stick und das Spracherkennungssystem Echo vertrieben.
+                    </span>
+                  </div>
+                  <div id="P3" class="AuswahlDiv1">Avocado Store <img width="100" src="/img/Prämienbilder/avocadostore-logonew.jpg" alt=""></div>
+                  <div id="P4" class="AuswahlDiv1"> LunaLama <img width="100" src="/img/Prämienbilder/Download.jfif" alt=""></div>
+                  <div id="P5" class="AuswahlDiv1"> Goose&Creek <img width="70" height="100" src="/img/Prämienbilder/goose_and_greek.jpg" alt=""></div>
+                  <div id="P6" class="AuswahlDiv1"> Alnatura <img width="100" src="/img/Prämienbilder/Download.png" alt=""></div>
+                  <div id="P7" class="AuswahlDiv1">Edeka <img width="100" src="/img/Prämienbilder/Edeka.jpg" alt=""></div>
+                  <div id="P8" class="AuswahlDiv1">Patagonia <img width="100" src="/img/Prämienbilder/Patagonia.jpg" alt=""></div>
+              </div>
 
-</div>
+     </div>
 
-<div>
-  <input type="text" id="fname1" name="firstname" placeholder="Suchen...">
-  <input type="text" id="fname2" name="firstname" placeholder="Suchen...">
+     <div id="SpendenHintergrund">
+              <div>
+                <h1>Spenden</h1>
+                <h3 id="PunkteGemeinutzVariable" class="PunkteUeberschriften" ></h3>
+                <input type="text" id="fname2" name="firstname" placeholder="Suchen...">
+              </div>
 
-</div>
+              <div id="UmschlagUmAuswahlKategorie2" >
+                  <div id="G1" class="AuswahlDiv2">Ärzte ohne Grenzen <img width="100" src="/img/Prämienbilder/AOG.png" alt=""></div>
+                  <div id="G2" class="AuswahlDiv2">Welt Hunger Hilfe <img width="100" src="/img/Prämienbilder/Hunger.png" alt=""></div>
+                  <div id="G3" class="AuswahlDiv2">Seashepards <img width="100" src="/img/Prämienbilder/seashepards.jpg" alt=""> </div>
+                  <div id="G4" class="AuswahlDiv2">SOS Kinfderdorf  <img width="100" src="/img/Prämienbilder/SOSKinder.png" alt=""></div>
+                  <div id="G5" class="AuswahlDiv2">UNESCO <img width="100" src="/img/Prämienbilder/UNESCO.png" alt=""> </div>
+                  <div id="G6" class="AuswahlDiv2"> World Animal Protection <img width="100" src="/img/Prämienbilder/WAP.png" alt=""> </div>
+                  <div id="G7" class="AuswahlDiv2"> WCS <img width="100" src="/img/Prämienbilder/WCS.png" alt=""> </div>
+                  <div id="G8" class="AuswahlDiv2">WWF <img width="100" src="/img/Prämienbilder/wwf.jpg" alt="">  </div>
+              </div>
+          </div>
 
+      </div>
 
-<div id="Rand">
-
-    <div id="UmschlagUmAuswahlKategorie1">
-        <div id="P1" class="AuswahlDiv1"> Jochen Schweizer<img width="100" src="/img/Prämienbilder/jochenSchweizer.jfif" alt="">
-          <span id="P1Tooltip" >Die Jochen Schweizer GmbH hat die Mission, Menschen mit außergewöhnlichen Erlebnissen zu begeistern. Sie bietet Privat- sowie Firmenkunden eine nachhaltige Alternative zu gegenständlichen Geschenken. Denn außergewöhnliche Erlebnisse spornen an und machen das Leben reicher. Darüber hinaus treibt sie als Marktführer für Erlebnisse und Erlebnisgeschenke die Digitalisierung der Freizeit-Branche voran. Das Unternehmen beschäftigt aktuell mehr als 500 Mitarbeiter, die jedes Jahr hunderttausenden Menschen Erlebnisse ermöglichen.
-
-          </span>
-        </div>
-        <div id="P2" class="AuswahlDiv1">Amazon <img width="100" src="/img/Prämienbilder/amazon-gutscheincode_logo.png" alt="">
-          <span id="P2Tooltip" >Amazon ist ein Onlineversandhändler mit einer breit gefächerten Produktpalette. Amazon hat als Marktführer des Handels im Internet die weltweit größte Auswahl an Büchern, CDs und Videos. Über die integrierte Verkaufsplattform Marketplace können auch Privatpersonen oder andere Unternehmen im Rahmen des Onlinehandels neue und gebrauchte Produkte anbieten. Unter eigener Marke werden der Amazon Kindle als Lesegerät für elektronische Bücher, der Tabletcomputer Amazon Fire HD, die Set-Top-Box Fire TV sowie der HDMI-Stick Fire TV Stick und das Spracherkennungssystem Echo vertrieben.
-          </span>
-        </div>
-        <div id="P3" class="AuswahlDiv1">Avocado Store <img width="100" src="/img/Prämienbilder/avocadostore-logonew.jpg" alt=""></div>
-        <div id="P4" class="AuswahlDiv1"> LunaLama <img width="100" src="/img/Prämienbilder/Download.jfif" alt=""></div>
-        <div id="P5" class="AuswahlDiv1"> Goose and Creek <img width="100" src="/img/Prämienbilder/goose_and_greek.jpg" alt=""></div>
-        <div id="P6" class="AuswahlDiv1"> Alnatura <img width="100" src="/img/Prämienbilder/Download.png" alt=""></div>
-        <div id="P7" class="AuswahlDiv1">Edeka <img width="100" src="/img/Prämienbilder/Edeka.jpg" alt=""></div>
-        <div id="P8" class="AuswahlDiv1">Patagonia <img width="100" src="/img/Prämienbilder/Patagonia.jpg" alt=""></div>
-    </div>
-
-    <div id="UmschlagUmAuswahlKategorie2" >
-        <div id="G1" class="AuswahlDiv2">Ärzte ohne Grenzen <img width="100" src="/img/Prämienbilder/AOG.png" alt=""></div>
-        <div id="G2" class="AuswahlDiv2">Welt Hunger Hilfe <img width="100" src="/img/Prämienbilder/Hunger.png" alt=""></div>
-        <div id="G3" class="AuswahlDiv2">Seashepards <img width="100" src="/img/Prämienbilder/seashepards.jpg" alt=""> </div>
-        <div id="G4" class="AuswahlDiv2">SOS Kinfderdorf  <img width="100" src="/img/Prämienbilder/SOSKinder.png" alt=""></div>
-        <div id="G5" class="AuswahlDiv2">UNESCO <img width="100" src="/img/Prämienbilder/UNESCO.png" alt=""> </div>
-        <div id="G6" class="AuswahlDiv2"> World Animal Protection <img width="100" src="/img/Prämienbilder/WAP.png" alt=""> </div>
-        <div id="G7" class="AuswahlDiv2"> Wildlife Conservation Society <img width="100" src="/img/Prämienbilder/WCS.png" alt=""> </div>
-        <div id="G8" class="AuswahlDiv2">WWF <img width="100" src="/img/Prämienbilder/wwf.jpg" alt="">  </div>
-    </div>
-
-
-
-
-
-</div>
-
+ 
 
 
 
@@ -129,10 +139,56 @@
 </body>
 
 <style>
+
+.verticalLine {
+  border-left: 2px solid lightgray;
+}
+
+  #DivBeträgeLinks{
+    width: 100%;
+  }
+
+  #PärmienHintergrund{
+    background-color: lightgray;
+    padding: 20px;
+    width: 610px;
+    height: 450px;
+  }
+  
+  #Rand{
+    width: 50%;
+    float: right;
+    margin-top: -400px;
+    padding-left: 20px;
+  }
+
+  #Betraganzeige{
+  background-color: lightgray;
+  padding: 30px;
+  width: 25%;
+  margin-left: 25px;
+  }
+  
   #ÜberschriftenPunkteverteilung{
     width: 100%;
     margin-left: 25px;
+  }
 
+  .MarigLeft{
+    margin-left: 25px;
+    font-weight: 400;
+  }
+
+  #PunktePrämienVariable{
+    margin-left: 25px;
+    width: 600px;
+    font-weight: 400;
+  }
+
+  #PunkteGemeinutzVariable{
+    margin-left: 25px;
+    width: 600px;
+    font-weight: 400;
   }
 
   .PunkteUeberschriften{
@@ -144,7 +200,7 @@
   .AuswahlDiv1{
     background-color: #306986;
     width: 120px;
-    height: 140px;
+    height: 120px;
     margin: 40px;
     float: left;
     opacity: 0.6;
@@ -160,7 +216,7 @@
   .AuswahlDiv2{
     background-color: #AE4D71;
     width: 120px;
-    height: 140px;
+    height: 120px;
     margin: 40px;
     float: left;
     opacity: 0.2;
@@ -174,24 +230,30 @@
   }
 
   #UmschlagUmAuswahlKategorie1{
-    width: 45%;
-    float: left;
+    background-color: white; 
+    width: 620px;
     margin-top:20px;
     overflow: auto;
-    height: 300px;
+    height: 250px;
+    margin-bottom: 50px;
   }
 
   #UmschlagUmAuswahlKategorie2{
-    width: 48%;
-    float: left;
+    background-color: white;
+    width: 620px;
     margin-top:20px;
     overflow: auto;
-    height: 300px;
+    height: 250px;
+    margin-bottom: 50px;
   }
 
-  #Rand{
-    width: 100%;
-  }
+  #SpendenHintergrund{
+    background-color: lightgray;
+    padding: 20px;
+    width: 610px;
+    margin-top: 30px;
+    height: 450px;
+    }
 
   #BottonPraemienSeitePunktEinloesen{
       background: white;
@@ -210,6 +272,11 @@
     }
 
     #fname1{
+      margin-left: 25px;
+      margin-right: 490px;
+    }
+
+    #fname2{
       margin-left: 25px;
       margin-right: 490px;
     }
@@ -270,14 +337,22 @@
           if (xhr.readyState === 4 && xhr.status === 200) {
           Punktestand = 0 + parseInt(xhr.response);
           console.log(Punktestand)
-          document.getElementById("GesamtpunktzahlAnzeige").innerHTML = " Aktueller Gesamtpunktzahl: " + " " +  Punktestand;
           
           var Gesamtzahl = Punktestand;
           var PrämienZahl = Gesamtzahl*0.6; 
           var GemeinnutzZahl = Gesamtzahl*0.4;
+          
+          var GesatmBetrag = Punktestand * 0.1; 
+          var PrämienBetrag = GesatmBetrag * 0.6 ;
+          var GemeinnutzBetrag = GesatmBetrag *0.4 ; 
 
-document.getElementById("PunktePrämienVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
-document.getElementById("PunkteGemeinutzVariable").innerHTML = "verfügbare Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+document.getElementById("PunktePrämienVariable").innerHTML = "Punkte in der Kategorie 'Prämie' : " + " " + PrämienZahl;
+document.getElementById("PunkteGemeinutzVariable").innerHTML = "Punkte in der Kategorie 'Gemeinnutz' : " + " " + GemeinnutzZahl;
+
+
+document.getElementById("GesamtBetrag").innerHTML = " Aktueller Gesamtbetrag: " + " " +  GesatmBetrag + " Euro";
+document.getElementById("PrämienBetrag").innerHTML = "Prämienbetrag: " + " " + PrämienBetrag + " Euro";
+document.getElementById("GemeinnutzBetrag").innerHTML = "Gemeinnutzbetrag' : " + " " + GemeinnutzBetrag + " Euro";
 
 
 
@@ -543,7 +618,7 @@ function Punkteabziehen8(){
     }
 }
 
-var PunkteabziehenvomGesamtpunktestand = GemeinnutzZahl + PrämienZahl;
+var PunkteabziehenvomGesamtpunktestand = GemeinnutzZahl - PrämienZahl - GemeinnutzZahl;
 
           //Funktion zum Löschen der Punkte die eingelöst wurden 
           document.getElementById("BottonPraemienSeitePunktEinloesen").onclick = function() {substractPointswhenCashed()};

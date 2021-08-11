@@ -12,7 +12,7 @@
  </div>
 
 
- <h1>Login</h1>
+ <h1 id="LoginH1" >Login</h1>
 <% if (messages.error) { %>
   <%= messages.error %>
 <% } %>
@@ -27,9 +27,11 @@
     <label class="labelLoginRegister"  for="password">Password</label> <br>
     <input  class="inputLoginRegister" type="password" id="password" name="password" required>
   </div>
-  <button id="buttonLogin" type="submit">Login</button>
   <a id="registreirenLink" href="/register">Registrieren</a>
+  <button id="buttonLogin" type="submit">Login</button>
 </form>
 </div>
+
+
 
 </body>

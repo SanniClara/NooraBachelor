@@ -66,6 +66,17 @@ p {
 
 }
 
+/*-- Login Seite ---*/
+
+#LoginH1{
+  margin-left: 25px;
+}
+
+/*-----Register SEite----*/
+#RegisterH1{
+  margin-left: 25px;
+}
+
 #pTextMargin{
 margin-left: 25px;
 }
@@ -330,19 +341,11 @@ margin-left: 25px;
     width: 10px;
     height: 35%;
     background-color: #AE4D71;
-  }
-  
-  
-  
-  
-  
-  
-  
+  } 
 
   
-  
-  /* Background Styles Only */
- 
+/* Background Styles Only */
+
   .side-links {
     position: absolute;
     top: 15px;
@@ -390,7 +393,7 @@ margin-left: 25px;
 
   #loginStyling {
     width: 40%;
-    height: 250px;
+    height: 300px;
     background-color: #306A86;
     margin-top: 20px;
     padding: 12px 120px;
@@ -401,6 +404,7 @@ margin-left: 25px;
     box-sizing: border-box;
     color: white;
   }
+  
 
   #loginForm{
     margin-top: 10%;
@@ -410,12 +414,16 @@ margin-left: 25px;
   .labelLoginRegister{
       color: white;
       padding-top: 20px;
-      margin-top: 30px;
   }
+
   
   .inputLoginRegister{
       width: 50%;
-      margin-bottom: 4%;
+      margin-bottom: 6%;
+      height: 25px;
+      background-color: rgb(231, 231, 231);
+      border-radius: 6px;
+      border: 0px;
   }
 
   #registreirenLink{
@@ -423,6 +431,8 @@ margin-left: 25px;
       background-color: lightgrey;
       padding: 2%;
       text-decoration: none;
+      border-radius: 6px;
+      margin-right: 10px;
   }
 
   #buttonLogin{
@@ -434,13 +444,15 @@ margin-left: 25px;
     box-shadow: none;
     border: 0px solid;
     cursor: pointer;
+    margin-top: 15px;
+    border-radius: 6px;
   }
 
   #RegisterLoginStyling{
-    width: 40%;
-    height: 350px;
+    width: 30%;
+    height: 410px;
     background-color: #306A86;
-    padding: 12px 120px;
+    padding-left: 5%;
     padding-top: 3%;
     margin-left: 350px;
     display: inline-block;
@@ -462,15 +474,17 @@ margin-left: 25px;
   }
 
   #registerButtonOnregisterSite{
-    color: #4D4D4D ;
+    color: #4D4D4D;
     background-color: lightgrey;
     font-size: 16px;
     padding: 2%;
+    width: 100px;
+    margin-top: 20px;
     text-decoration: none;
     box-shadow: none;
     border: 0px solid;
     cursor: pointer;
-
+    border-radius: 6px;
   }
 
   .nichtverfügbar{
@@ -479,6 +493,10 @@ margin-left: 25px;
 
   #selectRegister{
       margin-bottom: 3%;
+      height: 25px;
+      border-radius: 6px;
+      background-color: rgb(231, 231, 231);
+      border: 0px;
   }
 
   #startbutton {
