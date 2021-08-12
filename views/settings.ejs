@@ -49,13 +49,102 @@
           <a href="/settings"><img class="MenuIcons" src="img/settings.svg" alt=""></a>  
         </div> 
     </div>
-  
-    <div name="username" id="details" style="visibility: hidden"></div>
 
-    <div
-      id="chartContainer"
-      style="height: 300px; width: 80%; visibility: hidden"
-    ></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <div id="linkeHälfte">
+      <h1 class="RandAbstand">Hallo <%= name %> </h1>
+      <p class="RandAbstand">Username</p>
+      <p class="Feld" class="RandAbstand"> <%= name %> </p>
+      <p class="RandAbstand">E-mail</p>
+      <p class="Feld" class="RandAbstand"><%= email %></p>
+      <p class="RandAbstand">Sprache</p>
+      <p class="Feld" class="RandAbstand">Deutsch</p>
+      <p class="RandAbstand">Programm</p>
+      <p class="Feld" class="RandAbstand">Konznetration & Schlaf</p>
+      <button id="ButtonSettingsSeite">Ändern</button>
+    </div>
+
+    <div id="Trennlinie"></div>
+
+    <div id="rechteHälfte">
+      <h1>News & Features </h1>
+
+        <div id="Neuigkeiten">
+        
+          <a href="https://www.cell.com/cell/issue?pii=S0092-8674%2814%29X0026-7"><img src="/img/cover.jpg" alt="" width="200"></a>
+          <a href="https://www.nature.com/neuro/volumes/24/issues/8"><img src="/img/8.png" style="cursor: pointer;" alt="" width="195"></a>
+          <a href="https://www.nature.com/nmeth/volumes/18/issues/1"> <img src="/img/1.png" alt=""></a>
+          <a href="https://www.nature.com/articles/d41586-020-03411-0"> <img src="/img/d41586-020-03411-0_18662922.jpg" alt="" width="200"></a>
+
+          <div id="QuerTrennlinie"></div>
+
+        </div>
+
+
+
+        <div id="FeatureAnkündigungen">
+
+        </div>
+        
+    </div>
+    
+    <style>
+
+      .Feld{
+        background-color: #dbdbdb;
+        padding: 5px;
+        border-radius: 6px;
+        margin-left: 30px;
+        width: 160px;
+        padding: 6px;
+        padding-left: 10px;
+      }
+
+      #Neuigkeiten{
+        margin-top: 60px;
+        margin-left: 80px;
+        padding: -20px;
+      }
+
+      .RandAbstand{
+        margin-left: 25px;
+      }
+
+      #ButtonSettingsSeite{
+        background-color: #306A86;
+        color: white;
+        border: 0px;
+        width: 100px;
+        height: 30px;
+        margin-left: 25px;
+        margin-top: 20px;
+        }
+            
+      #linkeHälfte{
+        width: 500px;
+        height: 600px;
+        float: left;
+      }
+
+      #Trennlinie{
+        width: 2px;
+        height: 700px;
+        margin-top: 50px;
+        background-color: #aaaaaa ;
+        float: left;
+        margin-right: 70px;
+      }
+
+      #QuerTrennlinie{
+        width: 200px;
+        height: 2px;
+        color: #aaaaaa;
+        margin-top: 25px;
+        margin-bottom: 300px;
+        margin-left: 500px;
+        z-index: 100;
+      }
+
+    </style>
+
   </body>
 </html>

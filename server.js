@@ -84,7 +84,6 @@ app.get('/LUXinteraktiveGrafik', function (req, res) {
   res.render('LUXinteraktiveGrafik.ejs');
 });
 
-
 app.get('/focus', function (req, res) {
   res.render('focus.ejs');
 });
@@ -105,10 +104,12 @@ app.get('/antrag', function (req, res) {
   res.render('antrag.ejs');
 });
 
-
-app.get('/settings', function (req, res) {
-  res.render('settings.ejs');
+app.get('/settings', checkAuthenticated, (req, res) =>{
+  res.render('settings.ejs' , { name: req.user.name, 
+                                email: req.user.email })
 });
+
+
 
 
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
