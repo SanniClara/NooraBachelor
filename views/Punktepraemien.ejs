@@ -97,7 +97,10 @@
                     <span id="P2Tooltip" >Amazon ist ein Onlineversandhändler mit einer breit gefächerten Produktpalette. Amazon hat als Marktführer des Handels im Internet die weltweit größte Auswahl an Büchern, CDs und Videos. Über die integrierte Verkaufsplattform Marketplace können auch Privatpersonen oder andere Unternehmen im Rahmen des Onlinehandels neue und gebrauchte Produkte anbieten. Unter eigener Marke werden der Amazon Kindle als Lesegerät für elektronische Bücher, der Tabletcomputer Amazon Fire HD, die Set-Top-Box Fire TV sowie der HDMI-Stick Fire TV Stick und das Spracherkennungssystem Echo vertrieben.
                     </span>
                   </div>
-                  <div id="P3" class="AuswahlDiv1">Avocado Store <img width="100" src="/img/Prämienbilder/avocadostore-logonew.jpg" alt=""></div>
+                  <div id="P3" class="AuswahlDiv1">Avocado Store <img width="100" src="/img/Prämienbilder/avocadostore-logonew.jpg" alt="">
+                    <span id="P3Tooltip" >Auf dem Avocadostore finden Anbieter grüner Produkte eine gemeinsame Plattform. Kunden finden dort für beinahe alle konventionellen Produkte eine nachhaltige Alternative. Der Avocadostore ist besonders interessant für Fans nachhaltiger Mode, weil er alle wichtigen Öko-Labels führt – zum Beispiel 108degress, Lanius, Armedangels oder Greenality – und dabei auch noch besonders trendy ist. Damit ein Produkt im Avocado Store verkauft werden darf, muss es mindestens eines von 10 Nachhaltigkeitskriterien erfüllen, die der Onlineshop hier offenlegt. Durch das Shoppen im Avocadostore unterstützt man nachhaltige Wirtschaftskonzepte, schont die Umwelt und unterstützt faire Entlohnung.
+                    </span>
+                  </div>
                   <div id="P4" class="AuswahlDiv1"> LunaLama <img width="100" src="/img/Prämienbilder/Download.jfif" alt=""></div>
                   <div id="P5" class="AuswahlDiv1"> Goose&Creek <img width="70" height="100" src="/img/Prämienbilder/goose_and_greek.jpg" alt=""></div>
                   <div id="P6" class="AuswahlDiv1"> Alnatura <img width="100" src="/img/Prämienbilder/Download.png" alt=""></div>
@@ -115,9 +118,19 @@
               </div>
 
               <div id="UmschlagUmAuswahlKategorie2" >
-                  <div id="G1" class="AuswahlDiv2">Ärzte ohne Grenzen <img width="100" src="/img/Prämienbilder/AOG.png" alt=""></div>
-                  <div id="G2" class="AuswahlDiv2">Welt Hunger Hilfe <img width="100" src="/img/Prämienbilder/Hunger.png" alt=""></div>
-                  <div id="G3" class="AuswahlDiv2">Seashepards <img width="100" src="/img/Prämienbilder/seashepards.jpg" alt=""> </div>
+                  <div id="G1" class="AuswahlDiv2">Ärzte ohne Grenzen <img width="100" src="/img/Prämienbilder/AOG.png" alt="">
+                    <span id="G1Tooltip" >Ärzte ohne Grenzen ist die am 21. Dezember 1971 gegründete größte unabhängige Organisation für medizinische Nothilfe. Die private Hilfsorganisation leistet medizinische Nothilfe in Krisen- und Kriegsgebieten. Hierfür wurde ihr 1999 der Friedensnobelpreis verliehen. 
+                    </span>
+                  </div>
+                  <div id="G2" class="AuswahlDiv2">Welt Hunger Hilfe <img width="100" src="/img/Prämienbilder/Hunger.png" alt="">
+                    <span id="G2Tooltip" >Die Deutsche Welthungerhilfe e. V. ist eine deutsche Hilfsorganisation der Entwicklungszusammenarbeit und der Nothilfe mit Sitz in Bonn. Seit ihrer Gründung im Jahr 1962 hat sie mit rund 3,95 Milliarden Euro über 9.830 Hilfsprojekte in 70 Ländern Afrikas, Lateinamerikas und Asiens durchgeführt.
+                    </span>
+                  </div>
+                  <div id="G3" class="AuswahlDiv2">Seashepards <img width="100" src="/img/Prämienbilder/seashepards.jpg" alt=""> 
+                    <span id="G3Tooltip">Die Sea Shepherd Conservation Society, kurz Sea Shepherd („Meereshirte“), ist eine Umweltschutzorganisation mit Sitz in Friday Harbor, Washington, die sich besonders dem Schutz der Meere, dem Kampf gegen illegale Fischerei, das Töten von Meeressäugern, Schildkröten und Wildlachs, sowie der Bekämpfung der Meeresverschmutzung verschrieben hat.[1] Von der internationalen Meeresschutzorganisation Sea Shepherd Global ist sie sowohl finanziell als auch rechtlich unabhängig.
+                    </span>
+            
+                  </div>
                   <div id="G4" class="AuswahlDiv2">SOS Kinfderdorf  <img width="100" src="/img/Prämienbilder/SOSKinder.png" alt=""></div>
                   <div id="G5" class="AuswahlDiv2">UNESCO <img width="100" src="/img/Prämienbilder/UNESCO.png" alt=""> </div>
                   <div id="G6" class="AuswahlDiv2"> World Animal Protection <img width="100" src="/img/Prämienbilder/WAP.png" alt=""> </div>
@@ -238,7 +251,7 @@
     width: 620px;
     margin-top:20px;
     overflow: auto;
-    height: 250px;
+    height: 280px;
     margin-bottom: 50px;
   }
 
@@ -247,7 +260,7 @@
     width: 620px;
     margin-top:20px;
     overflow: auto;
-    height: 250px;
+    height: 280px;
     margin-bottom: 50px;
   }
 
@@ -325,6 +338,86 @@
             #P2:hover #P2Tooltip {
               visibility: visible;
             }
+
+            #P3 #P3Tooltip{
+              visibility: hidden;
+              width: 25%;
+              background-color:#AE4D71;
+              color: #fff;
+              text-align: lseft;
+              padding: 10px;
+              overflow: auto;
+              height: 200px;
+              /* Position the tooltip */
+              position: absolute;
+              z-index: 1;
+            }
+
+            #P3:hover #P3Tooltip {
+              visibility: visible;
+            }
+
+
+            #G1 #G1Tooltip{
+              visibility: hidden;
+              width: 25%;
+              background-color:#306986;
+              color: #fff;
+              text-align: lseft;
+              padding: 10px;
+              overflow: auto;
+              height: 200px;
+              /* Position the tooltip */
+              position: absolute;
+              z-index: 1;
+            }
+
+            #G1:hover #G1Tooltip {
+              visibility: visible;
+            }
+
+            #G2 #G2Tooltip{
+              visibility: hidden;
+              width: 25%;
+              background-color:#306986;
+              color: #fff;
+              text-align: lseft;
+              padding: 10px;
+              overflow: auto;
+              height: 200px;
+              /* Position the tooltip */
+              position: absolute;
+              z-index: 1;
+            }
+
+            #G2:hover #G2Tooltip {
+              visibility: visible;
+            }
+
+
+            #G3 #G3Tooltip{
+              visibility: hidden;
+              width: 25%;
+              background-color:#306986;
+              color: #fff;
+              text-align: lseft;
+              padding: 10px;
+              overflow: auto;
+              height: 200px;
+              /* Position the tooltip */
+              position: absolute;
+              z-index: 1;
+            }
+
+            #G3:hover #G3Tooltip {
+              visibility: visible;
+            }
+
+
+
+
+
+            
   
 </style>
 
