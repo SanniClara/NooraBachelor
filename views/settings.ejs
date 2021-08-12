@@ -50,6 +50,9 @@
         </div> 
     </div>
 
+    <h4 style="margin-left: 25px;">(nicht funktionle Seite)</h4>
+
+
     <div id="linkeHälfte">
       <h1 class="RandAbstand">Hallo <%= name %> </h1>
       <p class="RandAbstand">Username</p>
@@ -59,11 +62,12 @@
       <p class="RandAbstand">Sprache</p>
       <p class="Feld" class="RandAbstand">Deutsch</p>
       <p class="RandAbstand">Programm</p>
-      <p class="Feld" class="RandAbstand">Konznetration & Schlaf</p>
+      <p class="Feld" class="RandAbstand">Konzentration & Schlaf</p>
       <button id="ButtonSettingsSeite">Ändern</button>
     </div>
 
     <div id="Trennlinie"></div>
+
 
     <div id="rechteHälfte">
       <h1>News & Features </h1>
@@ -72,16 +76,35 @@
         
           <a href="https://www.cell.com/cell/issue?pii=S0092-8674%2814%29X0026-7"><img src="/img/cover.jpg" alt="" width="200"></a>
           <a href="https://www.nature.com/neuro/volumes/24/issues/8"><img src="/img/8.png" style="cursor: pointer;" alt="" width="195"></a>
-          <a href="https://www.nature.com/nmeth/volumes/18/issues/1"> <img src="/img/1.png" alt=""></a>
+          <a href="https://www.nature.com/nmeth/volumes/18/issues/1"> <img src="/img/1.png" alt="" ></a>
           <a href="https://www.nature.com/articles/d41586-020-03411-0"> <img src="/img/d41586-020-03411-0_18662922.jpg" alt="" width="200"></a>
 
-          <div id="QuerTrennlinie"></div>
 
         </div>
 
 
 
         <div id="FeatureAnkündigungen">
+
+          <div id="TESTEST"></div>
+            <div class="Kaestchen"> 
+                <img class="FeatureImage" src="/img/2000px-Allgemeine_Ortskrankenkasse_logo.svg.png" style="margin-top: 10px;" width="70"  height="40" alt="">
+                <p class="HalloWlt">In Koopertation mit der AOK wird ein neuer Badge eingeführt.</p>
+            </div>
+
+          <div class="Kaestchen">
+              <img class="FeatureImage" src="/img/Noora_square.PNG" width="60" alt="">
+              <p class="HalloWlt">Am Montag den 20.07 wird das neue Prokrastinations-Feature relesed.</p>
+          </div>
+
+          <div class="Kaestchen">
+            <img class="FeatureImage" style="margin-top: 10px;" src="/img/Noora_square.PNG" width="60" alt="">
+            <p class="HalloWlt">Mit den Mitgliederschaftsrabatten gibt es jetzt auch Nachasse auf natural-lights.de.</p>
+          </div>
+          <div class="Kaestchen"></div>
+          <div class="Kaestchen"></div>
+          <div class="Kaestchen"></div>
+
 
         </div>
         
@@ -94,19 +117,29 @@
         padding: 5px;
         border-radius: 6px;
         margin-left: 30px;
-        width: 160px;
-        padding: 6px;
-        padding-left: 10px;
+        width: 60%;
+        height: 20px;
+        padding: 10px;
+        padding-left: 30px;
       }
 
       #Neuigkeiten{
         margin-top: 60px;
-        margin-left: 80px;
         padding: -20px;
       }
 
       .RandAbstand{
         margin-left: 25px;
+      }
+
+      .HalloWlt{
+        float: left;
+        width: 75%;
+      }
+
+      .FeatureImage{
+        margin: 5px;
+        float: left;
       }
 
       #ButtonSettingsSeite{
@@ -118,30 +151,47 @@
         margin-left: 25px;
         margin-top: 20px;
         }
+
+        #TESTEST{
+          width: 788px;
+          height: 2px;
+          margin-top: 25px;
+          background-color: #dbdbdb;
+        }
             
       #linkeHälfte{
         width: 500px;
         height: 600px;
+        float: left;
+
+      }
+
+      #rechteHälfte{
+        width: 55%;
+        float: left;
+      }
+
+      .Kaestchen{
+        width: 350px;
+        margin: 20px;
+        height: 65px;
         float: left;
       }
 
       #Trennlinie{
         width: 2px;
         height: 700px;
-        margin-top: 50px;
-        background-color: #aaaaaa ;
+        margin-top: 20px;
+        background-color: #dfdfdf ;
         float: left;
         margin-right: 70px;
       }
 
       #QuerTrennlinie{
-        width: 200px;
-        height: 2px;
-        color: #aaaaaa;
+        width: 800px;
+        height: 20px;
+        color: #AE4D71;
         margin-top: 25px;
-        margin-bottom: 300px;
-        margin-left: 500px;
-        z-index: 100;
       }
 
     </style>
