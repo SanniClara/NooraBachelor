@@ -51,208 +51,952 @@
           <a href="/settings"><img class="MenuIcons" src="img/settings.svg" alt=""></a>  
         </div> 
     </div>
+
+    <style>
+
+
+#main {
+  width:500px;
+  height:500px;
+  background:#AE4D71;
+  position:absolute;
+  left: 32%;
+  top:34%;
+  
+  border:5px solid white;
+  border-radius:50%;
+  box-shadow:0 0 25px rgba(0,0,0,0.2);
+}
+
+input { display:none; }
+label {
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -48px 0 0 -24px;
+  z-index: 1;
+  font-size: 48px;
+  color: white;
+
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+
+  -webkit-transform: rotate(0deg) translateY(-375%);
+  -moz-transform: rotate(0deg) translateY(-375%);
+  -o-transform: rotate(0deg) translateY(-375%);
+  -ms-transform: rotate(0deg) translateY(-375%);
+  transform: rotate(0deg) translateY(-375%);
+}
+
+input:checked + label {
+  color: #10053D;
+}
+
+input:checked ~ #clock #large {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+input:checked ~ #clock #small {
+  -webkit-transform: rotate(780deg);
+  -moz-transform: rotate(780deg);
+  -o-transform: rotate(780deg);
+  -ms-transform: rotate(780deg);
+  transform: rotate(780deg);
+}
+
+input:checked ~ #clock #pointer {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+input:checked ~ #clock p:before {
+  content: "Disco";
+}
+
+input:nth-of-type(2) + label {
+  -webkit-transform: rotate(45deg) translateY(-375%);
+  -moz-transform: rotate(45deg) translateY(-375%);
+  -o-transform: rotate(45deg) translateY(-375%);
+  -ms-transform: rotate(45deg) translateY(-375%);
+  transform: rotate(45deg) translateY(-375%);
+}
+
+input:nth-of-type(2):checked ~ #clock #hands #large {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+input:nth-of-type(2):checked ~ #clock #hands #small {
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  -o-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+
+input:nth-of-type(2):checked ~ #clock #pointer {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+input:nth-of-type(2):checked ~ #clock p:before {
+  content: "Wake up";
+}
+
+input:nth-of-type(3) + label {
+  -webkit-transform: rotate(90deg) translateY(-375%);
+  -moz-transform: rotate(90deg) translateY(-375%);
+  -o-transform: rotate(90deg) translateY(-375%);
+  -ms-transform: rotate(90deg) translateY(-375%);
+  transform: rotate(90deg) translateY(-375%);
+}
+
+input:nth-of-type(3):checked ~ #clock #hands #large {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+input:nth-of-type(3):checked ~ #clock #hands #small {
+  -webkit-transform: rotate(-367.5deg);
+  -moz-transform: rotate(-367.5deg);
+  -o-transform: rotate(-367.5deg);
+  -ms-transform: rotate(-367.5deg);
+  transform: rotate(-367.5deg);
+}
+
+input:nth-of-type(3):checked ~ #clock #pointer {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+input:nth-of-type(3):checked ~ #clock p:before {
+  content: "Work";
+}
+
+input:nth-of-type(4) + label {
+  -webkit-transform: rotate(135deg) translateY(-375%);
+  -moz-transform: rotate(135deg) translateY(-375%);
+  -o-transform: rotate(135deg) translateY(-375%);
+  -ms-transform: rotate(135deg) translateY(-375%);
+  transform: rotate(135deg) translateY(-375%);
+}
+
+input:nth-of-type(4):checked ~ #clock #hands #large {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+input:nth-of-type(4):checked ~ #clock #hands #small {
+  -webkit-transform: rotate(-165deg);
+  -moz-transform: rotate(-165deg);
+  -o-transform: rotate(-165deg);
+  -ms-transform: rotate(-165deg);
+  transform: rotate(-165deg);
+}
+
+input:nth-of-type(4):checked ~ #clock #pointer {
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+input:nth-of-type(4):checked ~ #clock p:before {
+  content: "Shopping";
+}
+
+input:nth-of-type(5) + label {
+  -webkit-transform: rotate(180deg) translateY(-375%);
+  -moz-transform: rotate(180deg) translateY(-375%);
+  -o-transform: rotate(180deg) translateY(-375%);
+  -ms-transform: rotate(180deg) translateY(-375%);
+  transform: rotate(180deg) translateY(-375%);
+}
+
+input:nth-of-type(5):checked ~ #clock #hands #large {
+  -webkit-transform: rotate(-270deg);
+  -moz-transform: rotate(-270deg);
+  -o-transform: rotate(-270deg);
+  -ms-transform: rotate(-270deg);
+  transform: rotate(-270deg);
+}
+
+input:nth-of-type(5):checked ~ #clock #hands #small {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+input:nth-of-type(5):checked ~ #clock #pointer {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+input:nth-of-type(5):checked ~ #clock p:before {
+  content: "Dinner";
+}
+
+input:nth-of-type(6) + label {
+  -webkit-transform: rotate(225deg) translateY(-375%);
+  -moz-transform: rotate(225deg) translateY(-375%);
+  -o-transform: rotate(225deg) translateY(-375%);
+  -ms-transform: rotate(225deg) translateY(-375%);
+  transform: rotate(225deg) translateY(-375%);
+}
+
+input:nth-of-type(6):checked ~ #clock #hands #large {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+input:nth-of-type(6):checked ~ #clock #hands #small {
+  -webkit-transform: rotate(301.5deg);
+  -moz-transform: rotate(301.5deg);
+  -o-transform: rotate(301.5deg);
+  -ms-transform: rotate(301.5deg);
+  transform: rotate(301.5deg);
+}
+
+input:nth-of-type(6):checked ~ #clock #pointer {
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  -o-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+
+input:nth-of-type(6):checked ~ #clock p:before {
+  content: "Relax";
+}
+
+input:nth-of-type(7) + label {
+  -webkit-transform: rotate(270deg) translateY(-375%);
+  -moz-transform: rotate(270deg) translateY(-375%);
+  -o-transform: rotate(270deg) translateY(-375%);
+  -ms-transform: rotate(270deg) translateY(-375%);
+  transform: rotate(270deg) translateY(-375%);
+}
+
+input:nth-of-type(7):checked ~ #clock #hands #large {
+  -webkit-transform: rotate(390deg);
+  -moz-transform: rotate(390deg);
+  -o-transform: rotate(390deg);
+  -ms-transform: rotate(390deg);
+  transform: rotate(390deg);
+}
+
+input:nth-of-type(7):checked ~ #clock #hands #small {
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  -o-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+
+input:nth-of-type(7):checked ~ #clock #pointer {
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+input:nth-of-type(7):checked ~ #clock p:before {
+  content: "Code";
+}
+
+input:nth-of-type(8) + label {
+  -webkit-transform: rotate(315deg) translateY(-375%);
+  -moz-transform: rotate(315deg) translateY(-375%);
+  -o-transform: rotate(315deg) translateY(-375%);
+  -ms-transform: rotate(315deg) translateY(-375%);
+  transform: rotate(315deg) translateY(-375%);
+}
+
+input:nth-of-type(8):checked ~ #clock #hands #large {
+  -webkit-transform: rotate(-270deg);
+  -moz-transform: rotate(-270deg);
+  -o-transform: rotate(-270deg);
+  -ms-transform: rotate(-270deg);
+  transform: rotate(-270deg);
+}
+
+input:nnth-of-type(8):checked ~ #clock #hands #small {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+input:nth-of-type(8):checked ~ #clock #pointer {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+input:nth-of-type(8):checked ~ #clock p:before {
+  content: "Pub";
+}
+
+input + label:before {
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+#clock {
+  width:300px;
+  height:300px;
+  background:#ebe3dd;
+  
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin:-150px 0 0 -150px;
+  
+  border-radius:50%;
+  box-shadow:inset 0 2px 2px 0 white, 0 0 10px rgba(0,0,0,0.2);
+}
+
+#pointer {
+  width:150px;
+  height:50px;
+  
+  position:absolute;
+  top:50%;
+  margin-top:-25px;
+  
+  -webkit-transform-origin:100% 50%;
+  -moz-transform-origin:100% 50%;
+  -o-transform-origin:100% 50%;
+  -ms-transform-origin:100% 50%;
+  transform-origin:100% 50%;
+
+  -webkit-transition:all 1s ease-in-out;
+  -moz-transition:all 1s ease-in-out;
+  -o-transition:all 1s ease-in-out;
+  -ms-transition:all 1s ease-in-out;
+  transition:all 1s ease-in-out;
+}
+#pointer:before, #pointer:after {
+  content:"";
+  width:0;
+  height:0;
+  
+  position:absolute;
+  left:-25px;
+  top:-5px;
+  
+  border-right:30px solid #ebe3dd;
+  border-top:30px solid transparent;
+  border-bottom:30px solid transparent;
+}
+#pointer:after {
+  left:-15px;
+  top:0px;
+
+  border-right:25px solid #E19C21;
+  border-top:25px solid transparent;
+  border-bottom:25px solid transparent;
+}
+
+#marks {
+  list-style:none;
+  z-index:4;
+}
+#marks li {
+  display:inline-block;
+  width:2px;
+  height:2.5%;
+  margin-bottom:45%;
+  background:#bad1cc;
+  
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin:-2.5% 0 0 -1px;
+  vertical-align:top;
+  
+  box-shadow:-5% 0 black;
+  -webkit-transform-origin:50% 100%;
+  -moz-transform-origin:50% 100%;
+  -o-transform-origin:50% 100%;
+  -ms-transform-origin:50% 100%;
+  transform-origin:50% 100%;
+
+  -webkit-transform:rotate(15deg) translateY(-1800%);
+  -moz-transform:rotate(15deg) translateY(-1800%);
+  -o-transform:rotate(15deg) translateY(-1800%);
+  -ms-transform:rotate(15deg) translateY(-1800%);
+  transform:rotate(15deg) translateY(-1800%);
+}
+#marks .large {
+  width:5px;
+  height:5%;
+  margin-bottom:40%;
+  background:#8b9d99;
+  
+  margin:-5% 0 0 -2.5px;
+  -webkit-transform:rotate(0deg) translateY(-800%);
+  -moz-transform:rotate(0deg) translateY(-800%);
+  -o-transform:rotate(0deg) translateY(-800%);
+  -ms-transform:rotate(0deg) translateY(-800%);
+  transform:rotate(0deg) translateY(-800%);
+}
+#marks li:nth-child(3) {
+  -webkit-transform: rotate(30deg) translateY(-1800%);
+  -moz-transform: rotate(30deg) translateY(-1800%);
+  -o-transform: rotate(30deg) translateY(-1800%);
+  -ms-transform: rotate(30deg) translateY(-1800%);
+  transform: rotate(30deg) translateY(-1800%);
+}
+
+#marks li:nth-child(4) {
+  -webkit-transform: rotate(45deg) translateY(-800%);
+  -moz-transform: rotate(45deg) translateY(-800%);
+  -o-transform: rotate(45deg) translateY(-800%);
+  -ms-transform: rotate(45deg) translateY(-800%);
+  transform: rotate(45deg) translateY(-800%);
+}
+
+#marks li:nth-child(5) {
+  -webkit-transform: rotate(60deg) translateY(-1800%);
+  -moz-transform: rotate(60deg) translateY(-1800%);
+  -o-transform: rotate(60deg) translateY(-1800%);
+  -ms-transform: rotate(60deg) translateY(-1800%);
+  transform: rotate(60deg) translateY(-1800%);
+}
+
+#marks li:nth-child(6) {
+  -webkit-transform: rotate(75deg) translateY(-1800%);
+  -moz-transform: rotate(75deg) translateY(-1800%);
+  -o-transform: rotate(75deg) translateY(-1800%);
+  -ms-transform: rotate(75deg) translateY(-1800%);
+  transform: rotate(75deg) translateY(-1800%);
+}
+
+#marks li:nth-child(7) {
+  -webkit-transform: rotate(90deg) translateY(-800%);
+  -moz-transform: rotate(90deg) translateY(-800%);
+  -o-transform: rotate(90deg) translateY(-800%);
+  -ms-transform: rotate(90deg) translateY(-800%);
+  transform: rotate(90deg) translateY(-800%);
+}
+
+#marks li:nth-child(8) {
+  -webkit-transform: rotate(105deg) translateY(-1800%);
+  -moz-transform: rotate(105deg) translateY(-1800%);
+  -o-transform: rotate(105deg) translateY(-1800%);
+  -ms-transform: rotate(105deg) translateY(-1800%);
+  transform: rotate(105deg) translateY(-1800%);
+}
+
+#marks li:nth-child(9) {
+  -webkit-transform: rotate(120deg) translateY(-1800%);
+  -moz-transform: rotate(120deg) translateY(-1800%);
+  -o-transform: rotate(120deg) translateY(-1800%);
+  -ms-transform: rotate(120deg) translateY(-1800%);
+  transform: rotate(120deg) translateY(-1800%);
+}
+
+#marks li:nth-child(10) {
+  -webkit-transform: rotate(135deg) translateY(-800%);
+  -moz-transform: rotate(135deg) translateY(-800%);
+  -o-transform: rotate(135deg) translateY(-800%);
+  -ms-transform: rotate(135deg) translateY(-800%);
+  transform: rotate(135deg) translateY(-800%);
+}
+
+#marks li:nth-child(11) {
+  -webkit-transform: rotate(150deg) translateY(-1800%);
+  -moz-transform: rotate(150deg) translateY(-1800%);
+  -o-transform: rotate(150deg) translateY(-1800%);
+  -ms-transform: rotate(150deg) translateY(-1800%);
+  transform: rotate(150deg) translateY(-1800%);
+}
+
+#marks li:nth-child(12) {
+  -webkit-transform: rotate(165deg) translateY(-1800%);
+  -moz-transform: rotate(165deg) translateY(-1800%);
+  -o-transform: rotate(165deg) translateY(-1800%);
+  -ms-transform: rotate(165deg) translateY(-1800%);
+  transform: rotate(165deg) translateY(-1800%);
+}
+
+#marks li:nth-child(13) {
+  -webkit-transform: rotate(180deg) translateY(-800%);
+  -moz-transform: rotate(180deg) translateY(-800%);
+  -o-transform: rotate(180deg) translateY(-800%);
+  -ms-transform: rotate(180deg) translateY(-800%);
+  transform: rotate(180deg) translateY(-800%);
+}
+
+#marks li:nth-child(14) {
+  -webkit-transform: rotate(195deg) translateY(-1800%);
+  -moz-transform: rotate(195deg) translateY(-1800%);
+  -o-transform: rotate(195deg) translateY(-1800%);
+  -ms-transform: rotate(195deg) translateY(-1800%);
+  transform: rotate(195deg) translateY(-1800%);
+}
+
+#marks li:nth-child(15) {
+  -webkit-transform: rotate(210deg) translateY(-1800%);
+  -moz-transform: rotate(210deg) translateY(-1800%);
+  -o-transform: rotate(210deg) translateY(-1800%);
+  -ms-transform: rotate(210deg) translateY(-1800%);
+  transform: rotate(210deg) translateY(-1800%);
+}
+
+#marks li:nth-child(16) {
+  -webkit-transform: rotate(225deg) translateY(-800%);
+  -moz-transform: rotate(225deg) translateY(-800%);
+  -o-transform: rotate(225deg) translateY(-800%);
+  -ms-transform: rotate(225deg) translateY(-800%);
+  transform: rotate(225deg) translateY(-800%);
+}
+
+#marks li:nth-child(17) {
+  -webkit-transform: rotate(240deg) translateY(-1800%);
+  -moz-transform: rotate(240deg) translateY(-1800%);
+  -o-transform: rotate(240deg) translateY(-1800%);
+  -ms-transform: rotate(240deg) translateY(-1800%);
+  transform: rotate(240deg) translateY(-1800%);
+}
+
+#marks li:nth-child(18) {
+  -webkit-transform: rotate(255deg) translateY(-1800%);
+  -moz-transform: rotate(255deg) translateY(-1800%);
+  -o-transform: rotate(255deg) translateY(-1800%);
+  -ms-transform: rotate(255deg) translateY(-1800%);
+  transform: rotate(255deg) translateY(-1800%);
+}
+
+#marks li:nth-child(19) {
+  -webkit-transform: rotate(270deg) translateY(-800%);
+  -moz-transform: rotate(270deg) translateY(-800%);
+  -o-transform: rotate(270deg) translateY(-800%);
+  -ms-transform: rotate(270deg) translateY(-800%);
+  transform: rotate(270deg) translateY(-800%);
+}
+
+#marks li:nth-child(20) {
+  -webkit-transform: rotate(285deg) translateY(-1800%);
+  -moz-transform: rotate(285deg) translateY(-1800%);
+  -o-transform: rotate(285deg) translateY(-1800%);
+  -ms-transform: rotate(285deg) translateY(-1800%);
+  transform: rotate(285deg) translateY(-1800%);
+}
+
+#marks li:nth-child(21) {
+  -webkit-transform: rotate(300deg) translateY(-1800%);
+  -moz-transform: rotate(300deg) translateY(-1800%);
+  -o-transform: rotate(300deg) translateY(-1800%);
+  -ms-transform: rotate(300deg) translateY(-1800%);
+  transform: rotate(300deg) translateY(-1800%);
+}
+
+#marks li:nth-child(22) {
+  -webkit-transform: rotate(315deg) translateY(-800%);
+  -moz-transform: rotate(315deg) translateY(-800%);
+  -o-transform: rotate(315deg) translateY(-800%);
+  -ms-transform: rotate(315deg) translateY(-800%);
+  transform: rotate(315deg) translateY(-800%);
+}
+
+#marks li:nth-child(23) {
+  -webkit-transform: rotate(330deg) translateY(-1800%);
+  -moz-transform: rotate(330deg) translateY(-1800%);
+  -o-transform: rotate(330deg) translateY(-1800%);
+  -ms-transform: rotate(330deg) translateY(-1800%);
+  transform: rotate(330deg) translateY(-1800%);
+}
+
+#marks li:nth-child(24) {
+  -webkit-transform: rotate(345deg) translateY(-1800%);
+  -moz-transform: rotate(345deg) translateY(-1800%);
+  -o-transform: rotate(345deg) translateY(-1800%);
+  -ms-transform: rotate(345deg) translateY(-1800%);
+  transform: rotate(345deg) translateY(-1800%);
+}
+
+#hands #large {
+  width:40%;
+  height:7px;
+  background:#3E3E6A;
+  
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin:-3.5px 0 0 -30%;
+  
+  -webkit-transform-origin:75% 50%;
+  -moz-transform-origin:75% 50%;
+  -o-transform-origin:75% 50%;
+  -ms-transform-origin:75% 50%;
+  transform-origin:75% 50%;
+
+  -webkit-transition:all 1s ease-in-out;
+  -moz-transition:all 1s ease-in-out;
+  -o-transition:all 1s ease-in-out;
+  -ms-transition:all 1s ease-in-out;
+  transition:all 1s ease-in-out;
+}
+#hands #small {
+  width:25%;
+  height:7px;
+  background:#3E3E6A;
+  
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin:-3.5px 0 0 -25%;
+  
+  -webkit-transform-origin:100% 50%;
+  -moz-transform-origin:100% 50%;
+  -o-transform-origin:100% 50%;
+  -ms-transform-origin:100% 50%;
+  transform-origin:100% 50%;
+
+  -webkit-transform:rotate(0deg);
+  -moz-transform:rotate(0deg);
+  -o-transform:rotate(0deg);
+  -ms-transform:rotate(0deg);
+  transform:rotate(0deg);
+
+  -webkit-transition:all 1s ease-in-out;
+  -moz-transition:all 1s ease-in-out;
+  -o-transition:all 1s ease-in-out;
+  -ms-transition:all 1s ease-in-out;
+  transition:all 1s ease-in-out;
+}
+
+#clock p {
+  width:100%;
+  text-align:center;
+  
+  position:absolute;
+  top:70%;
+  margin-top:-.5em;
+}
+#clock p:before {
+  content:"Disco";
+  
+  font-family:sans-serif;
+  font-size:2em;
+  color:#8b9d99;
+  text-shadow:0 2px #ebe3dd;
+}
+
+
+
+a {
+  text-decoration:none;
+  color:#cc523d;
+  border-bottom:1px dotted #cc523d;
+  transition:all 0.2s ease-in-out;
+}
+a:hover {
+  color:#a63f2f;
+  border-color:#a63f2f;
+}
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontawesome";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+}
+.icon-basket:before { content: '\64'; } /* 'd' */
+.icon-coffee:before { content: '\66'; } /* 'f' */
+.icon-food:before { content: '\67'; } /* 'g' */
+.icon-beer:before { content: '\68'; } /* 'h' */
+.icon-gamepad:before { content: '\63'; } /* 'c' */
+.icon-code:before { content: '\62'; } /* 'b' */
+.icon-glass:before { content: '\61'; } /* 'a' */
+.icon-briefcase:before { content: '\65'; } /* 'e' */
+
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  left: 40%;
+  margin-top: 10%;
+}
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+     }
+  .switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #306A86;
+    -webkit-transition: .4s;
+    transition: .4s; }
+    .switch .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s; }
+  .switch .slider.round {
+    border-radius: 8px; }
+    .switch .slider.round.round:before {
+      border-radius: 50%; }
+  .switch.active .slider {
+    background-color: #306A86; }
+  .switch.active .slider {
+    -webkit-box-shadow: 0 0 1px #306A86;
+    -moz-box-shadow: 0 0 1px #306A86;
+    -ms-box-shadow: 0 0 1px #306A86; }
+  .switch.active .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px); }
+
+    #switchDiv{
+      float: left;
+      margin-top: 8%;
+      margin-left: 5%; 
+      margin-right: -5%;
+    }
+
+    
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #4D4D4D;
+  left: 65%;
+  top: 230px;
+  width: 300px;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 200;
+  width: 200;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  left: 0;
+  border-radius: 6px;
+  height: 25px;
+  width: 25px;
+  background-color: #8b9d99;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #306A86;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+    </style>
+
+    <script>
+      $(function(){
+   $('.switch input').on("click",function(){
+      $(this).parent().toggleClass('active');
+   });
+});
+    </script>
   
 
-    <h1 class="LinkeUeberschriftSeitenbezeinchung">Daily Timer ⏰</h1>
+    <h1 class="LinkeUeberschriftSeitenbezeinchung">Daily Timer ⏰ (nicht funktional)</h1>
     <p class="LinkeUeberschriftSeitenbezeinchung">
       Wir erinnern Sie gerne an Übungen, wenn und wann Sie wollen. Dazu können
       Sie zwischen Zufalls- und Zeitplanmodus umschalten oder die Erinnerungen
       ganz ausschalten.
     </p>
 
-    <div style="margin-top: 40px">
-      <img
-        style="width: 70px; margin-right: 200px"
-        src="img/sunlight.svg"
-        alt=""
-      />
-      <img
-        style="width: 70px; margin-right: 200px"
-        src="img/Focus.svg"
-        alt=""
-      />
-      <img style="width: 80px; margin-right: 200px" src="img/Eye.svg" alt="" />
-      <img style="width: 70px; margin-right: 200px" src="img/calm.svg" alt="" />
+    
+    <p style="float: left; width: 20px; margin-left: 40%;"  >zufällig</p>
+
+    <div id="switchDiv">
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+      </label></div>
+  <p style="float: left; width: 20px; margin-left: 8%;" >getimt</p>
+
+  <label class="container">Ausschalten
+    <input type="checkbox">
+    <span class="checkmark"></span>
+  </label>
+
+  
+      
+    <div id="main">
+      <form>
+        <input type="radio" id="glass" name="icon" checked="checked" />
+        <label for="glass" class="icon-glass"></label>
+        <input type="radio" id="coffee" name="icon" />
+        <label for="coffee" class="icon-coffee"></label>
+        <input type="radio" id="briefcase" name="icon" />
+        <label for="briefcase" class="icon-briefcase"></label>
+        <input type="radio" id="basket" name="icon" />
+        <label for="basket" class="icon-basket"></label>
+        <input type="radio" id="food" name="icon" />
+        <label for="food" class="icon-food"></label>
+        <input type="radio" id="gamepad" name="icon" />
+        <label for="gamepad" class="icon-gamepad"></label>
+        <input type="radio" id="code" name="icon" />
+        <label for="code" class="icon-code"></label>
+        <input type="radio" id="beer" name="icon" />
+        <label for="beer" class="icon-beer"></label>
+        
+        <div id="clock">
+          <div id="pointer"></div>
+          
+          <ul id="marks">
+            <li class="large"></li>
+            <li></li>
+            <li></li>
+            <li class="large"></li>
+            <li></li>
+            <li></li>
+            <li class="large"></li>
+            <li></li>
+            <li></li>
+            <li class="large"></li>
+            <li></li>
+            <li></li>
+            <li class="large"></li>
+            <li></li>
+            <li></li>
+            <li class="large"></li>
+            <li></li>
+            <li></li>
+            <li class="large"></li>
+            <li></li>
+            <li></li>
+            <li class="large"></li>
+            <li></li>
+            <li></li>
+          </ul>
+          
+          <div id="hands">
+            <div id="large"></div>
+            <div id="small"></div>
+          </div>
+        
+          <p></p>
+        </div>
+      </form>
     </div>
 
-    <!-- Script by hscripts.com -->
-    <style type="text/css">
-      .time {
-        border-width: 0px;
-      }
-      .time2 {
-        border-width: 0px;
-      }
-    </style>
-    <script type="text/javascript">
-      console.log(Notification.permission);
-
-      if (Notification.permission === "granted") {
-      } else if (Notification.permission !== "denied") {
-        Notification.requestPermission().then((permission) => {
-          if (permission === "granted") {
-            console.log(permission);
-          }
-        });
-      }
-
-      function showNotification() {
-        const notification = new Notification(
-          "Hallo, das ist eine Nachricht von Noora",
-          {
-            body: "Hey, mate how are you? ",
-            icon: "img/Noora_square.png",
-          }
-        );
-      }
-
-      var set = 0;
-      ver = parseInt(navigator.appVersion);
-      ie4 = ver > 3 && navigator.appName != "Netscape" ? 1 : 0;
-      function play() {
-        if (ie4) document.all["BGSOUND_ID"].src = "sound1.wav";
-      }
-      function setv() {
-        var hr2 = document.getElementById("hour2").value;
-        var min2 = document.getElementById("min2").value;
-        var sec2 = document.getElementById("sec2").value;
-        if (hr2 < 10) hr2 = "0" + hr2;
-        if (min2 < 10) min2 = "0" + min2;
-        if (sec2 < 10) sec2 = "0" + sec2;
-        document.getElementById("d2").value = hr2 + "*" + min2 + "*" + sec2;
-        set = 1;
-        document.getElementById("msg").innerHTML = "Alarm is ON";
-      }
-      function dis() {
-        var dat = new Date();
-        var hr = dat.getHours();
-        var min = dat.getMinutes();
-        var sec = dat.getSeconds();
-        if (hr < 10) hr = "0" + hr;
-        if (min < 10) min = "0" + min;
-        if (sec < 10) sec = "0" + sec;
-        document.getElementById("hour").value = hr;
-        document.getElementById("min").value = min;
-        document.getElementById("sec").value = sec;
-        var dat2v = document.getElementById("d2").value;
-        var dats = hr + "*" + min + "*" + sec;
-        if (dat2v == dats && set) {
-          play();
-          showNotification();
-          set = 0;
-          document.getElementById("msg").innerHTML = "Alarm is OFF";
-        }
-        setTimeout("dis()", 500);
-      }
-      function prtsel(x) {
-        for (var i = 0; i < x; i++)
-          document.appendChild("<option value=" + i + ">" + i + "</option>");
-      }
-
-      console.log(Notification.permission);
-
-      if (Notification.permission === "granted") {
-      } else if (Notification.permission !== "denied") {
-        Notification.requestPermission().then((permission) => {
-          if (permission === "granted") {
-            console.log(permission);
-          }
-        });
-      }
-
-      function showNotification2() {
-        const notification = new Notification(
-          "Hallo, das ist eine Nachricht von Noora",
-          {
-            body: "Hey, mate how are you? ",
-            icon: "img/Noora_square.png",
-          }
-        );
-      }
-
-      var set2 = 0;
-      ver = parseInt(navigator.appVersion);
-      ie42 = ver > 3 && navigator.appName != "Netscape" ? 1 : 0;
-      function play2() {
-        if (ie42) document.all["BGSOUND_ID"].src = "sound1.wav";
-      }
-      function setv2() {
-        var hr22 = document.getElementById("hour22").value;
-        var min22 = document.getElementById("min22").value;
-        var sec22 = document.getElementById("sec22").value;
-        if (hr22 < 10) hr22 = "0" + hr22;
-        if (min22 < 10) min22 = "0" + min22;
-        if (sec22 < 10) sec22 = "0" + sec22;
-        document.getElementById("d22").value = hr22 + "*" + min22 + "*" + sec22;
-        set2 = 1;
-        document.getElementById("msg2").innerHTML = "Alarm is ON";
-      }
-      function dis2() {
-        var dat2 = new Date();
-        var hr2 = dat2.getHours();
-        console.log(hr2);
-        var min2 = dat2.getMinutes();
-        var sec2 = dat2.getSeconds();
-        if (hr2 < 10) hr2 = "0" + hr2;
-        if (min2 < 10) min2 = "0" + min2;
-        if (sec2 < 10) sec2 = "0" + sec2;
-        document.getElementById("hour2").value = hr2;
-        document.getElementById("min2").value = min2;
-        document.getElementById("sec2").value = sec2;
-        var dat2v2 = document.getElementById("d22").value;
-        var dats2 = hr2 + "*" + min2 + "*" + sec2;
-        if (dat2v2 == dats2 && set2) {
-          play2();
-          showNotification2();
-          set2 = 0;
-          document.getElementById("msg2").innerHTML = "Alarm is OFF";
-        }
-        setTimeout("dis2()", 500);
-      }
-      function prtsel2(x) {
-        for (var i = 0; i < x; i++)
-          document.appendChild("<option value=" + i + ">" + i + "</option>");
-      }
-    </script>
-
-    <body>
-      <table style="float: left; margin-right: 100px" width="150px">
-        <tr>
-          <td>
-            <body onload="dis()">
-              <input type="hidden" id="d2" name="d2" />
-              <input type="text" id="hour" name="hour" size="1" class="time" />
-              :
-              <input type="text" id="min" name="min" size="1" class="time" /> :
-              <input type="text" id="sec" name="sec" size="1" class="time" />
-              <br />
-              <select id="hour2" name="hour2" onChange="setv()">
-                <script type="text/javascript">
-                  prtsel(25);
-                </script>
-              </select>
-              <select id="min2" name="min2" onChange="setv()">
-                <script type="text/javascript">
-                  prtsel(61);
-                </script>
-              </select>
-              <select id="sec2" name="sec2" onChange="setv()">
-                <script type="text/javascript">
-                  prtsel(61);
-                </script>
-              </select>
-              <div id="msg">Alarm is OFF</div>
-            </body>
-          </td>
-        </tr>
-      </table>
-      <div name="username" id="details" style="visibility: hidden"></div>
-
-      <div
-        id="chartContainer"
-        style="height: 300px; width: 80%; visibility: hidden"
-      ></div>
-      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    </body>
+    <div id="TimerEinstellungen" style="margin-top: 35%; margin-left: 70%;">
+    <div id="HinzufügenButton" style="background-color: #8b9d99; width: 50px; height: 50px; border-radius: 100%; float: left; text-align: center; color: white; font-size: 35px; cursor: pointer;"> + </div>
+    <div id="OKButton" style="background-color: #8b9d99; width: 50px; height: 50px; border-radius: 100%; float: left; margin-left: 20px;  text-align: center;  color: white; font-size: 35px; cursor: pointer;">✓</div>
+    </div>
   </body>
 </html>
